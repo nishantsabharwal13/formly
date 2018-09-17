@@ -1,0 +1,24 @@
+{
+  "name": "ReactNativeNavigation",
+  "version": "2.0.2544",
+  "summary": "React Native Navigation - truly native navigation for iOS and Android",
+  "authors": "Wix.com",
+  "homepage": "https://github.com/wix/react-native-navigation",
+  "license": "MIT",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "module_name": "ReactNativeNavigation",
+  "source": {
+    "git": "https://github.com/wix/react-native-navigation.git",
+    "tag": "v2.0.2544"
+  },
+  "source_files": "lib/ios/**/*.{h,m}",
+  "exclude_files": "lib/ios/ReactNativeNavigationTests/**/*.*",
+  "dependencies": {
+    "React": [
+
+    ]
+  },
+  "frameworks": "UIKit"
+}
