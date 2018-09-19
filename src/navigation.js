@@ -1,4 +1,6 @@
 import { Navigation } from 'react-native-navigation';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { iconsMap } from './app-icons';
 
 
 export const goToAuth = () => Navigation.setRoot({
@@ -13,7 +15,7 @@ export const goToAuth = () => Navigation.setRoot({
               bottomTab: {
                 fontSize: 12,
                 text: 'Sign In',
-                icon: require('./signIn.png')
+                icon: iconsMap['user-check']
               }
             }
           },
@@ -25,7 +27,7 @@ export const goToAuth = () => Navigation.setRoot({
               bottomTab: {
                 text: 'Sign Up',
                 fontSize: 12,
-                icon: require('./signUp.png')
+                icon: iconsMap['user-plus']
               }
             }
           },

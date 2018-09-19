@@ -17,7 +17,6 @@ export default class Initializing extends Component {
       const user = await AsyncStorage.getItem(USER_KEY)
       console.log('user: ', user)
       if (user) {
-        console.log('hhome')
         goHome()
       } else {
         goToAuth()
