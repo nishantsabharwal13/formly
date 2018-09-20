@@ -6,10 +6,10 @@ import {
   StyleSheet,
   AsyncStorage
 } from 'react-native'
-import { goToAuth } from './navigation'
+import { goToAuth } from '../../helpers/navigation'
 import { Navigation } from 'react-native-navigation';
 
-import { USER_KEY } from './config'
+import { USER_KEY } from '../../config'
 
 export default class Home extends React.Component {
   static get options() {
@@ -38,7 +38,7 @@ export default class Home extends React.Component {
           onPress={() => {
             Navigation.push(this.props.componentId, {
               component: {
-                name: 'FormBuilder',
+                name: 'FirstScreen',
               }
             });
           }}
