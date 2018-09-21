@@ -7,9 +7,9 @@ import {
   AsyncStorage
 } from 'react-native';
 
-import { goToAuth, goHome } from '../../helpers/navigation';
+import { goToAuth, goHome } from '~/helpers/navigation';
 
-import { USER_KEY } from '../../config';
+import { USER_KEY } from '~/config';
 
 export default class Initializing extends Component {
   async componentDidMount() {

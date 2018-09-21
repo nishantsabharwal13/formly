@@ -6,12 +6,16 @@ import {
   StyleSheet,
   AsyncStorage
 } from 'react-native'
-import { goToAuth } from '../../helpers/navigation'
 import { Navigation } from 'react-native-navigation';
 
-import { USER_KEY } from '../../config'
+import { homeDetails } from '~/actions/home';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-export default class Home extends React.Component {
+import { goToAuth } from '~/helpers/navigation'
+import { USER_KEY } from '~/config'
+
+class Home extends React.Component {
   static get options() {
     return {
       topBar: {
@@ -20,6 +24,14 @@ export default class Home extends React.Component {
         },
       }
     };
+  }
+  async componentDidMount() {
+    try {
+      const res = await this.props.homeDetails();
+      console.log({res});
+    } catch (err) {
+      console.log(err)
+    }
   }
   logout = async () => {
     try {
@@ -52,7 +64,21 @@ export default class Home extends React.Component {
       </View>
     )
   }
+};
+
+function mapStateToProps(state) {
+  return {
+    home: state.home
+  };
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    homeDetails: homeDetails
+  },dispatch);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
+
 
 const styles = StyleSheet.create({
   container: {

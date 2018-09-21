@@ -7,12 +7,12 @@ import {
 } from 'react-native'
 import { Navigation } from 'react-native-navigation';
 
-export default class Screen2 extends React.Component {
+export default class Screen1 extends React.Component {
   static get options() {
     return {
       topBar: {
         title: {
-          text: 'Screen 2'
+          text: 'Screen 1'
         },
       }
     };

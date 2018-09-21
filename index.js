@@ -1,11 +1,11 @@
 import { Provider } from 'react-redux';
 import { Navigation } from 'react-native-navigation';
-import { registerScreens } from './src/screens';
-import configureStore from './src/store';
+import registerScreens from '~/screens';
+import configureStore from '~/store';
 
-const Store = configureStore();
+const store = configureStore();
 
-registerScreens(Store, Provider);
+registerScreens(store, Provider);
 
 const navigatorStyle = {
   statusBarColor: 'black',
