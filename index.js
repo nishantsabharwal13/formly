@@ -23,23 +23,6 @@ const navigatorStyle = {
   drawUnderTabBar: true
 };
 
-// Navigation.startSingleScreenApp({
-// 	screen: {
-//     screen: 'Initializing',
-// 		title: 'Form Builder App',
-// 		navigatorStyle:navigatorStyle,
-// 		leftButtons: [
-// 			{
-// 				id: 'sideMenu'
-// 			}
-// 		]
-// 	},
-// 	drawer: {
-// 		left: {
-// 			screen: 'Drawer'
-// 		}
-// 	}
-// });
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
