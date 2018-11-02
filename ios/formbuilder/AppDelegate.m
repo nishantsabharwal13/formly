@@ -12,7 +12,10 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
- #import <ReactNativeNavigation/ReactNativeNavigation.h>
+#import <ReactNativeNavigation/ReactNativeNavigation.h>
+#if RCT_DEV
+  #import <React/RCTDevLoadingView.h>
+#endif
 
 @implementation AppDelegate
 
@@ -30,10 +33,27 @@
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 
-  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                      moduleName:@"formbuilder"
-                                               initialProperties:nil
-                                                   launchOptions:launchOptions];
+  // RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
+  //                                                     moduleName:@"formbuilder"
+  //                                              initialProperties:nil
+  //                                                  launchOptions:launchOptions];
+
+  RCTBridge *bridge = [[RCTBridge alloc] initWithBundleURL:jsCodeLocation
+                                            moduleProvider:nil
+                                             launchOptions:launchOptions];
+#if RCT_DEV
+  [bridge moduleForClass:[RCTDevLoadingView class]];
+#endif
+  RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
+                                                   moduleName:@"formbuilder"
+                                            initialProperties:nil];   
+                                            
+#ifdef DEBUG
+  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+#else
+  jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+#endif
+                                                                                                                                    
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
