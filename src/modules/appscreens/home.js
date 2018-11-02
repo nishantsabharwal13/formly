@@ -45,7 +45,7 @@ class Home extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.flexContainer}></View>
-        <Text style={styles.title}>WELCOME TO FORMLY</Text>
+        <Text style={styles.title}>WELCOME TO FORM</Text>
         <Button
           onPress={() => {
             Navigation.push(this.props.componentId, {

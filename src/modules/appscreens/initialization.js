@@ -15,7 +15,7 @@ export default class Initializing extends Component {
   async componentDidMount() {
     try {
       const user = await AsyncStorage.getItem(USER_KEY)
-      console.log('user: ', user)
+      
       if (user) {
         goHome()
       } else {
