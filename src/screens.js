@@ -5,13 +5,13 @@ import Home from '~/modules/appscreens/home';
 import SignIn from '~/modules/appscreens/signin';
 import SignUp from '~/modules/appscreens/signup';
 import Initializing from '~/modules/appscreens/initialization';
-import FirstScreen from '~/modules/appscreens/first-screen';
+import FormList from '~/modules/appscreens/form-list';
 
 const containers = [
   { name: 'Initializing', generator: () => Initializing },
   { name: 'Drawer', generator: () => Drawer },
   { name: 'Home', generator: () => Home },
-  { name: 'FirstScreen', generator: () => FirstScreen },
+  { name: 'FormList', generator: () => FormList },
   { name: 'SignIn', generator: () => SignIn },
   { name: 'SignUp', generator: () => SignUp },
 ]

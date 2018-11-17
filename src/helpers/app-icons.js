@@ -11,6 +11,7 @@ const icons = {
     "ios-home--big": [50, "#000"],
     "user-plus": [30, "#333", Feather],
     "user-check":[30, "#333", Feather],
+    "ios-add": [30, "#333"],
 
     "ios-person": [30, "#bbb"],
     "ios-person--big": [50, "#bbb"],

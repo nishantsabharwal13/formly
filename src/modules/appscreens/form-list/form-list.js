@@ -6,21 +6,28 @@ import {
   StyleSheet,
 } from 'react-native'
 import { Navigation } from 'react-native-navigation';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { iconsMap } from '~/helpers/app-icons';
 
-export default class Screen1 extends React.Component {
-  static get options() {
-    return {
-      topBar: {
-        title: {
-          text: 'Screen 1'
-        },
-      }
-    };
+class FormList extends React.Component {
+
+  constructor(props) {
+    super(props);
+    Navigation.events().bindComponent(this);
   }
+
+  state = {
+    app: "Forms"
+  }
+
+  navigationButtonPressed = ({ buttonId }) => {
+    buttonId === 'AddForm' ? console.log('button clicked') : null;
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>Build Form</Text>
+        <Text>Build {this.state.app}</Text>
         <Button
           onPress={() => Navigation.pop(this.props.componentId)}
           title="Go Back"
@@ -28,7 +35,7 @@ export default class Screen1 extends React.Component {
       </View>
     )
   }
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -36,4 +43,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   }
-})
+});
+
+export default FormList;

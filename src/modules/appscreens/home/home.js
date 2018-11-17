@@ -12,19 +12,14 @@ import { homeDetails } from '~/actions/home';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { goToAuth } from '~/helpers/navigation'
-import { USER_KEY } from '~/config'
+import { goToAuth } from '~/helpers/navigation';
+import { USER_KEY } from '~/config';
+
+import { iconsMap } from '~/helpers/app-icons';
+
 
 class Home extends React.Component {
-  static get options() {
-    return {
-      topBar: {
-        title: {
-          text: 'Home'
-        },
-      }
-    };
-  }
+
   async componentDidMount() {
     try {
       const res = await this.props.homeDetails();
@@ -45,16 +40,29 @@ class Home extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.flexContainer}></View>
-        <Text style={styles.title}>WELCOME TO FORM</Text>
+        <Text style={styles.title}>WELCOME TO FORMLY</Text>
         <Button
           onPress={() => {
             Navigation.push(this.props.componentId, {
               component: {
-                name: 'FirstScreen',
+                name: 'FormList',
+                options: {
+                  topBar: {
+                    title: {
+                      text: 'Forms'
+                    },
+                    rightButtons: [
+                      {
+                        id: 'AddForm',
+                        icon: iconsMap['ios-add']
+                      }
+                    ]
+                  }
+                }
               }
             });
           }}
-          title="Build Form"
+          title="Manage Forms"
         />
         <View style={styles.flexContainer}></View>
         <Button
@@ -65,20 +73,6 @@ class Home extends React.Component {
     )
   }
 };
-
-function mapStateToProps(state) {
-  return {
-    home: state.home
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    homeDetails: homeDetails
-  },dispatch);
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
-
 
 const styles = StyleSheet.create({
   container: {
@@ -93,4 +87,18 @@ const styles = StyleSheet.create({
   flexContainer: {
     flex:1
   }
-})
+});
+
+function mapStateToProps(state) {
+  return {
+    home: state.home
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    homeDetails: homeDetails
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
