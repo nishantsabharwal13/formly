@@ -6,6 +6,8 @@ import SignIn from '~/modules/appscreens/signin';
 import SignUp from '~/modules/appscreens/signup';
 import Initializing from '~/modules/appscreens/initialization';
 import FormList from '~/modules/appscreens/form-list';
+import CreateForm from '~/modules/appscreens/create-form';
+import CreateField from '~/modules/appscreens/create-field';
 
 const containers = [
   { name: 'Initializing', generator: () => Initializing },
@@ -14,11 +16,12 @@ const containers = [
   { name: 'FormList', generator: () => FormList },
   { name: 'SignIn', generator: () => SignIn },
   { name: 'SignUp', generator: () => SignUp },
+  { name: 'CreateForm', generator: () => CreateForm },
+  { name: 'CreateField', generator: () => CreateField },
 ]
 
 export default function registerScreens(store, Provider) {
   containers.map(container => registerContainerWithRedux(container.name, container.generator, store, Provider));
-
 }
 
 function registerContainerWithRedux(containerName, generator, store, Provider) {

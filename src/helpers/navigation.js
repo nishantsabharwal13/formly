@@ -44,7 +44,20 @@ export const goHome = () => Navigation.setRoot({
       children: [
         {
           component: {
-            name: 'Home',
+            name: 'FormList',
+            options: {
+              topBar: {
+                title: {
+                  text: 'Forms'
+                },
+                rightButtons: [
+                  {
+                    id: 'CreateForm',
+                    icon: iconsMap['ios-add']
+                  }
+                ]
+              }
+            }
           }
         }
       ],

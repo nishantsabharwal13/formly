@@ -1,2 +1,2 @@
-import CreateForm from 'create-form';
+import CreateForm from './create-form';
 export default CreateForm;

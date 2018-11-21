@@ -4,7 +4,7 @@ import {
   Text,
   Button,
   StyleSheet,
-  AsyncStorage
+  AsyncStorage,
 } from 'react-native'
 import { Navigation } from 'react-native-navigation';
 
@@ -53,7 +53,7 @@ class Home extends React.Component {
                     },
                     rightButtons: [
                       {
-                        id: 'AddForm',
+                        id: 'CreateForm',
                         icon: iconsMap['ios-add']
                       }
                     ]
@@ -79,7 +79,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection:'column'
+    flexDirection:'column',
+    padding: 10,
   },
   title: {
     fontSize: 20

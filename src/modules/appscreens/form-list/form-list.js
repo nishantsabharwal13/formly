@@ -9,6 +9,9 @@ import { Navigation } from 'react-native-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { iconsMap } from '~/helpers/app-icons';
 
+import DialogInput from 'react-native-dialog-input';
+
+
 class FormList extends React.Component {
 
   constructor(props) {
@@ -17,21 +20,50 @@ class FormList extends React.Component {
   }
 
   state = {
-    app: "Forms"
+    app: "Forms",
+    isDialogVisible: false,
   }
 
   navigationButtonPressed = ({ buttonId }) => {
-    buttonId === 'AddForm' ? console.log('button clicked') : null;
+    buttonId === 'CreateForm' ? 
+      this.setState({ isDialogVisible: true })
+      : null;
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>Build {this.state.app}</Text>
-        <Button
-          onPress={() => Navigation.pop(this.props.componentId)}
-          title="Go Back"
-        />
+        <Text>Form list to come here</Text>
+        <DialogInput
+          style={styles.popup} 
+          isDialogVisible={this.state.isDialogVisible}
+          title={"New Form Name"}
+          message={"Enter name of the form to be created"}
+          submitInput={(inputText) => {
+            this.setState({ isDialogVisible: false},() => {
+              inputText ? 
+              Navigation.push(this.props.componentId, {
+                component: {
+                  name: 'CreateForm',
+                  options: {
+                    topBar: {
+                      title: {
+                        text: inputText
+                      },
+                      rightButtons: [
+                        {
+                          id: 'AddField',
+                          icon: iconsMap['ios-add']
+                        }
+                      ],
+                    },
+                  }
+                }
+              }) : null;
+            });
+          }}
+          closeDialog={() => this.setState({ isDialogVisible: false})}>
+        </DialogInput>
       </View>
     )
   }
@@ -41,7 +73,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    padding: 10,
     alignItems: 'center'
+  },
+  popup: {
+    backgroundColor: 'blue',
+    opacity:1,
+    zIndex: 2,
   }
 });
 
