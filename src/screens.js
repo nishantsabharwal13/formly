@@ -7,7 +7,8 @@ import SignUp from '~/modules/appscreens/signup';
 import Initializing from '~/modules/appscreens/initialization';
 import FormList from '~/modules/appscreens/form-list';
 import CreateForm from '~/modules/appscreens/create-form';
-import CreateField from '~/modules/appscreens/create-field';
+import AddField from '~/modules/appscreens/add-field';
+import CustomizeField from '~/modules/appscreens/customize-field';
 
 const containers = [
   { name: 'Initializing', generator: () => Initializing },
@@ -17,7 +18,8 @@ const containers = [
   { name: 'SignIn', generator: () => SignIn },
   { name: 'SignUp', generator: () => SignUp },
   { name: 'CreateForm', generator: () => CreateForm },
-  { name: 'CreateField', generator: () => CreateField },
+  { name: 'AddField', generator: () => AddField },
+  { name: 'CustomizeField', generator: () => CustomizeField },
 ]
 
 export default function registerScreens(store, Provider) {

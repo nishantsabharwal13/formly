@@ -41,7 +41,7 @@ class FormList extends React.Component {
           message={"Enter name of the form to be created"}
           submitInput={(inputText) => {
             this.setState({ isDialogVisible: false},() => {
-              inputText ? 
+              // inputText ? 
               Navigation.push(this.props.componentId, {
                 component: {
                   name: 'CreateForm',
@@ -59,7 +59,8 @@ class FormList extends React.Component {
                     },
                   }
                 }
-              }) : null;
+              })
+              // : null;
             });
           }}
           closeDialog={() => this.setState({ isDialogVisible: false})}>

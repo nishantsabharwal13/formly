@@ -14,6 +14,8 @@ import DynamicForm from '~/modules/components/dynamic-form';
 import { Navigation } from 'react-native-navigation';
 import Colors from '~/constants/colors.js';
 
+import { iconsMap } from '~/helpers/app-icons';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -24,6 +26,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     padding: 16,
     alignItems: 'center',
+    marginTop: 'auto',
   },
   btnText: {
     color: 'white',
@@ -41,18 +44,31 @@ class CreateForm extends React.Component {
 
   navigationButtonPressed = ({ buttonId }) => {
     buttonId === 'AddField' ?
-      Navigation.push(this.props.componentId, {
-        component: {
-          name: 'CreateField',
-          options: {
-            topBar: {
-              title: {
-                text: 'Create field',
-              },
+      Navigation.showModal({  
+      stack: {
+        children: [{
+          component: {
+            name: 'AddField',
+            passProps: {
+              text: ''
             },
-          },
-        },
-      }) : null;
+            options: {
+              topBar: {
+                title: {
+                  text: 'Select Field'
+                },
+                rightButtons: [
+                  {
+                    id: 'CloseModal',
+                    icon: iconsMap['ios-close'],
+                  }
+                ],
+              },
+            }
+          }
+        }]
+      }
+    }): null;
   }
   handleSaveField = () => {
     

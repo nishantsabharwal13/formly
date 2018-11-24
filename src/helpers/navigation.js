@@ -37,6 +37,40 @@ export const goToAuth = () => Navigation.setRoot({
   }
 });
 
+export const sideMenu = () => Navigation.setRoot({
+  sideMenu: {
+        id: 'SideMenu',
+        center: {
+        component: {
+          name: 'CreateForm',
+            options: {
+            topBar: {
+              title: {
+                text: 'Create Form'
+              },
+              rightButtons: [
+                {
+                  id: 'AddField',
+                  icon: iconsMap['ios-add']
+                }
+              ],
+            },
+          }
+        },
+      },
+      right: {
+        component: {
+          name: 'AddField',
+            passProps: {
+            text: ''
+          },
+          options: {
+          },
+        },
+    }
+  }
+});
+
 export const goHome = () => Navigation.setRoot({
   root: {
     stack: {
@@ -59,8 +93,8 @@ export const goHome = () => Navigation.setRoot({
               }
             }
           }
-        }
+        },
       ],
     }
   }
-})
+});
