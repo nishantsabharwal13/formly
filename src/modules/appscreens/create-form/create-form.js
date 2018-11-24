@@ -9,12 +9,15 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native';
+import ActionSheet from 'react-native-actionsheet'
 
 import DynamicForm from '~/modules/components/dynamic-form';
 import { Navigation } from 'react-native-navigation';
 import Colors from '~/constants/colors.js';
 
 import { iconsMap } from '~/helpers/app-icons';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 const styles = StyleSheet.create({
   container: {
@@ -42,24 +45,37 @@ class CreateForm extends React.Component {
     Navigation.events().bindComponent(this);
   }
 
+  get fields() {
+    return this.props.fields.map(item => item.fieldName);
+  }
+
   navigationButtonPressed = ({ buttonId }) => {
     buttonId === 'AddField' ?
-      Navigation.showModal({  
+      this.ActionSheet.show() : null;
+  }
+
+  handleSaveField = () => {
+    
+  }
+
+  navigateToCustomize = (index) => {
+    console.log(this.props.fields[index])
+    Navigation.showModal({
       stack: {
         children: [{
           component: {
-            name: 'AddField',
+            name: 'CustomizeField',
             passProps: {
               text: ''
             },
             options: {
               topBar: {
                 title: {
-                  text: 'Select Field'
+                  text: 'Customize Field'
                 },
                 rightButtons: [
                   {
-                    id: 'CloseModal',
+                    id: 'CloseCustomizeModal',
                     icon: iconsMap['ios-close'],
                   }
                 ],
@@ -68,10 +84,7 @@ class CreateForm extends React.Component {
           }
         }]
       }
-    }): null;
-  }
-  handleSaveField = () => {
-    
+    });
   }
 
   render() {
@@ -85,6 +98,14 @@ class CreateForm extends React.Component {
             ]
           }
         />
+        <ActionSheet
+          ref={o => this.ActionSheet = o}
+          title={'Select a field to add'}
+          options={[...this.fields, 'Cancel']}
+          cancelButtonIndex={6}
+          destructiveButtonIndex={6}
+          onPress={index => this.navigateToCustomize(index)}
+        />
         <TouchableOpacity style={styles.btn} onPress={this.handleSaveField}>
           <Text style={styles.btnText}>Save Form</Text>
         </TouchableOpacity>
@@ -93,4 +114,15 @@ class CreateForm extends React.Component {
   }
 };
 
-export default CreateForm;
+function mapStateToProps(state) {
+  return {
+    fields: state.fields
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateForm);

@@ -53,6 +53,11 @@ class CustomizeField extends React.Component {
       : null;
   }
 
+  handleSaveField = () => {
+    Navigation.dismissAllModals();
+
+  }
+
  
   state = {
 

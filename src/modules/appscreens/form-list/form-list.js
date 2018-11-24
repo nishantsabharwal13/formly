@@ -44,6 +44,7 @@ class FormList extends React.Component {
               // inputText ? 
               Navigation.push(this.props.componentId, {
                 component: {
+                  id: 'FormCreate',
                   name: 'CreateForm',
                   options: {
                     topBar: {

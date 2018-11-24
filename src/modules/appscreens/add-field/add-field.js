@@ -15,11 +15,16 @@ import { homeDetails } from '~/actions/home';
 import { iconsMap } from '~/helpers/app-icons';
 
 import Colors from '~/constants/colors.js';
+import { Dimensions } from 'react-native';
+
+const window = Dimensions.get('window');
+const screenHeight = window.height;
+const screenWidth = window.width;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
+    paddingTop: 20,
   },
   fieldList: {
     
@@ -92,7 +97,7 @@ class AddField extends React.Component {
   
   render() {
     return (
-      <View style="styles.container">
+      <View style={styles.container}>
         <FlatList 
           style={styles.fieldList}
           data={this.props.fields}
