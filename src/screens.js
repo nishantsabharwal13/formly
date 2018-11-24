@@ -7,7 +7,6 @@ import SignUp from '~/modules/appscreens/signup';
 import Initializing from '~/modules/appscreens/initialization';
 import FormList from '~/modules/appscreens/form-list';
 import CreateForm from '~/modules/appscreens/create-form';
-import AddField from '~/modules/appscreens/add-field';
 import CustomizeField from '~/modules/appscreens/customize-field';
 
 const containers = [
@@ -18,7 +17,6 @@ const containers = [
   { name: 'SignIn', generator: () => SignIn },
   { name: 'SignUp', generator: () => SignUp },
   { name: 'CreateForm', generator: () => CreateForm },
-  { name: 'AddField', generator: () => AddField },
   { name: 'CustomizeField', generator: () => CustomizeField },
 ]
 

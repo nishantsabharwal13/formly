@@ -98,3 +98,29 @@ export const goHome = () => Navigation.setRoot({
     }
   }
 });
+
+export const goFieldCustomization = field => Navigation.showModal({
+  stack: {
+    children: [{
+      component: {
+        name: 'CustomizeField',
+        passProps: {
+          text: ''
+        },
+        options: {
+          topBar: {
+            title: {
+              text: field.fieldName
+            },
+            rightButtons: [
+              {
+                id: 'CloseCustomizeModal',
+                icon: iconsMap['ios-close'],
+              }
+            ],
+          },
+        }
+      }
+    }]
+  }
+});
