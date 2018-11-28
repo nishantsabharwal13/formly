@@ -1,7 +1,12 @@
 const Fields = [
   {
     id: "1",
-    fieldName:'Text Field'
+    fieldName:'Text Field',
+    types:[
+      'default',
+      'numeric',
+      'email-address'
+    ]
   },
   {
     id: "2",
@@ -22,6 +27,14 @@ const Fields = [
   {
     id: "6",
     fieldName:'Notes'
+  },
+  {
+    id: "7",
+    fieldName:'Date'
+  },
+  {
+    id: "8",
+    fieldName:'Title'
   },
 ];
 

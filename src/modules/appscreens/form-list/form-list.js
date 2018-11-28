@@ -6,8 +6,12 @@ import {
   StyleSheet,
 } from 'react-native'
 import { Navigation } from 'react-native-navigation';
+
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { iconsMap } from '~/helpers/app-icons';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { createForm } from '~/actions/forms';
 
 import DialogInput from 'react-native-dialog-input';
 
@@ -17,6 +21,9 @@ class FormList extends React.Component {
   constructor(props) {
     super(props);
     Navigation.events().bindComponent(this);
+  }
+
+  componentDidMount() {
   }
 
   state = {
@@ -41,27 +48,30 @@ class FormList extends React.Component {
           message={"Enter name of the form to be created"}
           submitInput={(inputText) => {
             this.setState({ isDialogVisible: false},() => {
-              // inputText ? 
-              Navigation.push(this.props.componentId, {
-                component: {
-                  id: 'FormCreate',
-                  name: 'CreateForm',
-                  options: {
-                    topBar: {
-                      title: {
-                        text: inputText
+              if(inputText) {
+                const newForm = { [inputText]: [] }
+                this.props.createForm(newForm); // push a new form object
+
+                Navigation.push(this.props.componentId, {
+                  component: {
+                    id: 'FormCreate',
+                    name: 'CreateForm',
+                    options: {
+                      topBar: {
+                        title: {
+                          text: inputText
+                        },
+                        rightButtons: [
+                          {
+                            id: 'AddField',
+                            icon: iconsMap['ios-add']
+                          }
+                        ],
                       },
-                      rightButtons: [
-                        {
-                          id: 'AddField',
-                          icon: iconsMap['ios-add']
-                        }
-                      ],
-                    },
+                    }
                   }
-                }
-              })
-              // : null;
+                })
+              }
             });
           }}
           closeDialog={() => this.setState({ isDialogVisible: false})}>
@@ -85,4 +95,16 @@ const styles = StyleSheet.create({
   }
 });
 
-export default FormList;
+function mapStateToProps(state) {
+  return {
+    forms: state.forms
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    createForm
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormList);

@@ -105,7 +105,7 @@ export const goFieldCustomization = field => Navigation.showModal({
       component: {
         name: 'CustomizeField',
         passProps: {
-          text: ''
+          currentField: field
         },
         options: {
           topBar: {
