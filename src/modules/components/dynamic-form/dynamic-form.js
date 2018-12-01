@@ -31,7 +31,7 @@ class DynamicForm extends React.Component {
             <View>
               <Text style="styles">{item.label}: </Text>
               <TextInput
-                keyboardType={item.type}
+                keyboardType={`${item.type}`}
                 style={{ height: 50 }}
                 placeholder={item.placeholder}
               />

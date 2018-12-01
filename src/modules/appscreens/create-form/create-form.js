@@ -12,6 +12,8 @@ import {
 import ActionSheet from 'react-native-actionsheet'
 
 import { Navigation } from 'react-native-navigation';
+import { createForm } from '~/actions/forms';
+
 import { goFieldCustomization } from '~/helpers/navigation';
 import Colors from '~/constants/colors.js';
 
@@ -61,8 +63,8 @@ class CreateForm extends React.Component {
     ]
   }
   
-
   componentDidAppear() {
+    
   }
 
   get fields() {
@@ -74,13 +76,22 @@ class CreateForm extends React.Component {
       this.ActionSheet.show() : null;
   }
 
-  
-  navigateToCustomize = (index) => {
-    const field = this.props.fields[index];
-    goFieldCustomization(field);
+  createField = (data) => {
+    this.setState(previousState => ({
+      formArray: [...previousState.formArray, data]
+    }));
   }
 
-  handleSaveField = () => {
+  navigateToCustomize = (index) => {
+    const currentField = this.props.fields[index];
+    goFieldCustomization(currentField, this.createField);
+  }
+
+  handleSaveForm = () => {
+    const {formName} = this.props;
+    const {formArray} = this.state;
+
+    this.props.createForm({[formName]: formArray});
     Navigation.pop(this.props.componentId);
   }
 
@@ -96,10 +107,9 @@ class CreateForm extends React.Component {
           title={'Select a field to add'}
           options={[...this.fields, 'Cancel']}
           cancelButtonIndex={8}
-          destructiveButtonIndex={7}
           onPress={index => index!=8 ? this.navigateToCustomize(index) : null}
         />
-        <TouchableOpacity style={styles.btn} onPress={this.handleSaveField}>
+        <TouchableOpacity style={styles.btn} onPress={this.handleSaveForm}>
           <Text style={styles.btnText}>Save Form</Text>
         </TouchableOpacity>
       </View>
@@ -116,6 +126,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
+    createForm
   }, dispatch);
 }
 

@@ -16,6 +16,7 @@ const createForms = (res) => {
   };
 }
 
+
 export const formDetails = () => {
   return fetch('https://jsonplaceholder.typicode.com/todos/1')
     .then(res => {

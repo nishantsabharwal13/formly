@@ -99,18 +99,43 @@ export const goHome = () => Navigation.setRoot({
   }
 });
 
-export const goFieldCustomization = field => Navigation.showModal({
+export const goCreateFormPage = (id,formName) => Navigation.push(id, {
+  component: {
+    id: 'FormCreate',
+    name: 'CreateForm',
+    passProps: {
+      formName
+    },
+    options: {
+      topBar: {
+        title: {
+          text: formName
+        },
+        rightButtons: [
+          {
+            id: 'AddField',
+            icon: iconsMap['ios-add']
+          }
+        ],
+      },
+    }
+  }
+});
+
+
+export const goFieldCustomization = (currentField, createField) => Navigation.showModal({
   stack: {
     children: [{
       component: {
         name: 'CustomizeField',
         passProps: {
-          currentField: field
+          currentField,
+          createField
         },
         options: {
           topBar: {
             title: {
-              text: field.fieldName
+              text: currentField.fieldName
             },
             rightButtons: [
               {
