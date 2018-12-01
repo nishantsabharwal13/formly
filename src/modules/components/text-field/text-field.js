@@ -57,7 +57,7 @@ class TextField extends React.Component {
   }
  
   state = {
-    key: Math.random(),
+    id: Math.random(),
     field: "input",
     label: "",
     type: "default",

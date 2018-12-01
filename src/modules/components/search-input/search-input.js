@@ -14,12 +14,11 @@ const styles = StyleSheet.create({
     ...Platform.select({
       ios: {
         height: 51,
-        padding: 8,
+        padding: 0,
       },
       android: {
         height: 60,
-        // elevation: 4,
-        padding: 8,
+        padding: 0,
       },
     }),
     flexDirection: 'row',

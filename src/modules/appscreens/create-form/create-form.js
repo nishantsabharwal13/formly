@@ -12,7 +12,7 @@ import {
 import ActionSheet from 'react-native-actionsheet'
 
 import { Navigation } from 'react-native-navigation';
-import { createForm } from '~/actions/forms';
+import { updateForm } from '~/actions/forms';
 
 import { goFieldCustomization } from '~/helpers/navigation';
 import Colors from '~/constants/colors.js';
@@ -51,7 +51,7 @@ class CreateForm extends React.Component {
   state = {
     formArray: [
       { 
-        key: "name", 
+        id: "name", 
         label: "Name", 
         type: "default", 
         field: "input", 
@@ -88,10 +88,10 @@ class CreateForm extends React.Component {
   }
 
   handleSaveForm = () => {
-    const {formName} = this.props;
+    const {formName, id} = this.props.newForm;
     const {formArray} = this.state;
 
-    this.props.createForm({[formName]: formArray});
+    this.props.updateForm({ formArray, id});
     Navigation.pop(this.props.componentId);
   }
 
@@ -126,7 +126,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    createForm
+    updateForm
   }, dispatch);
 }
 

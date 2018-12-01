@@ -99,17 +99,17 @@ export const goHome = () => Navigation.setRoot({
   }
 });
 
-export const goCreateFormPage = (id,formName) => Navigation.push(id, {
+export const goCreateFormPage = (id, newForm) => Navigation.push(id, {
   component: {
     id: 'FormCreate',
     name: 'CreateForm',
     passProps: {
-      formName
+      newForm
     },
     options: {
       topBar: {
         title: {
-          text: formName
+          text: newForm.formName
         },
         rightButtons: [
           {

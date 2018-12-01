@@ -5,6 +5,8 @@ import {
   Button,
   StyleSheet,
   FlatList,
+  ScrollView,
+  TouchableOpacity
 } from 'react-native'
 import { Navigation } from 'react-native-navigation';
 
@@ -16,9 +18,48 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { createForm } from '~/actions/forms';
 import { goCreateFormPage } from '~/helpers/navigation';
-
+import Colors from '~/constants/colors';
 import Dialog from "react-native-dialog";
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+  },
+  popup: {
+    backgroundColor: 'blue',
+    opacity: 1,
+    zIndex: 2,
+  },
+  sections: {
+    paddingTop: 15,
+    flexDirection: 'row',
+    paddingBottom: 15,
+    borderBottomWidth: 1,
+    borderColor: 'rgba(0,0,0,0.1)',
+  },
+  formName: {
+    fontWeight: 'bold',
+    fontSize:18,
+    textTransform: 'capitalize',
+  },
+  formDescription: {
+    color: 'grey',
+    fontSize: 10,
+  },
+  fallbackText: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  iconLeft: {
+    paddingHorizontal: 10,
+  },
+  iconRight: {
+    paddingHorizontal: 10,
+    marginLeft: 'auto',
+  }
+});
 
 class FormList extends React.Component {
 
@@ -45,34 +86,60 @@ class FormList extends React.Component {
 
   createForm = () => {
     const { formName } = this.state;
-    const nameValidation = Object.keys(this.props.forms.forms).includes(formName);
-
+    const { forms} = this.props.forms;
+    console.log(forms);
+    const nameValidation = forms.length && forms.some( item => item.formName === formName);
+    console.log(nameValidation)
     this.setState({ isDialogVisible: false }, () => {
       if (!nameValidation && formName) {
-        let newForm = { [formName]: [] };
+        let newForm = { 
+          formName,
+          formArray: [],
+          id: Math.random(),
+          createdAt: Date.now()
+        };
         this.props.createForm(newForm); // push a new form object
-        goCreateFormPage(this.props.componentId, formName);
+        goCreateFormPage(this.props.componentId, newForm);
       }
     });
   }
 
   formList = () => {
-    let model = Object.keys(this.props.forms.forms);
+    let model = this.props.forms.forms;
 
     let _renderItem = ({ item }) => (
-            <View>
-              <Text style="styles">{item}</Text>
-            </View>
-          );
+      <TouchableOpacity style={styles.sections}>
+        <View style={styles.iconLeft}>
+          <Icon color='#333'
+            name="wpforms"
+            size={30}
+          />
+        </View>
+        <View>
+          <Text style={styles.formName}>{item.formName}</Text>
+          <Text style={styles.formDescription}>0 Records</Text>
+        </View>
+        <View style={styles.iconRight}>
+          <Icon color='#333'
+            name="angle-right"
+            size={30}
+          />
+        </View>
+      </TouchableOpacity>
+    );
 
-    let _keyExtractor = (item,key) => key;
+    let _keyExtractor = (item,key) => `${key}`;
 
-    return (
+    return model.length ? (
       <FlatList
         data={model}
         renderItem={_renderItem}
         keyExtractor={_keyExtractor}
       />
+    ) : (
+        <View style={styles.fallbackText}>
+          <Text>No Forms Created Yet</Text>
+        </View>
     )
   }
 
@@ -103,21 +170,6 @@ class FormList extends React.Component {
     )
   }
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 10,
-  },
-  popup: {
-    backgroundColor: 'blue',
-    opacity:1,
-    zIndex: 2,
-  },
-  sections: {
-    
-  }
-});
 
 function mapStateToProps(state) {
   return {

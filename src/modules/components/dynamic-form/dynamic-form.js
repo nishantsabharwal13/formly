@@ -15,6 +15,12 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
   },
+  sections: {
+    marginTop: 10,
+    marginBottom: 10,
+    borderBottomWidth: 1,
+    borderColor: 'rgba(0,0,0,0.1)',
+  },
 })
 class DynamicForm extends React.Component {
   state = {
@@ -28,7 +34,7 @@ class DynamicForm extends React.Component {
       switch (item.field) {
         case 'input':
           return (
-            <View>
+            <View style={styles.sections}>
               <Text style="styles">{item.label}: </Text>
               <TextInput
                 keyboardType={`${item.type}`}
@@ -40,8 +46,7 @@ class DynamicForm extends React.Component {
       }
     };
 
-    let _keyExtractor = (item, index) => item.key;
-
+    let _keyExtractor = (item, key) => `${key}`;
     return (
       <FlatList
         data={model}
