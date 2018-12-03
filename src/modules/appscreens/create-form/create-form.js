@@ -77,8 +77,8 @@ class CreateForm extends React.Component {
   }
 
   createField = (data) => {
-    this.setState(previousState => ({
-      formArray: [...previousState.formArray, data]
+    this.setState(prevState => ({
+      formArray: [...prevState.formArray, data]
     }));
   }
 
@@ -101,6 +101,7 @@ class CreateForm extends React.Component {
         <DynamicForm
           title="Dynamic Form"
           model={this.state.formArray}
+          edit={false}
         />
         <ActionSheet
           ref={o => this.ActionSheet = o}

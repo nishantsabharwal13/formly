@@ -1,19 +1,41 @@
 import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
 import rootReducer from '~/reducers/rootReducer';
+
+import thunk from 'redux-thunk';
 import logger from 'redux-logger';
+
+import {persistStore, persistReducer} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import hardSet from 'redux-persist/lib/stateReconciler/hardSet'
+
+import Fields from '~/data/fields';
+
+const initialState = {
+  fields: Fields
+};
 
 let middleware = [thunk];
 
+const persistConfig = {
+  key: 'root2',
+  storage,
+  stateReconciler: hardSet,
+}
 
 if (__DEV__) {
   middleware = [...middleware, logger];
 } 
 
-export default function configureStore(initialState) {
-  return createStore(
-    rootReducer,
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+export const store =  createStore(
+    persistedReducer,
     initialState,
     applyMiddleware(...middleware)
   );
+
+export const persistor = persistStore(store);
+
+export default () => {
+  return { store, persistor }
 }

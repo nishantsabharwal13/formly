@@ -38,6 +38,6 @@ export default function (state = {
     }
 
     default:
-      return state;
+      return {...state};
   }
 };

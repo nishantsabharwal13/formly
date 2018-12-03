@@ -10,7 +10,9 @@ import {
 } from 'react-native'
 import { Navigation } from 'react-native-navigation';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import SearchInput from '~/modules/components/search-input';
 
 import { iconsMap } from '~/helpers/app-icons';
@@ -75,23 +77,31 @@ class FormList extends React.Component {
     app: "Forms",
     isDialogVisible: false,
     formName: "",
-    searchForm: ""
+    searchForm: "",
+    counter: 1,
   }
   
   navigationButtonPressed = ({ buttonId }) => {
     buttonId === 'CreateForm' ? 
       this.setState({ isDialogVisible: true })
       : null;
+    buttonId === 'SideMenu' ? 
+      Navigation.mergeOptions('leftSideDrawer', {
+        sideMenu: {
+          left: {
+            visible: true
+          }
+        }
+      }) : null;
   }
 
   createForm = () => {
-    const { formName } = this.state;
+    const { formName,counter } = this.state;
     const { forms} = this.props.forms;
-    console.log(forms);
     const nameValidation = forms.length && forms.some( item => item.formName === formName);
-    console.log(nameValidation)
+    
     this.setState({ isDialogVisible: false }, () => {
-      if (!nameValidation && formName) {
+      // if (!nameValidation && formName) {
         let newForm = { 
           formName,
           formArray: [],
@@ -100,17 +110,20 @@ class FormList extends React.Component {
         };
         this.props.createForm(newForm); // push a new form object
         goCreateFormPage(this.props.componentId, newForm);
-      }
+      // }
     });
   }
 
   formList = () => {
+    const {searchForm} = this.state;
     let model = this.props.forms.forms;
-
+    if (searchForm != '') {
+      model = model.filter(item => item.formName.toLowerCase().includes(searchForm.toLowerCase()));
+    } 
     let _renderItem = ({ item }) => (
       <TouchableOpacity style={styles.sections}>
         <View style={styles.iconLeft}>
-          <Icon color='#333'
+          <FontAwesome color='#333'
             name="wpforms"
             size={30}
           />
@@ -120,7 +133,7 @@ class FormList extends React.Component {
           <Text style={styles.formDescription}>0 Records</Text>
         </View>
         <View style={styles.iconRight}>
-          <Icon color='#333'
+          <FontAwesome color='grey'
             name="angle-right"
             size={30}
           />
@@ -150,6 +163,7 @@ class FormList extends React.Component {
       <View style={styles.container}>
       
         <SearchInput
+          leftEle={(<Ionicons color='grey' name="ios-search" size={20} />)}
           placeholder='Search form by name'
           value={searchForm}
           onChange={searchForm => this.setState({ searchForm })}

@@ -13,6 +13,7 @@ const icons = {
     "user-check":[30, "#333", Feather],
     "ios-add": [30, "#333"],
     "ios-close": [30, "#333"],
+    "ios-menu": [30, "#333"],
 
     "ios-person": [30, "#bbb"],
     "ios-person--big": [50, "#bbb"],

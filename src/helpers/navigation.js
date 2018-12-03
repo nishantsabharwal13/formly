@@ -39,62 +39,83 @@ export const goToAuth = () => Navigation.setRoot({
 
 export const sideMenu = () => Navigation.setRoot({
   sideMenu: {
-        id: 'SideMenu',
-        center: {
-        component: {
-          name: 'CreateForm',
-            options: {
-            topBar: {
-              title: {
-                text: 'Create Form'
-              },
-              rightButtons: [
-                {
-                  id: 'AddField',
-                  icon: iconsMap['ios-add']
-                }
-              ],
-            },
-          }
+    left: {
+      component: {
+        name: 'Drawer',
+        passProps: {
+          text: ''
+        },
+        options: {
         },
       },
-      right: {
-        component: {
-          name: 'AddField',
-            passProps: {
-            text: ''
-          },
+    },
+    center: {
+      component: {
+        name: 'CreateForm',
           options: {
+          topBar: {
+            title: {
+              text: 'Create Form'
+            },
+            rightButtons: [
+              {
+                id: 'AddField',
+                icon: iconsMap['ios-add']
+              }
+            ],
           },
-        },
-    }
+        }
+      },
+    },
   }
 });
 
 export const goHome = () => Navigation.setRoot({
   root: {
-    stack: {
-      id: 'App',
-      children: [
-        {
-          component: {
-            name: 'FormList',
-            options: {
-              topBar: {
-                title: {
-                  text: 'Forms'
-                },
-                rightButtons: [
-                  {
-                    id: 'CreateForm',
-                    icon: iconsMap['ios-add']
-                  }
-                ]
-              }
-            }
-          }
+    sideMenu: {
+      openGestureMode: 'entireScreen' | 'bezel',
+      left: {
+        component: {
+          name: 'Drawer',
+          id: 'leftSideDrawer',
+          passProps: {
+            text: 'side menu'
+          },
+          options: {
+          },
         },
-      ],
+      },
+      center: {
+        stack: {
+          id: 'App',
+          children: [
+            {
+              component: {
+                name: 'FormList',
+                options: {
+                  topBar: {
+                    title: {
+                      text: 'Forms'
+                    },
+                    rightButtons: [
+                      {
+                        id: 'CreateForm',
+                        icon: iconsMap['ios-add']
+                      }
+                    ],
+                    leftButtons: [
+                      {
+                        id: 'SideMenu',
+                        icon: iconsMap['ios-menu']
+                      }
+                    ],
+                  }
+                }
+              }
+            },
+          ],
+        }
+      }
     }
   }
 });

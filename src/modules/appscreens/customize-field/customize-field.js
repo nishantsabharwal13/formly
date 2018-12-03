@@ -17,6 +17,9 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import TextField from '~/modules/components/text-field';
+import CheckBoxField from '~/modules/components/check-box';
+import RadioButtonsField from '~/modules/components/radio-buttons';
+
 
 const styles = StyleSheet.create({
   container: {
@@ -61,6 +64,20 @@ class CustomizeField extends React.Component {
         case '1':
           return (
             <TextField 
+              currentField={this.props.currentField}
+              saveField={this.handleField}
+            />
+          );
+        case '2':
+          return (
+            <CheckBoxField 
+              currentField={this.props.currentField}
+              saveField={this.handleField}
+            />
+          );
+        case '4':
+          return (
+            <RadioButtonsField 
               currentField={this.props.currentField}
               saveField={this.handleField}
             />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navigation } from 'react-native-navigation';
+
 import Drawer from '~/modules/global/drawer';
 import Home from '~/modules/appscreens/home';
 import SignIn from '~/modules/appscreens/signin';
@@ -8,6 +9,8 @@ import Initializing from '~/modules/appscreens/initialization';
 import FormList from '~/modules/appscreens/form-list';
 import CreateForm from '~/modules/appscreens/create-form';
 import CustomizeField from '~/modules/appscreens/customize-field';
+
+import { store, persistor } from '~/store';
 
 const containers = [
   { name: 'Initializing', generator: () => Initializing },
@@ -20,18 +23,24 @@ const containers = [
   { name: 'CustomizeField', generator: () => CustomizeField },
 ]
 
-export default function registerScreens(store, Provider) {
-  containers.map(container => registerContainerWithRedux(container.name, container.generator, store, Provider));
+export default function registerScreens(Provider, PersistGate) {
+  containers.map(container => registerContainerWithRedux(container.name, container.generator, Provider, PersistGate));
 }
 
-function registerContainerWithRedux(containerName, generator, store, Provider) {
+function registerContainerWithRedux(containerName, generator, Provider, PersistGate) {
   const generatorWrapper = function () {
     const InternalComponent = generator();
     return class extends React.Component {
+      renderLoading = () => {
+        
+      };
+      
       render() {
         return (
           <Provider store={store}>
-            <InternalComponent {...this.props} />
+            <PersistGate persistor={persistor} loading={this.renderLoading()}>
+              <InternalComponent {...this.props} />
+            </PersistGate>
           </Provider>
         );
       }
