@@ -144,14 +144,15 @@ export const goCreateFormPage = (id, newForm) => Navigation.push(id, {
 });
 
 
-export const goFieldCustomization = (currentField, createField) => Navigation.showModal({
+export const goFieldCustomization = (currentField={}, createField={}, editField={}) => Navigation.showModal({
   stack: {
     children: [{
       component: {
         name: 'CustomizeField',
         passProps: {
           currentField,
-          createField
+          createField,
+          editField
         },
         options: {
           topBar: {

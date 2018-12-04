@@ -7,7 +7,8 @@ Button,
 StyleSheet,
 TouchableOpacity,
 TextInput,
-FlatList
+FlatList,
+ScrollView
 } from 'react-native';
 import Colors from '~/constants/colors';
 import {Navigation} from 'react-native-navigation';
@@ -64,12 +65,6 @@ class CheckBoxField extends React.Component {
     options: [
       { id: Math.random(), label: "", value: false },
     ]
-  }
-
-  checkBoxChange = () => {
-   this.setState(prevState => ({
-     check: !prevState.check
-   }))
   }
 
   addMore = () => {
@@ -137,7 +132,7 @@ class CheckBoxField extends React.Component {
     );
 
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container} contentContainerStyle={[{ flex: 1, justifyContent: 'space-between' }]} >
         <View style={styles.sections}>
           <Text>Label</Text>
           <TextInput
@@ -158,7 +153,7 @@ class CheckBoxField extends React.Component {
         <TouchableOpacity style={styles.btn} onPress={() => this.props.saveField(this.state)}>
           <Text style={styles.btnText}>Save Field</Text>
         </TouchableOpacity>
-     </View>
+      </ScrollView>
     );
   }
 }

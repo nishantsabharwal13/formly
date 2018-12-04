@@ -49,6 +49,8 @@ PODS:
     - React/RCTBlob
   - ReactNativeNavigation (2.0.2544):
     - React
+  - RNSketchCanvas (0.8.0):
+    - React
   - RNVectorIcons (5.0.0):
     - React
   - yoga (0.56.0.React)
@@ -68,6 +70,7 @@ DEPENDENCIES:
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
   - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
+  - "RNSketchCanvas (from `../node_modules/@terrylinla/react-native-sketch-canvas`)"
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -88,6 +91,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native"
   ReactNativeNavigation:
     :path: "../node_modules/react-native-navigation"
+  RNSketchCanvas:
+    :path: "../node_modules/@terrylinla/react-native-sketch-canvas"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
   yoga:
@@ -102,9 +107,10 @@ SPEC CHECKSUMS:
   glog: b3b0330915eccea41c5cc9731a77cf564a9be5ea
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
   ReactNativeNavigation: 664b103e358bc0198a627fbea3bd3caadb4b0c4b
+  RNSketchCanvas: 7e895178cb74258dc2b0d85370d8644016dac25f
   RNVectorIcons: c0dbfbf6068fefa240c37b0f71bd03b45dddac44
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: b70ef78cee54d25f822ebb2e624fa45c578d08f5
+PODFILE CHECKSUM: 095a43e6ec493cf41e60c87f17566fc700f3d33f
 
 COCOAPODS: 1.5.3

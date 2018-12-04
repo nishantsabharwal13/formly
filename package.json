@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@terrylinla/react-native-sketch-canvas": "^0.8.0",
     "appcenter": "^1.8.1",
     "appcenter-analytics": "^1.8.1",
     "appcenter-crashes": "^1.8.1",
@@ -22,6 +23,9 @@
     "react-native-actionsheet": "^2.4.2",
     "react-native-check-box": "^2.1.6",
     "react-native-dialog": "^5.5.0",
+    "react-native-linear-gradient": "^2.5.3",
+    "react-native-material-dropdown": "^0.11.1",
+    "react-native-modal-datetime-picker": "^6.0.0",
     "react-native-navigation": "^2.0.2544",
     "react-native-simple-radio-button": "^2.7.3",
     "react-native-vector-icons": "^5.0.0",

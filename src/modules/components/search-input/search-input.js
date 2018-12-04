@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         padding: 10,
       },
       android: {
-        height: 50,
+        height: 60,
         padding: 10,
       },
     }),
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
       },
       android: {
-        paddingHorizontal: 16,
+        paddingHorizontal: 14,
         borderWidth: StyleSheet.hairlineWidth,
         borderColor: 'rgba(0, 0, 0, .3)',
         elevation: 4,
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     paddingLeft:5,
     height: '100%',
     backgroundColor: '#fff',
-    fontSize: 14,
+    fontSize: 15,
     color: Colors.primary,
   },
 });

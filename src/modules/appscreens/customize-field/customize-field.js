@@ -19,6 +19,10 @@ import { connect } from 'react-redux';
 import TextField from '~/modules/components/text-field';
 import CheckBoxField from '~/modules/components/check-box';
 import RadioButtonsField from '~/modules/components/radio-buttons';
+import DropDownField from '~/modules/components/drop-down';
+import DatePicker from '~/modules/components/date-picker';
+import TitleField from '~/modules/components/title-field';
+import NotesField from '~/modules/components/notes';
 
 
 const styles = StyleSheet.create({
@@ -75,9 +79,37 @@ class CustomizeField extends React.Component {
               saveField={this.handleField}
             />
           );
+        case '3':
+          return (
+            <DropDownField
+              currentField={this.props.currentField}
+              saveField={this.handleField}
+            />
+          );
         case '4':
           return (
             <RadioButtonsField 
+              currentField={this.props.currentField}
+              saveField={this.handleField}
+            />
+          );
+        case '6':
+          return (
+            <NotesField 
+              currentField={this.props.currentField}
+              saveField={this.handleField}
+            />
+          );
+        case '7':
+          return (
+            <DatePicker 
+              currentField={this.props.currentField}
+              saveField={this.handleField}
+            />
+          );
+        case '8':
+          return (
+            <TitleField 
               currentField={this.props.currentField}
               saveField={this.handleField}
             />

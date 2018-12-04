@@ -54,7 +54,8 @@ class CreateForm extends React.Component {
         id: "name", 
         label: "Name", 
         type: "default", 
-        field: "input", 
+        field: "input",
+        fieldId:"1",
         placeholder: "some fucking thing", 
         props: { 
           required: true 
@@ -76,10 +77,18 @@ class CreateForm extends React.Component {
       this.ActionSheet.show() : null;
   }
 
-  createField = (data) => {
+  createField = data => {
     this.setState(prevState => ({
       formArray: [...prevState.formArray, data]
     }));
+  }
+
+
+  removeField = id => {
+    const objIndex = this.state.formArray.findIndex((obj => obj.id === id));
+      this.setState((prevState) => ({
+        formArray: [...prevState.formArray.slice(0, objIndex), ...prevState.formArray.slice(objIndex + 1)]
+      }))
   }
 
   navigateToCustomize = (index) => {
@@ -102,6 +111,7 @@ class CreateForm extends React.Component {
           title="Dynamic Form"
           model={this.state.formArray}
           edit={false}
+          removeField={this.removeField}
         />
         <ActionSheet
           ref={o => this.ActionSheet = o}

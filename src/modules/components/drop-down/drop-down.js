@@ -4,12 +4,11 @@ import {
   View,
   Text,
   Button,
+  ScrollView,
   StyleSheet,
   TouchableOpacity,
   TextInput,
   FlatList,
-  Switch,
-  ScrollView,
 } from 'react-native';
 import Colors from '~/constants/colors';
 import { Navigation } from 'react-native-navigation';
@@ -49,32 +48,10 @@ const styles = StyleSheet.create({
   addMoreText: {
     color: Colors.primary,
     padding: 20
-  },
-  radioButtonOuter: {
-    width: 30,
-    height: 30,
-    borderWidth:1,
-    borderRadius:20,
-    backgroundColor: 'grey', 
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  radioButtonInner: {
-    width: 25,
-    height: 25,
-    borderWidth:1,
-    borderRadius:20,
-    backgroundColor: '#fff', 
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  switch: {
-    marginLeft: 'auto',
-    
   }
 });
 
-class RadioButtonsField extends React.Component {
+class DropDownField extends React.Component {
 
   constructor(props) {
     super(props)
@@ -82,14 +59,13 @@ class RadioButtonsField extends React.Component {
 
   state = {
     id: Math.random(),
-    field: "radiobuttons",
+    field: "dropdown",
     label: "",
     type: "default",
     options: [
       { id: Math.random(), label: '', value: 0 },
       { id: Math.random(), label: '', value: 1 },
     ],
-    alignment: false,
   }
 
   addMore = index => {
@@ -130,12 +106,10 @@ class RadioButtonsField extends React.Component {
       <FlatList
         data={options}
         renderItem={({ item }) => (
-          <View style={{ flexDirection: 'row', alignItems:'center' }}>
-            <View style={styles.radioButtonOuter}>
-              <View style={styles.radioButtonInner}></View>
-            </View>
+          <View style={{ flexDirection: 'row', alignItems: 'center',justifyContent:'center' }}>
+            <Ionicons name="ios-arrow-dropdown" color="grey" size={25}/>
             <TextInput
-              placeholder="Enter Label of Option"
+              placeholder="Enter Label of DropDown"
               style={[styles.inputField, { flex: 1, }]}
               defaultValue={item.label}
               onChangeText={(label) => this.onChangeOption(item.id, label)}
@@ -159,31 +133,20 @@ class RadioButtonsField extends React.Component {
         <View style={styles.sections}>
           <Text>Label</Text>
           <TextInput
-            placeholder="Enter Label of Radio Buttons"
+            placeholder="Enter Label of Drop Down"
             style={styles.inputField}
             onchange
             onChangeText={(label) => this.setState({ label })}
           />
         </View>
         <View style={styles.sections}>
-          <Text>Radio Button Options</Text>
+          <Text>Drop Down Options</Text>
           {optionsLayout()}
         </View>
         <TouchableOpacity
           style={styles.addMore} onPress={() => this.addMore(this.state.options.length)}>
           <Text style={styles.addMoreText} t>+ Add Option</Text>
         </TouchableOpacity>
-        <View style={{flexDirection:'row'}}>
-          <View>
-            <Text>Alignment: Horizontal</Text>
-            <Text style={{color:'#ccc'}}>Set Aligment of radio buttons</Text>
-          </View>
-          <Switch 
-            style={styles.switch}
-            value={this.state.alignment}
-            onValueChange={(alignment) => this.setState({alignment : !this.state.alignment})}
-          />
-        </View>
         <TouchableOpacity style={styles.btn} onPress={() => this.props.saveField(this.state)}>
           <Text style={styles.btnText}>Save Field</Text>
         </TouchableOpacity>
@@ -192,7 +155,7 @@ class RadioButtonsField extends React.Component {
   }
 }
 
-RadioButtonsField.defaultProps = {
+DropDownField.defaultProps = {
 }
 
-export default RadioButtonsField;
+export default DropDownField;

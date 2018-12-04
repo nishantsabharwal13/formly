@@ -41,12 +41,10 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(0,0,0,0.1)',
   },
   formName: {
-    fontWeight: 'bold',
     fontSize:18,
     textTransform: 'capitalize',
   },
   formDescription: {
-    color: 'grey',
     fontSize: 10,
   },
   fallbackText: {

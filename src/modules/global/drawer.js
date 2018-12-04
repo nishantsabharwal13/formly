@@ -13,6 +13,7 @@ import { goToAuth } from '~/helpers/navigation';
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor:'#fff',
     flex: 1,
     paddingLeft: 25,
     paddingTop: 30,

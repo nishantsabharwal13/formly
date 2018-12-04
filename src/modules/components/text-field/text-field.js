@@ -6,7 +6,9 @@ Text,
 Button,
 StyleSheet,
 TouchableOpacity,
-TextInput
+TextInput,
+ScrollView,
+KeyboardAvoidingView
 } from 'react-native';
  
 import {Navigation} from 'react-native-navigation';
@@ -54,6 +56,7 @@ class TextField extends React.Component {
   }
 
   componentDidMount() {
+
   }
  
   state = {
@@ -71,13 +74,13 @@ class TextField extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container} contentContainerStyle={[{ flex: 1, justifyContent: 'space-between' }]} >
         <View style={styles.sections}>
           <Text>Label</Text>
           <TextInput
             placeholder="Enter Label of Field"
             style={styles.inputField}
-            onchange
+            value={this.state.label}
             onChangeText={(label) => this.setState({ label })}
             />
         </View>
@@ -87,6 +90,7 @@ class TextField extends React.Component {
           <TextInput
             placeholder="Enter Placeholder"
             style={styles.inputField}
+            value={this.state.placeholder}
             onChangeText={(placeholder) => this.setState({ placeholder })}
             />
         </View>
@@ -109,7 +113,7 @@ class TextField extends React.Component {
         <TouchableOpacity style={styles.btn} onPress={() => this.props.saveField(this.state)}>
           <Text style={styles.btnText}>Save Field</Text>
         </TouchableOpacity>
-      </View>
+      </ScrollView>
     );
   }
 }
