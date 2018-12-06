@@ -38,6 +38,8 @@ target 'formbuilder' do
 
   pod 'RNSketchCanvas', :path => '../node_modules/@terrylinla/react-native-sketch-canvas'
 
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
   target 'formbuilderTests' do
     inherit! :search_paths
     # Pods for testing

@@ -15,6 +15,8 @@ PODS:
   - glog (0.3.4)
   - React (0.56.0):
     - React/Core (= 0.56.0)
+  - react-native-image-picker (0.27.1):
+    - React
   - React/Core (0.56.0):
     - yoga (= 0.56.0.React)
   - React/CxxBridge (0.56.0):
@@ -62,6 +64,7 @@ DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
   - React/DevSupport (from `../node_modules/react-native`)
@@ -89,6 +92,8 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
   React:
     :path: "../node_modules/react-native"
+  react-native-image-picker:
+    :path: "../node_modules/react-native-image-picker"
   ReactNativeNavigation:
     :path: "../node_modules/react-native-navigation"
   RNSketchCanvas:
@@ -106,11 +111,12 @@ SPEC CHECKSUMS:
   Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
   glog: b3b0330915eccea41c5cc9731a77cf564a9be5ea
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
+  react-native-image-picker: f42de90075c5b1af53417af927631d909a1a746e
   ReactNativeNavigation: 664b103e358bc0198a627fbea3bd3caadb4b0c4b
   RNSketchCanvas: 7e895178cb74258dc2b0d85370d8644016dac25f
   RNVectorIcons: c0dbfbf6068fefa240c37b0f71bd03b45dddac44
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: 095a43e6ec493cf41e60c87f17566fc700f3d33f
+PODFILE CHECKSUM: dfe1d84c041c5a060885b0d0d0d3a12b77e1fc03
 
 COCOAPODS: 1.5.3

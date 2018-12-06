@@ -23,6 +23,7 @@ import DropDownField from '~/modules/components/drop-down';
 import DatePicker from '~/modules/components/date-picker';
 import TitleField from '~/modules/components/title-field';
 import NotesField from '~/modules/components/notes';
+import ImagePicker from '~/modules/components/image-picker';
 
 
 const styles = StyleSheet.create({
@@ -89,6 +90,13 @@ class CustomizeField extends React.Component {
         case '4':
           return (
             <RadioButtonsField 
+              currentField={this.props.currentField}
+              saveField={this.handleField}
+            />
+          );
+        case '5':
+          return (
+            <ImagePicker 
               currentField={this.props.currentField}
               saveField={this.handleField}
             />

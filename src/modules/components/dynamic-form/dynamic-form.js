@@ -1,19 +1,25 @@
 import React from 'react';
 
 import {
-View,
-Text,
-Button,
-StyleSheet,
-TouchableOpacity,
-FlatList,
-TextInput,
+  View,
+  Text,
+  Button,
+  StyleSheet,
+  TouchableOpacity,
+  FlatList,
+  TextInput,
+  ScrollView,
+  Image,
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import CheckBox from 'react-native-check-box';
 import RadioForm from 'react-native-simple-radio-button';
 import { Dropdown } from 'react-native-material-dropdown';
 import DateTimePicker from 'react-native-modal-datetime-picker';
+import { SketchCanvas } from '@terrylinla/react-native-sketch-canvas';
+import ImagePicker from 'react-native-image-picker';
+
+import Colors from '~/constants/colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -44,6 +50,19 @@ class DynamicForm extends React.Component {
 
   state = {
     loading: true,
+  }
+  
+  handleChoosePhoto = () => {
+    const options = {
+      title: 'Select Image',
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
+    ImagePicker.showImagePicker(options, response => {
+      console.log(response)
+    })
   }
 
   renderForm = () => {
@@ -169,11 +188,42 @@ class DynamicForm extends React.Component {
               {editField(item)}
             </View>
           );
+        case 'notes':
+          return (
+            <View style={[styles.sections, {borderBottomWidth: 0}]}>
+              <Text style="styles">{item.label}: </Text>
+              <View style={{ flex: 1, borderWidth: 1,marginTop:20, borderColor: 'grey', height: 150 }}>
+                <SketchCanvas
+                  style={{flex:1}}
+                  strokeColor={Colors.primary}
+                  strokeWidth={4}
+                />
+              </View>
+              {editField(item)}
+            </View>
+          );
         case 'title':
           return (
             <View style={[styles.sections, { alignItems: 'center', borderBottomWidth: 0}]}>
-              <Text style={{fontSize:25}}>{item.label}</Text>
-              <Text style={{color:'grey',paddingBottom:10}}>{item.description}</Text>
+              <Text style={{ fontSize: 25 }}>{item.label}</Text>
+              <Text style={{color:'grey',paddingVertical:10}}>{item.description}</Text>
+              {editField(item)}
+            </View>
+          );
+        case 'imagepicker':
+          return (
+            <View style={styles.sections}>
+              <Text style="styles">{item.label}: </Text>
+              <View style={[styles.sections, { borderBottomWidth: 0, }]}>
+                <TouchableOpacity
+                  onPress={this.handleChoosePhoto}
+                >
+                <Image
+                  style={{ width: 200,height: 200}}
+                  source={require('assets/images/default.jpg')}
+                />
+                </TouchableOpacity>
+              </View>
               {editField(item)}
             </View>
           );
@@ -192,7 +242,7 @@ class DynamicForm extends React.Component {
 
   render() {
     return (
-      <View style="this.styles.container">
+      <View style={styles.container}>
         {this.renderForm()}
       </View>
     )

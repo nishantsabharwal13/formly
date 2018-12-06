@@ -8,13 +8,12 @@ import {
   TouchableOpacity,
   TextInput,
   ScrollView,
+  Image,
 } from 'react-native';
 
 import { Navigation } from 'react-native-navigation';
 import ActionSheet from 'react-native-actionsheet';
 import Colors from '~/constants/colors.js';
-import { SketchCanvas } from '@terrylinla/react-native-sketch-canvas';
-
 
 const styles = StyleSheet.create({
   container: {
@@ -42,9 +41,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  defaultImage: {
+    width:200,
+    height:200
+
+  }
 });
 
-class NotesField extends React.Component {
+class ImagePicker extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -55,7 +59,7 @@ class NotesField extends React.Component {
 
   state = {
     id: Math.random(),
-    field: "notes",
+    field: "imagepicker",
     label: "",
     description: "",
   }
@@ -72,16 +76,13 @@ class NotesField extends React.Component {
             onChangeText={(label) => this.setState({ label })}
           />
         </View>
-
-        <View style={{ flex: 1, borderWidth: 1, marginTop: 20, borderColor: 'grey', height: 150 }}>
-          <SketchCanvas
-            style={{ flex: 1 }}
-            strokeColor={Colors.primary}
-            strokeWidth={4}
+        <View style={[styles.sections,{ borderBottomWidth: 0,}]}>
+          <Image
+            style={styles.defaultImage}
+            source={require('assets/images/default.jpg')}
           />
         </View>
-        <View style={styles.sections}>
-        </View>
+
         <TouchableOpacity style={styles.btn} onPress={() => this.props.saveField(this.state)}>
           <Text style={styles.btnText}>Save Field</Text>
         </TouchableOpacity>
@@ -90,7 +91,7 @@ class NotesField extends React.Component {
   }
 }
 
-NotesField.defaultProps = {
+ImagePicker.defaultProps = {
 }
 
-export default NotesField;
+export default ImagePicker;

@@ -3,6 +3,7 @@ package com.formbuilder;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.imagepicker.ImagePickerPackage;
 import com.terrylinla.rnsketchcanvas.SketchCanvasPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
@@ -43,6 +44,7 @@ public class MainApplication extends NavigationApplication {
   protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
+            new ImagePickerPackage(),
             new SketchCanvasPackage(),
             new VectorIconsPackage(),
             new LinearGradientPackage(),

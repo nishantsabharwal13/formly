@@ -60,7 +60,7 @@ class TitleField extends React.Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView style={styles.container} contentContainerStyle={[{ flex: 1, justifyContent: 'space-between' }]} >
         <View style={styles.sections}>
           <Text>Title/Heading</Text>
           <TextInput
