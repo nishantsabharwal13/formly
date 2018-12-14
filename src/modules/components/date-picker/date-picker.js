@@ -66,7 +66,7 @@ class DatePickerField extends React.Component {
   }
 
   state = {
-    id: new Date().getTime()
+    id: Math.random(),
     field: "datepicker",
     label: "",
     type: "default",
