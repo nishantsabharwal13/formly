@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import homeReducer from './appscreens/home';
 import fieldsReducer from './appscreens/fields';
-import formCreateReducer from './appscreens/forms';
+import formsReducer from './appscreens/forms';
+import recordsReducer from './appscreens/records';
 
 const rootReducer = combineReducers({
-  home: homeReducer,
   fields: fieldsReducer,
-  forms: formCreateReducer
+  forms: formsReducer,
+  records: recordsReducer,
 });
 
 export default rootReducer;

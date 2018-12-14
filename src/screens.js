@@ -9,6 +9,8 @@ import Initializing from '~/modules/appscreens/initialization';
 import FormList from '~/modules/appscreens/form-list';
 import CreateForm from '~/modules/appscreens/create-form';
 import CustomizeField from '~/modules/appscreens/customize-field';
+import RecordList from '~/modules/appscreens/record-list';
+import CreateRecord from '~/modules/appscreens/create-record';
 
 import { store, persistor } from '~/store';
 
@@ -21,6 +23,8 @@ const containers = [
   { name: 'SignUp', generator: () => SignUp },
   { name: 'CreateForm', generator: () => CreateForm },
   { name: 'CustomizeField', generator: () => CustomizeField },
+  { name: 'RecordList', generator: () => RecordList },
+  { name: 'CreateRecord', generator: () => CreateRecord },
 ]
 
 export default function registerScreens(Provider, PersistGate) {

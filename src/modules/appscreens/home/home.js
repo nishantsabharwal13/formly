@@ -8,7 +8,6 @@ import {
 } from 'react-native'
 import { Navigation } from 'react-native-navigation';
 
-import { homeDetails } from '~/actions/home';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -92,13 +91,11 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
   return {
-    home: state.home
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    homeDetails: homeDetails
   }, dispatch);
 }
 

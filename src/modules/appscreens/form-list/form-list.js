@@ -19,7 +19,7 @@ import { iconsMap } from '~/helpers/app-icons';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { createForm } from '~/actions/forms';
-import { goCreateFormPage } from '~/helpers/navigation';
+import { goCreateFormPage, goRecordsPage } from '~/helpers/navigation';
 import Colors from '~/constants/colors';
 import Dialog from "react-native-dialog";
 
@@ -41,11 +41,12 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(0,0,0,0.1)',
   },
   formName: {
-    fontSize:18,
+    fontSize:16,
     textTransform: 'capitalize',
   },
   formDescription: {
     fontSize: 10,
+    color: 'grey'
   },
   fallbackText: {
     flex: 1,
@@ -66,9 +67,6 @@ class FormList extends React.Component {
   constructor(props) {
     super(props);
     Navigation.events().bindComponent(this);
-  }
-
-  componentDidMount() {
   }
 
   state = {
@@ -112,6 +110,10 @@ class FormList extends React.Component {
     });
   }
 
+  goToRecords = (currentForm) => {
+    goRecordsPage(this.props.componentId, currentForm);
+  }
+
   formList = () => {
     const {searchForm} = this.state;
     let model = this.props.forms.forms;
@@ -119,7 +121,7 @@ class FormList extends React.Component {
       model = model.filter(item => item.formName.toLowerCase().includes(searchForm.toLowerCase()));
     } 
     let _renderItem = ({ item }) => (
-      <TouchableOpacity style={styles.sections}>
+      <TouchableOpacity onPress={() => this.goToRecords(item)} style={styles.sections}>
         <View style={styles.iconLeft}>
           <FontAwesome color='#333'
             name="wpforms"

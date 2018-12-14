@@ -93,6 +93,12 @@ export const goHome = () => Navigation.setRoot({
               component: {
                 name: 'FormList',
                 options: {
+                  sideMenu: {
+                    left: {
+                      enabled: false,
+                      visible: false
+                    }
+                  },
                   topBar: {
                     title: {
                       text: 'Forms'
@@ -143,7 +149,6 @@ export const goCreateFormPage = (id, newForm) => Navigation.push(id, {
   }
 });
 
-
 export const goFieldCustomization = (currentField={}, createField={}, editField={}) => Navigation.showModal({
   stack: {
     children: [{
@@ -171,3 +176,44 @@ export const goFieldCustomization = (currentField={}, createField={}, editField=
     }]
   }
 });
+
+export const goRecordsPage = (id, currentForm) => Navigation.push(id, {
+  component: {
+    id: 'RecordList',
+    name: 'RecordList',
+    passProps: {
+      currentForm
+    },
+    options: {
+      topBar: {
+        title: {
+          text: 'Records Page'
+        },
+        rightButtons: [
+          {
+            id: 'AddRecord',
+            icon: iconsMap['ios-add']
+          }
+        ],
+      },
+    }
+  }
+});
+
+export const goCreateRecordPage = (id, currentForm) => Navigation.push(id, {
+  component: {
+    id: 'CreateRecord',
+    name: 'CreateRecord',
+    passProps: {
+      currentForm
+    },
+    options: {
+      topBar: {
+        title: {
+          text: 'Add Record'
+        },
+      },
+    }
+  }
+});
+

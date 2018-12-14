@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
 
 class DynamicForm extends React.Component {
 
-  componentDidMount() {
+  componentWillMount() {
 
   }
 
@@ -63,6 +63,28 @@ class DynamicForm extends React.Component {
     ImagePicker.showImagePicker(options, response => {
       console.log(response)
     })
+  }
+
+  onChange = (value, key, type = "single") => {
+    console.log(`${key} changed ${value} type ${type}`);
+    if (type === "single") {
+      this.setState({
+        [key]: value
+      });
+    } else {
+      // Array of values (e.g. checkbox): TODO: Optimization needed.
+      let found = this.state[key];
+
+      if (found) {
+        this.setState({
+          [key]: !found
+        });
+      } else {
+        this.setState({
+          [key]: value
+        });
+      }
+    }
   }
 
   renderForm = () => {
@@ -95,8 +117,9 @@ class DynamicForm extends React.Component {
                 keyboardType={`${item.type}`}
                 style={{ height: 50 }}
                 placeholder={item.placeholder}
-                editable={edit} 
+                editable={edit}
                 selectTextOnFocus={edit} 
+                onChangeText={e => { this.onChange(e, item.id) }}
               />
               {editField(item)}
             </View>
@@ -111,15 +134,15 @@ class DynamicForm extends React.Component {
                   <View style={{ flexDirection: 'row' }}>
                     <CheckBox
                       style={{ paddingVertical: 10, paddingRight: 10 }}
-                      disabled={edit}
-                      isChecked={false}
-                      onClick={() => { }}
+                      disabled={!edit}
+                      onClick={() => this.onChange(true, item.id, "multiple")}
+                      isChecked={this.state[item.id]}
                     />
                     <TextInput
                       placeholder="Enter Label of Field"
                       style={[styles.inputField, { flex: 1, }]}
                       value={item.label}
-                      editable={edit}
+                      editable={!edit}
                       selectTextOnFocus={edit} 
                     />
                   </View>
@@ -136,6 +159,8 @@ class DynamicForm extends React.Component {
               <Dropdown
                 label={item.label}
                 data={item.options}
+                value={`Data`}
+                onChangeText={(value,index,data) => this.onChange(value,item.id)}
               />
               {editField(item)}
             </View>
@@ -148,7 +173,7 @@ class DynamicForm extends React.Component {
               <RadioForm
                 radio_props={item.options}
                 initial={0}
-                onPress={(value) => {}}
+                onPress={value => this.onChange(value,item.id)}
                 buttonColor={'grey'}
                 formHorizontal={item.alignment}
               />
@@ -178,7 +203,7 @@ class DynamicForm extends React.Component {
                   {item.currentDate || `DatePicker will show on Click`} </Text>
               </TouchableOpacity>
               <DateTimePicker
-                isVisible={this.state[item.id]}
+                isVisible={!!this.state[item.id]}
                 
                 onConfirm={() =>{
                   this.setState({ [item.id]: false }, () => { console.log(this.state) })
