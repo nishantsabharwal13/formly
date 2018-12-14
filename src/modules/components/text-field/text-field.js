@@ -60,7 +60,7 @@ class TextField extends React.Component {
   }
  
   state = {
-    id: Math.random(),
+    id: Math.round(new Date().getTime() * Math.random()),
     field: "input",
     label: "",
     type: "default",

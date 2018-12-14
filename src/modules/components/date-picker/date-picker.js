@@ -14,6 +14,7 @@ import { Navigation } from 'react-native-navigation';
 import ActionSheet from 'react-native-actionsheet';
 import Colors from '~/constants/colors.js';
 import DateTimePicker from 'react-native-modal-datetime-picker';
+import formatDate from '~/helpers/date-format';
 
 const styles = StyleSheet.create({
   container: {
@@ -66,28 +67,12 @@ class DatePickerField extends React.Component {
   }
 
   state = {
-    id: Math.random(),
+    id: Math.round(new Date().getTime() * Math.random()),
     field: "datepicker",
     label: "",
     type: "default",
     isDateTimePickerVisible: false,
     currentDate: ''
-  }
-
-  formatDate = date => {
-
-    const monthNames = [
-      "January", "February", "March",
-      "April", "May", "June", "July",
-      "August", "September", "October",
-      "November", "December"
-    ];
-
-    const day = date.getDate();
-    const monthIndex = date.getMonth();
-    const year = date.getFullYear();
-
-    return day + ' ' + monthNames[monthIndex] + ' ' + year;
   }
 
   _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
@@ -96,7 +81,7 @@ class DatePickerField extends React.Component {
 
   _handleDatePicked = (date) => {
     console.log(date)
-    this.setState({ currentDate:this.formatDate(date)});
+    this.setState({ currentDate: formatDate(date)});
     this._hideDateTimePicker();
   };
 

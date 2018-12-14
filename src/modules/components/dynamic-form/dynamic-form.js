@@ -16,8 +16,9 @@ import CheckBox from 'react-native-check-box';
 import RadioForm from 'react-native-simple-radio-button';
 import { Dropdown } from 'react-native-material-dropdown';
 import DateTimePicker from 'react-native-modal-datetime-picker';
-import { SketchCanvas } from '@terrylinla/react-native-sketch-canvas';
+import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
 import ImagePicker from 'react-native-image-picker';
+import formatDate from '~/helpers/date-format';
 
 import Colors from '~/constants/colors';
 
@@ -40,51 +41,88 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  btnText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  strokeColorButton: {
+    marginHorizontal: 2.5, marginVertical: 8, width: 30, height: 30, borderRadius: 15,
+  },
+  strokeWidthButton: {
+    marginHorizontal: 2.5, marginVertical: 8, width: 30, height: 30, borderRadius: 15,
+    justifyContent: 'center', alignItems: 'center', backgroundColor: '#39579A'
+  },
+  functionButton: {
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 10,
+    margin: 10,
+    shadowOpacity: 0.75,
+    shadowRadius: 5,
+    shadowColor: Colors.primary,
+    shadowOffset: { height: 0, width: 0 },
+    justifyContent: 'space-evenly',
+    alignItems: 'center'
+  }
 });
 
 class DynamicForm extends React.Component {
 
-  componentWillMount() {
-
+  constructor(props) {
+    super(props);
   }
 
   state = {
     loading: true,
-  }
-  
-  handleChoosePhoto = () => {
-    const options = {
-      title: 'Select Image',
-      storageOptions: {
-        skipBackup: true,
-        path: 'images',
-      },
-    };
-    ImagePicker.showImagePicker(options, response => {
-      console.log(response)
-    })
+    index:0,
   }
 
-  onChange = (value, key, type = "single") => {
-    console.log(`${key} changed ${value} type ${type}`);
-    if (type === "single") {
-      this.setState({
-        [key]: value
-      });
-    } else {
-      // Array of values (e.g. checkbox): TODO: Optimization needed.
-      let found = this.state[key];
-
-      if (found) {
-        this.setState({
-          [key]: !found
-        });
-      } else {
+  onChange = (value='', key='', type = 'single') => {
+    switch(type) {
+      case 'single': 
         this.setState({
           [key]: value
         });
-      }
+        break;
+      case 'multiple': 
+        let found = this.state[key];
+
+        if (found) {
+          this.setState({
+            [key]: !found
+          });
+        } else {
+          this.setState({ [key]: value });
+        }
+        break;
+      case 'date': 
+        this.setState({
+          [key]: value,
+          [`date${key}`]: false,
+        });
+        break;
+      case 'image':
+        let options = {
+          title: 'Select Image',
+          storageOptions: {
+            skipBackup: true,
+            path: 'images',
+          },
+        };
+        ImagePicker.showImagePicker(options, response => {
+          this.setState({
+            [key]: response.uri,
+            index: this.state.index+1
+          });
+        });
+        break;
     }
+
+    this.setState(prevState => ({
+      index: prevState.index + 1
+    }));
+    console.log(this.state);
   }
 
   renderForm = () => {
@@ -130,6 +168,7 @@ class DynamicForm extends React.Component {
               <Text style="styles">{item.label}: </Text>
               <FlatList
                 data={item.options}
+                extraData={this.state.index}
                 renderItem={({ item }) => (
                   <View style={{ flexDirection: 'row' }}>
                     <CheckBox
@@ -186,12 +225,7 @@ class DynamicForm extends React.Component {
               <Text style="styles">{item.label}: </Text>
               <View style={{margin:10}}></View>
               <TouchableOpacity 
-                onPress={() => {
-                  let newState = { ...this.state };
-                  newState[item.id] = true;
-                  this.setState(newState)
-
-                }}
+                onPress={() => this.setState({ [`date${item.id}`]: true,index: this.state.index+1 })}
                 style={{
                   padding: 20, alignItems: 'center',
                   borderWidth: 1,
@@ -199,17 +233,14 @@ class DynamicForm extends React.Component {
                   borderRadius: 8
                 }} 
               >
-                <Text style={{ color: 'grey' }}>
-                  {item.currentDate || `DatePicker will show on Click`} </Text>
+              <Text style={{ color: 'grey' }}>
+                  {this.state[item.id] || item.currentDate || `DatePicker will show on Click`} </Text>
               </TouchableOpacity>
               <DateTimePicker
-                isVisible={!!this.state[item.id]}
-                
-                onConfirm={() =>{
-                  this.setState({ [item.id]: false }, () => { console.log(this.state) })
-                }}
-                onCancel={() => this.setState({[item.id]: false})}
-              />
+                isVisible={this.state[`date${item.id}`]}
+                onConfirm={(date) => {this.onChange(formatDate(date),item.id,'date')}}
+                onCancel={() => this.setState({ [`date${item.id}`]: false, index: this.state.index + 1})}
+            />
               {editField(item)}
             </View>
           );
@@ -217,11 +248,33 @@ class DynamicForm extends React.Component {
           return (
             <View style={[styles.sections, {borderBottomWidth: 0}]}>
               <Text style="styles">{item.label}: </Text>
-              <View style={{ flex: 1, borderWidth: 1,marginTop:20, borderColor: 'grey', height: 150 }}>
-                <SketchCanvas
-                  style={{flex:1}}
-                  strokeColor={Colors.primary}
-                  strokeWidth={4}
+              <View style={{ flex: 1, height: 400, borderWidth: 1, marginTop: 20, borderColor: 'grey', flexDirection: 'row' }}>
+                <RNSketchCanvas
+                  containerStyle={{ backgroundColor: 'transparent', flex: 1 }}
+                  canvasStyle={{ backgroundColor: 'transparent', flex: 1 }}
+                  defaultStrokeIndex={0}
+                  defaultStrokeWidth={5}
+                  onSketchSaved={(success, filepath) => this.onChange(filepath,item.id)}
+                  clearComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Clear</Text></View>}
+                  eraseComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Eraser</Text></View>}
+                  saveComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Save</Text></View>}
+                  localSourceImage={{filename: this.state[item.id]}}
+                  strokeComponent={color => (
+                    <View style={[{ backgroundColor: color }, styles.strokeColorButton]} />
+                  )}
+                  strokeSelectedComponent={(color, index, changed) => {
+                    return (
+                      <View style={[{ backgroundColor: color, borderWidth: 2 }, styles.strokeColorButton]} />
+                    )
+                  }}
+                  savePreference={() => {
+                    return {
+                      folder: 'RNSketchCanvas',
+                      filename: String(Math.ceil(Math.random() * 100000000)),
+                      transparent: false,
+                      imageType: 'png'
+                    }
+                  }}
                 />
               </View>
               {editField(item)}
@@ -241,12 +294,21 @@ class DynamicForm extends React.Component {
               <Text style="styles">{item.label}: </Text>
               <View style={[styles.sections, { borderBottomWidth: 0, }]}>
                 <TouchableOpacity
-                  onPress={this.handleChoosePhoto}
+                  onPress={() => this.onChange('',item.id,'image')}
                 >
-                <Image
-                  style={{ width: 200,height: 200}}
-                  source={require('assets/images/default.jpg')}
-                />
+                {
+                  this.state[item.id] ? (
+                    <Image
+                      style={{ width: 200, height: 200 }}
+                      source={{ uri: this.state[item.id]}}
+                    />
+                  ) : (
+                    <Image
+                      style={{ width: 200,height: 200}}
+                      source={require('assets/images/default.jpg')}
+                    />
+                  )
+                }
                 </TouchableOpacity>
               </View>
               {editField(item)}
@@ -261,6 +323,7 @@ class DynamicForm extends React.Component {
         data={model}
         renderItem={_renderItem}
         keyExtractor={_keyExtractor}
+        extraData={this.state.index}
       />
     )
   }

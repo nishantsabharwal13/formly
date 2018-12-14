@@ -58,7 +58,7 @@ class ImagePicker extends React.Component {
   }
 
   state = {
-    id: Math.random(),
+    id: Math.round(new Date().getTime() * Math.random()),
     field: "imagepicker",
     label: "",
     description: "",

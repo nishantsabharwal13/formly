@@ -81,13 +81,13 @@ class RadioButtonsField extends React.Component {
   }
 
   state = {
-    id: Math.random(),
+    id: Math.round(new Date().getTime() * Math.random()),
     field: "radiobuttons",
     label: "",
     type: "default",
     options: [
-      { id: Math.random(), label: '', value: 0 },
-      { id: Math.random(), label: '', value: 1 },
+      { id: Math.round(new Date().getTime() * Math.random()), label: '', value: 0 },
+      { id: Math.round(new Date().getTime() * Math.random()), label: '', value: 1 },
     ],
     alignment: false,
   }
@@ -97,7 +97,7 @@ class RadioButtonsField extends React.Component {
       options: [
         ...prevState.options,
         {
-          id: Math.random(),
+          id: Math.round(new Date().getTime() * Math.random()),
           label: "",
           value: index,
         }

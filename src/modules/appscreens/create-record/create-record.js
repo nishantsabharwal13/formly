@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
 class CreateRecord extends React.Component {
   constructor(props){
     super(props)

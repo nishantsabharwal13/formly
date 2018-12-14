@@ -58,12 +58,12 @@ class CheckBoxField extends React.Component {
   }
   
   state = {
-    id: Math.random(),
+    id: Math.round(new Date().getTime() * Math.random()),
     field: "checkbox",
     label: "",
     type: "default",
     options: [
-      { id: Math.random(), label: "", value: false },
+      { id: Math.round(new Date().getTime() * Math.random()), label: "", value: false },
     ]
   }
 
@@ -72,7 +72,7 @@ class CheckBoxField extends React.Component {
       options:[
         ...prevState.options, 
         {
-          id: Math.random(),
+          id: Math.round(new Date().getTime() * Math.random()),
           label: "",
           value: false
         }

@@ -101,7 +101,7 @@ class FormList extends React.Component {
         let newForm = { 
           formName,
           formArray: [],
-          id: Math.random(),
+          id: Math.round(new Date().getTime() * Math.random()),
           createdAt: Date.now()
         };
         this.props.createForm(newForm); // push a new form object
