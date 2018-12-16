@@ -182,12 +182,12 @@ export const goRecordsPage = (id, currentForm) => Navigation.push(id, {
     id: 'RecordList',
     name: 'RecordList',
     passProps: {
-      currentForm
+      currentForm,
     },
     options: {
       topBar: {
         title: {
-          text: 'Records Page'
+          text: currentForm.formName
         },
         rightButtons: [
           {
@@ -200,17 +200,18 @@ export const goRecordsPage = (id, currentForm) => Navigation.push(id, {
   }
 });
 
-export const goCreateRecordPage = (id, currentForm) => Navigation.push(id, {
+export const goCreateRecordPage = (id, currentForm,currentRecord) => Navigation.push(id, {
   component: {
     id: 'CreateRecord',
     name: 'CreateRecord',
     passProps: {
-      currentForm
+      currentForm,
+      currentRecord
     },
     options: {
       topBar: {
         title: {
-          text: 'Add Record'
+          text: currentRecord.recordName
         },
       },
     }

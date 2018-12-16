@@ -15,7 +15,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import SearchInput from '~/modules/components/search-input';
 
-import { iconsMap } from '~/helpers/app-icons';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { createForm } from '~/actions/forms';

@@ -17,7 +17,6 @@ import { updateForm } from '~/actions/forms';
 import { goFieldCustomization } from '~/helpers/navigation';
 import Colors from '~/constants/colors.js';
 
-import { iconsMap } from '~/helpers/app-icons';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import DynamicForm from '~/modules/components/dynamic-form';
@@ -38,6 +37,11 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  fallbackText: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
 });
 
@@ -107,12 +111,20 @@ class CreateForm extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <DynamicForm
-          title="Dynamic Form"
-          model={this.state.formArray}
-          edit={false}
-          removeField={this.removeField}
-        />
+        {
+          this.state.formArray ? (
+            <DynamicForm
+              title="Dynamic Form"
+              model={this.state.formArray}
+              edit={false}
+              removeField={this.removeField}
+            />
+          ): (
+            <View style={styles.fallbackText}>
+              <Text>No Fields Created Yet</Text>
+            </View>
+          )
+        }
         <ActionSheet
           ref={o => this.ActionSheet = o}
           title={'Select a field to add'}

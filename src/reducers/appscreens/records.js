@@ -14,12 +14,17 @@ const updaterecord = (items, payload) => {
 
 
 export default function (state = {
-  records: {}
+  records: [{
+    recordArray: [],
+    recordName: 'test',
+    id: 2312,
+    createdAt: 123123213
+  }]
 }, action = {}) {
   switch (action.type) {
     case GET_RECORDS: {
       return {
-        ...state, records: {...state.records}
+        ...state, records: [...state.records]
       };
 
     }

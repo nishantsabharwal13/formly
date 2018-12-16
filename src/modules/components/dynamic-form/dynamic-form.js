@@ -74,7 +74,6 @@ class DynamicForm extends React.Component {
   }
 
   state = {
-    loading: true,
     index:0,
   }
 
@@ -121,8 +120,9 @@ class DynamicForm extends React.Component {
 
     this.setState(prevState => ({
       index: prevState.index + 1
-    }));
-    console.log(this.state);
+    }),() => {
+      this.props.updateRecord(this.state);
+    });
   }
 
   renderForm = () => {

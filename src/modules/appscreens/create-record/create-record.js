@@ -13,8 +13,8 @@ import ActionSheet from 'react-native-actionsheet'
 
 import { Navigation } from 'react-native-navigation';
 import Colors from '~/constants/colors.js';
+import { updateRecord } from '~/actions/records';
 
-import { iconsMap } from '~/helpers/app-icons';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import DynamicForm from '~/modules/components/dynamic-form';
@@ -43,12 +43,33 @@ class CreateRecord extends React.Component {
   }
   
   state = {
+    recordObject: {}
+  }
+
+  updateRecord = (recordProperty) => {
+    this.setState(prevState => ({
+      recordObject: {
+        ...prevState.recordObject,
+        ...recordProperty
+      }
+    }),() => {
+      console.log(this.state)
+    });
 
   }
+
+  handleSaveRecord = () => {
+    const { id } = this.props.currentRecord;
+    const { recordObject } = this.state;
+
+    this.props.updateRecord({ recordObject, id });
+    Navigation.pop(this.props.componentId);
+  }
+
 
   componentDidMount() {
-    console.log(this.props.currentForm)
   }
+
   render() {
     return (
       <View style={styles.container}>
@@ -56,8 +77,9 @@ class CreateRecord extends React.Component {
           title="Dynamic Form"
           model={this.props.currentForm.formArray}
           edit={true}
+          updateRecord={this.updateRecord}
         />
-        <TouchableOpacity style={styles.btn} onPress={this.handleSaveForm}>
+        <TouchableOpacity style={styles.btn} onPress={this.handleSaveRecord}>
           <Text style={styles.btnText}>Save Record</Text>
         </TouchableOpacity>
       </View>
@@ -70,12 +92,13 @@ CreateRecord.defaultProps = {
 
 function mapStateToProps(state) {
   return {
-
+    records: state.records,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
+    updateRecord
   }, dispatch);
 }
 
