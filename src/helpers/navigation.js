@@ -218,3 +218,21 @@ export const goCreateRecordPage = (id, currentForm,currentRecord) => Navigation.
   }
 });
 
+export const goOpenRecord = (id, currentForm, currentRecord) => Navigation.push(id, {
+  component: {
+    id: 'OpenRecord',
+    name: 'OpenRecord',
+    passProps: {
+      currentForm,
+      currentRecord
+    },
+    options: {
+      topBar: {
+        title: {
+          text: currentRecord.recordName
+        },
+      },
+    }
+  }
+});
+

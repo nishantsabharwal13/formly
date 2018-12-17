@@ -19,7 +19,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { createRecord } from '~/actions/records';
 
-import { goCreateRecordPage } from '~/helpers/navigation';
+import { goCreateRecordPage, goOpenRecord } from '~/helpers/navigation';
 import Dialog from "react-native-dialog";
 
 const styles = StyleSheet.create({
@@ -77,7 +77,7 @@ class RecordList extends React.Component {
   }
 
   get model() {
-    return this.props.records.records.filter(item => item.formId === this.props.currentForm.id);
+    return this.props.records.records.filter(item => item.formId === this.props.currentForm.id) || this.props.records.records;
   }   
 
   navigationButtonPressed = ({ buttonId }) => {
@@ -107,7 +107,7 @@ class RecordList extends React.Component {
   }
 
   openRecord = item => {
-
+    goOpenRecord(this.props.componentId, this.props.currentForm, item);
   }
 
   recordList = () => {

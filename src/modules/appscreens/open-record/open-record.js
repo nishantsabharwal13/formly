@@ -1,17 +1,14 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Button,
-  StyleSheet,
-  AsyncStorage,
-  ScrollView,
-  TouchableOpacity,
-  FlatList,
-} from 'react-native';
-import ActionSheet from 'react-native-actionsheet'
 
-import { Navigation } from 'react-native-navigation';
+import {
+View,
+Text,
+Button,
+StyleSheet,
+TouchableOpacity,
+} from 'react-native';
+ 
+import {Navigation} from 'react-native-navigation';
 import Colors from '~/constants/colors.js';
 import { updateRecord } from '~/actions/records';
 
@@ -36,59 +33,52 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
-});
-class CreateRecord extends React.Component {
+}); 
+class OpenRecord extends React.Component {
+ 
   constructor(props){
     super(props)
   }
-  
+
+  componentDidMount() {
+    console.log(this.props.currentRecord.recordObject);
+  }
+
   state = {
-    recordObject: {}
+    editRecord: false,
   }
 
-  updateRecord = (recordProperty) => {
-    this.setState(prevState => ({
-      recordObject: {
-        ...prevState.recordObject,
-        ...recordProperty
-      }
-    }),() => {
-      console.log(this.state)
-    });
+  handleEditRecord = () => {
 
-  }
-
-  handleSaveRecord = () => {
-    const { id } = this.props.currentRecord;
-    const { recordObject } = this.state;
-
-    this.props.updateRecord({ recordObject, id });
-    Navigation.pop(this.props.componentId);
   }
 
   render() {
+    const { editRecord } = this.state;
+
     return (
       <View style={styles.container}>
         <DynamicForm
           title="Dynamic Form"
+          data={this.props.currentRecord.recordObject}
           model={this.props.currentForm.formArray}
           edit={true}
           updateRecord={this.updateRecord}
         />
-        <TouchableOpacity style={styles.btn} onPress={this.handleSaveRecord}>
-          <Text style={styles.btnText}>Save Record</Text>
-        </TouchableOpacity>
+        {editRecord ? (
+          <TouchableOpacity style={styles.btn} onPress={this.handleEditRecord}>
+            <Text style={styles.btnText}>Save Record</Text>
+          </TouchableOpacity>
+        ) : null}
       </View>
     )
   }
 }
 
-CreateRecord.defaultProps = {
+OpenRecord.defaultProps = {
 }
 
 function mapStateToProps(state) {
   return {
-    records: state.records,
   };
 }
 
@@ -98,4 +88,5 @@ function mapDispatchToProps(dispatch) {
   }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateRecord);
+export default connect(mapStateToProps, mapDispatchToProps)(OpenRecord);
+

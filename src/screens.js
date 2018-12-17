@@ -11,6 +11,7 @@ import CreateForm from '~/modules/appscreens/create-form';
 import CustomizeField from '~/modules/appscreens/customize-field';
 import RecordList from '~/modules/appscreens/record-list';
 import CreateRecord from '~/modules/appscreens/create-record';
+import OpenRecord from '~/modules/appscreens/open-record';
 
 import { store, persistor } from '~/store';
 
@@ -25,6 +26,7 @@ const containers = [
   { name: 'CustomizeField', generator: () => CustomizeField },
   { name: 'RecordList', generator: () => RecordList },
   { name: 'CreateRecord', generator: () => CreateRecord },
+  { name: 'OpenRecord', generator: () => OpenRecord },
 ]
 
 export default function registerScreens(Provider, PersistGate) {
