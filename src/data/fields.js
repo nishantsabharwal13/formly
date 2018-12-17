@@ -18,7 +18,7 @@ const Fields = [
   },
   {
     id: "4",
-    fieldName:'Radio Buttons'
+    fieldName:'Selective List'
   },
   {
     id: "5",

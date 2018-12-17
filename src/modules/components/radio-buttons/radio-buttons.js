@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
     padding: 20
   },
   radioButtonOuter: {
-    width: 30,
-    height: 30,
+    width: 20,
+    height: 20,
     borderWidth:1,
     borderRadius:20,
     backgroundColor: 'grey', 
@@ -60,8 +60,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   radioButtonInner: {
-    width: 25,
-    height: 25,
+    width: 15,
+    height: 15,
     borderWidth:1,
     borderRadius:20,
     backgroundColor: '#fff', 
@@ -159,14 +159,14 @@ class RadioButtonsField extends React.Component {
         <View style={styles.sections}>
           <Text>Label</Text>
           <TextInput
-            placeholder="Enter Label of Radio Buttons"
+            placeholder="Enter Label of Selective List"
             style={styles.inputField}
             onchange
             onChangeText={(label) => this.setState({ label })}
           />
         </View>
         <View style={styles.sections}>
-          <Text>Radio Button Options</Text>
+          <Text>Selective List Options</Text>
           {optionsLayout()}
         </View>
         <TouchableOpacity
@@ -176,7 +176,7 @@ class RadioButtonsField extends React.Component {
         <View style={{flexDirection:'row'}}>
           <View>
             <Text>Alignment: Veritical</Text>
-            <Text style={{color:'#ccc'}}>Set Aligment of radio buttons</Text>
+            <Text style={{color:'#ccc'}}>Set Aligment of Selective List</Text>
           </View>
           <Switch 
             style={styles.switch}

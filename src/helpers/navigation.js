@@ -236,13 +236,13 @@ export const goOpenRecord = (id, currentForm, currentRecord) => Navigation.push(
         },
         rightButtons: [
           {
+            id: 'ShareRecord',
+            icon: iconsMap['ios-share']
+          },
+          {
             id: 'EditRecord',
             icon: iconsMap['edit-2']
           },
-          {
-            id: 'ShareRecord',
-            icon: iconsMap['ios-share']
-          }
         ],
       },
     }

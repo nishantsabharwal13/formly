@@ -53,9 +53,7 @@ class CreateRecord extends React.Component {
         ...prevState.recordObject,
         ...recordProperty
       }
-    }),() => {
-      console.log(this.state)
-    });
+    }));
 
   }
 

@@ -35,6 +35,10 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: 'rgba(0,0,0,0.2)',
   },
+  label: {
+    fontSize: 16,
+    fontWeight: '500',
+  },
   icons: {
     position:'absolute',
     right: 0,
@@ -162,7 +166,7 @@ class DynamicForm extends React.Component {
         case 'input':
           return (
             <View style={styles.sections}>
-              <Text style="styles">{item.label}: </Text>
+              <Text style={styles.label}>{item.label}: </Text>
               <TextInput
                 keyboardType={`${item.type}`}
                 style={{ height: 50 }}
@@ -178,7 +182,7 @@ class DynamicForm extends React.Component {
         case 'checkbox':
           return (
             <View style={styles.sections}>
-              <Text style="styles">{item.label}: </Text>
+              <Text style={styles.label}>{item.label}: </Text>
               <FlatList
                 data={item.options}
                 extraData={this.state.index}
@@ -207,7 +211,7 @@ class DynamicForm extends React.Component {
         case 'dropdown':
           return (
             <View style={[styles.sections, {borderBottomWidth: 0}]}>
-              <Text style="styles">{item.label}: </Text>
+              <Text style={styles.label}>{item.label}: </Text>
               <Dropdown
                 label={item.label}
                 data={item.options}
@@ -221,10 +225,9 @@ class DynamicForm extends React.Component {
 
           return (
             <View style={styles.sections}>
-              <Text style="styles">{item.label}</Text>
+              <Text style={styles.label}>{item.label}</Text>
               <View style={{margin:10}}></View>
               <SegmentedControls
-                disabled={true}
                 options={item.options.map(i => i.label)}
                 style={{flexDirection: 'column'}}
                 onSelection={!edit ? () => {} : value => this.onChange(value, item.id) }
@@ -237,7 +240,7 @@ class DynamicForm extends React.Component {
         case 'datepicker':
           return (
             <View style={styles.sections}>
-              <Text style="styles">{item.label}: </Text>
+              <Text style={styles.label}>{item.label}: </Text>
               <View style={{margin:10}}></View>
               <TouchableOpacity 
                 onPress={() => this.setState({ [`date${item.id}`]: true,index: this.state.index+1 })}
@@ -264,11 +267,10 @@ class DynamicForm extends React.Component {
         case 'notes':
           return (
             <View style={[styles.sections, {borderBottomWidth: 0}]}>
-              <Text style="styles">{item.label}: </Text> 
+              <Text style={styles.label}>{item.label}: </Text> 
               {
                 this.state[item.id] ? (
                   <View>
-                    <Text>helo</Text>
                     <Image
                       style={{ flex: 1, height: 400, borderWidth: 1, marginTop: 20, borderColor: 'grey', flexDirection: 'row' }}
                       source={{ uri: Platform.OS === 'android' ? `file://${this.state[item.id]}` : this.state[item.id] }}
@@ -325,7 +327,7 @@ class DynamicForm extends React.Component {
         case 'imagepicker':
           return (
             <View style={styles.sections}>
-              <Text style="styles">{item.label}: </Text>
+              <Text style={styles.label}>{item.label}: </Text>
               <View style={[styles.sections, { borderBottomWidth: 0, }]}>
                 <TouchableOpacity
                   onPress={() => this.onChange('',item.id,'image')}

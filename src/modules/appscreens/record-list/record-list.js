@@ -35,6 +35,8 @@ const styles = StyleSheet.create({
   sections: {
     paddingTop: 15,
     flexDirection: 'row',
+    alignItems:'center',
+    justifyContent:'center',
     paddingBottom: 15,
     borderBottomWidth: 1,
     borderColor: 'rgba(0,0,0,0.1)',
@@ -107,7 +109,8 @@ class RecordList extends React.Component {
   }
 
   openRecord = item => {
-    goOpenRecord(this.props.componentId, this.props.currentForm, item);
+    const updatedForm = this.props.forms.forms.find(item => item.id === this.props.currentForm.id);
+    goOpenRecord(this.props.componentId, updatedForm, item);
   }
 
   recordList = () => {
@@ -121,14 +124,13 @@ class RecordList extends React.Component {
     let _renderItem = ({ item }) => (
       <TouchableOpacity onPress={() => this.openRecord(item)} style={styles.sections}>
         <View style={styles.iconLeft}>
-          <FontAwesome color='#333'
-            name="wpforms"
+          <Ionicons color='#333'
+            name="ios-list"
             size={30}
           />
         </View>
-        <View>
+        <View >
           <Text style={styles.recordName}>{item.recordName}</Text>
-          <Text style={styles.recordDescription}>0 Records</Text>
         </View>
         <View style={styles.iconRight}>
           <FontAwesome color='grey'

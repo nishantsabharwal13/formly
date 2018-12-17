@@ -17,7 +17,7 @@ const initialState = {
 let middleware = [thunk];
 
 const persistConfig = {
-  key: 'root6',
+  key: 'root7',
   storage,
   stateReconciler: hardSet,
 }
