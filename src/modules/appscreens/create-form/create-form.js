@@ -68,8 +68,8 @@ class CreateForm extends React.Component {
     ]
   }
   
-  componentDidAppear() {
-    
+  componentDidMount() {
+    this.setState(this.props.newForm);
   }
 
   get fields() {
@@ -92,7 +92,9 @@ class CreateForm extends React.Component {
     const objIndex = this.state.formArray.findIndex((obj => obj.id === id));
       this.setState((prevState) => ({
         formArray: [...prevState.formArray.slice(0, objIndex), ...prevState.formArray.slice(objIndex + 1)]
-      }))
+      }),() => {
+        console.log(this.state);
+      })
   }
 
   navigateToCustomize = (index) => {

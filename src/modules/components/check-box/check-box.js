@@ -108,7 +108,7 @@ class CheckBoxField extends React.Component {
             <CheckBox
               style={{ paddingVertical: 10, paddingRight: 10 }}
               disabled={true}
-              isChecked={true}
+              isChecked={false}
               onClick={() => {}}
             />
             <TextInput

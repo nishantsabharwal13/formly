@@ -14,6 +14,8 @@ const icons = {
     "ios-add": [30, "#333"],
     "ios-close": [30, "#333"],
     "ios-menu": [30, "#333"],
+    "ios-share": [30, "#333"],
+    "edit-2": [20, "#333", Feather],
 
     "ios-person": [30, "#bbb"],
     "ios-person--big": [50, "#bbb"],

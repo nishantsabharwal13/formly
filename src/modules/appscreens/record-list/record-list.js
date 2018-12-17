@@ -19,7 +19,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { createRecord } from '~/actions/records';
 
-import { goCreateRecordPage, goOpenRecord } from '~/helpers/navigation';
+import { goCreateFormPage, goCreateRecordPage, goOpenRecord } from '~/helpers/navigation';
 import Dialog from "react-native-dialog";
 
 const styles = StyleSheet.create({
@@ -81,9 +81,9 @@ class RecordList extends React.Component {
   }   
 
   navigationButtonPressed = ({ buttonId }) => {
-    buttonId === 'AddRecord' ?
-      this.setState({ isDialogVisible: true })
-      : null;
+    buttonId === 'AddRecord' && this.setState({ isDialogVisible: true });
+
+    buttonId === 'EditForm' && goCreateFormPage(this.props.componentId, this.props.currentForm);
   }
 
   createRecord = () => {
@@ -149,7 +149,7 @@ class RecordList extends React.Component {
       />
     ) : (
         <View style={styles.fallbackText}>
-          <Text>No Records Created Yet</Text>
+          <Text>No Records Found</Text>
         </View>
       )
   }
@@ -185,7 +185,8 @@ class RecordList extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    records: state.records
+    records: state.records,
+    forms: state.forms,
   };
 }
 

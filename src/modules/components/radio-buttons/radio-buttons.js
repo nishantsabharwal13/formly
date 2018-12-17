@@ -175,7 +175,7 @@ class RadioButtonsField extends React.Component {
         </TouchableOpacity>
         <View style={{flexDirection:'row'}}>
           <View>
-            <Text>Alignment: Horizontal</Text>
+            <Text>Alignment: Veritical</Text>
             <Text style={{color:'#ccc'}}>Set Aligment of radio buttons</Text>
           </View>
           <Switch 

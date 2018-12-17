@@ -9,12 +9,9 @@ TouchableOpacity,
 } from 'react-native';
  
 import {Navigation} from 'react-native-navigation';
-import Colors from '~/constants/colors.js';
-import { updateRecord } from '~/actions/records';
-
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { goCreateRecordPage } from '~/helpers/navigation';
 import DynamicForm from '~/modules/components/dynamic-form';
+import Colors from '~/constants/colors.js';
 
 const styles = StyleSheet.create({
   container: {
@@ -37,24 +34,21 @@ const styles = StyleSheet.create({
 class OpenRecord extends React.Component {
  
   constructor(props){
-    super(props)
+    super(props);
+    Navigation.events().bindComponent(this);
   }
 
-  componentDidMount() {
-    console.log(this.props.currentRecord.recordObject);
+  navigationButtonPressed = ({ buttonId }) => {
+    const {componentId, currentForm, currentRecord} = this.props;
+    buttonId === 'EditRecord' && goCreateRecordPage(componentId, currentForm, currentRecord)
   }
 
   state = {
     editRecord: false,
-  }
-
-  handleEditRecord = () => {
-
+    recordObject: {},
   }
 
   render() {
-    const { editRecord } = this.state;
-
     return (
       <View style={styles.container}>
         <DynamicForm
@@ -62,13 +56,7 @@ class OpenRecord extends React.Component {
           data={this.props.currentRecord.recordObject}
           model={this.props.currentForm.formArray}
           edit={true}
-          updateRecord={this.updateRecord}
         />
-        {editRecord ? (
-          <TouchableOpacity style={styles.btn} onPress={this.handleEditRecord}>
-            <Text style={styles.btnText}>Save Record</Text>
-          </TouchableOpacity>
-        ) : null}
       </View>
     )
   }
@@ -77,16 +65,4 @@ class OpenRecord extends React.Component {
 OpenRecord.defaultProps = {
 }
 
-function mapStateToProps(state) {
-  return {
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    updateRecord
-  }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(OpenRecord);
-
+export default OpenRecord;

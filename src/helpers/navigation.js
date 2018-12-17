@@ -1,5 +1,4 @@
 import { Navigation } from 'react-native-navigation';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { iconsMap } from './app-icons';
 
 
@@ -193,6 +192,10 @@ export const goRecordsPage = (id, currentForm) => Navigation.push(id, {
           {
             id: 'AddRecord',
             icon: iconsMap['ios-add']
+          },
+          {
+            id:'EditForm',
+            icon: iconsMap['edit-2']
           }
         ],
       },
@@ -231,6 +234,16 @@ export const goOpenRecord = (id, currentForm, currentRecord) => Navigation.push(
         title: {
           text: currentRecord.recordName
         },
+        rightButtons: [
+          {
+            id: 'EditRecord',
+            icon: iconsMap['edit-2']
+          },
+          {
+            id: 'ShareRecord',
+            icon: iconsMap['ios-share']
+          }
+        ],
       },
     }
   }

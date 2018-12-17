@@ -39,11 +39,12 @@ const styles = StyleSheet.create({
 });
 class CreateRecord extends React.Component {
   constructor(props){
-    super(props)
+    super(props);
+
   }
-  
+
   state = {
-    recordObject: {}
+    recordObject: {},
   }
 
   updateRecord = (recordProperty) => {
@@ -71,6 +72,7 @@ class CreateRecord extends React.Component {
       <View style={styles.container}>
         <DynamicForm
           title="Dynamic Form"
+          data={this.props.currentRecord.recordObject}
           model={this.props.currentForm.formArray}
           edit={true}
           updateRecord={this.updateRecord}
@@ -88,6 +90,7 @@ CreateRecord.defaultProps = {
 
 function mapStateToProps(state) {
   return {
+    forms:state.forms,
     records: state.records,
   };
 }

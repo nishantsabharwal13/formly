@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import CheckBox from 'react-native-check-box';
-import RadioForm from 'react-native-simple-radio-button';
+import { SegmentedControls } from 'react-native-radio-buttons'
 import { Dropdown } from 'react-native-material-dropdown';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
@@ -77,26 +77,20 @@ class DynamicForm extends React.Component {
     index: 0,
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    
-    if (nextProps.data && Object.keys(nextProps.data).length) {
-      return {
-        ...nextProps.data
-      }
-    } else {
-      // Assign default values of "" to our controlled input
-      // If we don't do this, React will throw the error
-      // that Input elements should not switch from uncontrolled to controlled 
-      // or (vice versa)
-      return  null
-    }
+  componentDidMount() {
+    if (this.props.data && Object.keys(this.props.data).length) {
+      this.setState({
+        ...this.props.data
+      });
+    };
   }
 
   onChange = (value='', key='', type = 'single') => {
     switch(type) {
       case 'single': 
         this.setState({
-          [key]: value
+          [key]: value,
+          index: this.state.index + 1
         });
         break;
       case 'multiple': 
@@ -143,7 +137,7 @@ class DynamicForm extends React.Component {
   }
 
   renderForm = () => {
-    let {edit,model} = this.props;
+    let {edit, editRecord, model} = this.props;
 
     const editField = item => !edit ? (
       <View style={styles.icons}>
@@ -216,23 +210,25 @@ class DynamicForm extends React.Component {
               <Dropdown
                 label={item.label}
                 data={item.options}
-                value={(this.state[item.id] && item.options[this.state[item.id]].label) || ''}
+                value={(this.state[item.id] && item.options[this.state[item.id]].label)}
                 onChangeText={(value,index,data) => this.onChange(value,item.id)}
               />
               {editField(item)}
             </View>
           );
         case 'radiobuttons':
+
           return (
             <View style={styles.sections}>
-              <Text style="styles">{item.label}: </Text>
+              <Text style="styles">{item.label}</Text>
               <View style={{margin:10}}></View>
-              <RadioForm
-                radio_props={item.options}
-                initial={this.state[item.id] || 0}
-                onPress={value => this.onChange(value,item.id)}
-                buttonColor={'grey'}
-                formHorizontal={item.alignment}
+              <SegmentedControls
+                disabled={true}
+                options={item.options.map(i => i.label)}
+                style={{flexDirection: 'column'}}
+                onSelection={!edit ? () => {} : value => this.onChange(value, item.id) }
+                selectedOption={this.state[item.id] || 0}
+                containerStyle={{ flexDirection: item.alignment ? 'column' : 'row', pointerEvents: 'none'}}
               />
               {editField(item)}
             </View>
@@ -244,6 +240,7 @@ class DynamicForm extends React.Component {
               <View style={{margin:10}}></View>
               <TouchableOpacity 
                 onPress={() => this.setState({ [`date${item.id}`]: true,index: this.state.index+1 })}
+                disabled={!edit}
                 style={{
                   padding: 20, alignItems: 'center',
                   borderWidth: 1,
@@ -274,34 +271,39 @@ class DynamicForm extends React.Component {
                     source={{ uri: this.state[item.id] }}
                   />
                 ) : (
+                  
                   <View style={{ flex: 1, height: 400, borderWidth: 1, marginTop: 20, borderColor: 'grey', flexDirection: 'row' }}>
-                    <RNSketchCanvas
-                      containerStyle={{ backgroundColor: 'transparent', flex: 1 }}
-                      canvasStyle={{ backgroundColor: 'transparent', flex: 1 }}
-                      defaultStrokeIndex={0}
-                      defaultStrokeWidth={5}
-                      onSketchSaved={(success, filepath) => this.onChange(filepath,item.id)}
-                      clearComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Clear</Text></View>}
-                      eraseComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Eraser</Text></View>}
-                      saveComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Save</Text></View>}
-                      localSourceImage={{filename: this.state[item.id]}}
-                      strokeComponent={color => (
-                        <View style={[{ backgroundColor: color }, styles.strokeColorButton]} />
-                      )}
-                      strokeSelectedComponent={(color, index, changed) => {
-                        return (
-                          <View style={[{ backgroundColor: color, borderWidth: 2 }, styles.strokeColorButton]} />
-                        )
-                      }}
-                      savePreference={() => {
-                        return {
-                          folder: 'RNSketchCanvas',
-                          filename: String(Math.ceil(Math.random() * 100000000)),
-                          transparent: false,
-                          imageType: 'png'
-                        }
-                      }}
-                    />
+                    {
+                      edit ? (
+                        <RNSketchCanvas
+                          containerStyle={{ backgroundColor: 'transparent', flex: 1 }}
+                          canvasStyle={{ backgroundColor: 'transparent', flex: 1 }}
+                          defaultStrokeIndex={0}
+                          defaultStrokeWidth={5}
+                          onSketchSaved={(success, filepath) => this.onChange(filepath,item.id)}
+                          clearComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Clear</Text></View>}
+                          eraseComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Eraser</Text></View>}
+                          saveComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Save</Text></View>}
+                          localSourceImage={{filename: this.state[item.id]}}
+                          strokeComponent={color => (
+                            <View style={[{ backgroundColor: color }, styles.strokeColorButton]} />
+                          )}
+                          strokeSelectedComponent={(color, index, changed) => {
+                            return (
+                              <View style={[{ backgroundColor: color, borderWidth: 2 }, styles.strokeColorButton]} />
+                            )
+                          }}
+                          savePreference={() => {
+                            return {
+                              folder: 'RNSketchCanvas',
+                              filename: String(Math.ceil(Math.random() * 100000000)),
+                              transparent: false,
+                              imageType: 'png'
+                            }
+                          }}
+                        />
+                      ) : null
+                    }
                   </View>
                 )
               }
@@ -323,6 +325,7 @@ class DynamicForm extends React.Component {
               <View style={[styles.sections, { borderBottomWidth: 0, }]}>
                 <TouchableOpacity
                   onPress={() => this.onChange('',item.id,'image')}
+                  disabled={!edit}
                 >
                 {
                   this.state[item.id] ? (

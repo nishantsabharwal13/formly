@@ -150,7 +150,7 @@ class FormList extends React.Component {
       />
     ) : (
         <View style={styles.fallbackText}>
-          <Text>No Forms Created Yet</Text>
+          <Text>No Forms Found</Text>
         </View>
     )
   }
