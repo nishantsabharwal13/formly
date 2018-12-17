@@ -72,7 +72,7 @@ class CreateRecord extends React.Component {
       <View style={styles.container}>
         <DynamicForm
           title="Dynamic Form"
-          data={this.props.currentRecord.recordObject}
+          data={this.props.currentRecord ? this.props.currentRecord.recordObject : {}}
           model={this.props.currentForm.formArray}
           edit={true}
           updateRecord={this.updateRecord}

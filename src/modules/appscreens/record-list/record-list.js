@@ -77,7 +77,7 @@ class RecordList extends React.Component {
   }
 
   get model() {
-    return this.props.records.records.filter(item => item.formId === this.props.currentForm.id) || this.props.records.records;
+    return this.props.records && this.props.records.records.filter(item => this.props.currentForm ? item.formId === this.props.currentForm.id : item) 
   }   
 
   navigationButtonPressed = ({ buttonId }) => {
@@ -96,7 +96,7 @@ class RecordList extends React.Component {
       let newRecord = {
         recordName,
         recordObject: {},
-        formId: this.props.currentForm.id,
+        formId: this.props.currentForm ? this.props.currentForm.id : '',
         id: Math.round(new Date().getTime() * Math.random()),
         createdAt: Date.now()
       };

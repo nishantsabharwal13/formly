@@ -10,6 +10,7 @@ import {
   TextInput,
   ScrollView,
   Image,
+  Platform,
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import CheckBox from 'react-native-check-box';
@@ -266,10 +267,13 @@ class DynamicForm extends React.Component {
               <Text style="styles">{item.label}: </Text> 
               {
                 this.state[item.id] ? (
-                  <Image
-                    style={{ flex: 1, height: 400, borderWidth: 1, marginTop: 20, borderColor: 'grey', flexDirection: 'row' }}
-                    source={{ uri: this.state[item.id] }}
-                  />
+                  <View>
+                    <Text>helo</Text>
+                    <Image
+                      style={{ flex: 1, height: 400, borderWidth: 1, marginTop: 20, borderColor: 'grey', flexDirection: 'row' }}
+                      source={{ uri: Platform.OS === 'android' ? `file://${this.state[item.id]}` : this.state[item.id] }}
+                    />
+                  </View>
                 ) : (
                   
                   <View style={{ flex: 1, height: 400, borderWidth: 1, marginTop: 20, borderColor: 'grey', flexDirection: 'row' }}>
@@ -284,7 +288,7 @@ class DynamicForm extends React.Component {
                           clearComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Clear</Text></View>}
                           eraseComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Eraser</Text></View>}
                           saveComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Save</Text></View>}
-                          localSourceImage={{filename: this.state[item.id]}}
+                          localSourceImage={{filename: this.state[item.id] || ''}}
                           strokeComponent={color => (
                             <View style={[{ backgroundColor: color }, styles.strokeColorButton]} />
                           )}
