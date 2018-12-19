@@ -11,39 +11,39 @@ import Colors from '~/constants/colors';
 const styles = StyleSheet.create({
   container: {
     zIndex: Platform.OS === 'android' ? 0 : 1,
-    ...Platform.select({
-      ios: {
-        height: 41,
-        padding: 10,
-      },
-      android: {
-        height: 60,
-        padding: 10,
-      },
-    }),
+    padding: 10,
+    backgroundColor: Colors.topBar,
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  textInput: {
+    flexDirection: 'row',
+    alignItems:'center',
     borderWidth: StyleSheet.hairlineWidth,
-    borderColor: 'grey',
+    backgroundColor: '#fff',
+    padding: 10,
     ...Platform.select({
       ios: {
-        paddingHorizontal: 10,
         borderRadius: 8,
       },
       android: {
-        paddingHorizontal: 14,
-        borderWidth: StyleSheet.hairlineWidth,
-        borderColor: 'rgba(0, 0, 0, .3)',
-        elevation: 4,
         borderRadius: 2,
       },
     }),
   },
   input: {
+    ...Platform.select({
+      ios: {
+        height: 41,
+      },
+      android: {
+        height: 60,
+      },
+    }),
+    backgroundColor: '#fff',
     flex: 1,
     paddingLeft:5,
     height: '100%',
-    backgroundColor: '#fff',
     fontSize: 15,
     color: Colors.primary,
   },
@@ -58,6 +58,7 @@ export default ({
   ...inputProps
 }) => (
     <View style={styles.container}>
+      <View style={styles.textInput}>
       {leftEle}
       <TextInput
         style={styles.input}
@@ -70,5 +71,6 @@ export default ({
         {...inputProps}
       />
       {rightEle}
+      </View>
     </View>
   );

@@ -25,7 +25,6 @@ import Dialog from "react-native-dialog";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
   },
   popup: {
     backgroundColor: 'blue',
