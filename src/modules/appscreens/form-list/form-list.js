@@ -22,6 +22,8 @@ import { goCreateFormPage, goRecordsPage } from '~/helpers/navigation';
 import Colors from '~/constants/colors';
 import Dialog from "react-native-dialog";
 
+import Card from '~/modules/global/card';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -31,33 +33,11 @@ const styles = StyleSheet.create({
     opacity: 1,
     zIndex: 2,
   },
-  sections: {
-    paddingTop: 15,
-    flexDirection: 'row',
-    paddingBottom: 15,
-    borderBottomWidth: 1,
-    borderColor: 'rgba(0,0,0,0.1)',
-  },
-  formName: {
-    fontSize:16,
-    textTransform: 'capitalize',
-  },
-  formDescription: {
-    fontSize: 10,
-    color: 'grey'
-  },
   fallbackText: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
   },
-  iconLeft: {
-    paddingHorizontal: 10,
-  },
-  iconRight: {
-    paddingHorizontal: 10,
-    marginLeft: 'auto',
-  }
 });
 
 class FormList extends React.Component {
@@ -119,24 +99,13 @@ class FormList extends React.Component {
       model = model.filter(item => item.formName.toLowerCase().includes(searchForm.toLowerCase()));
     } 
     let _renderItem = ({ item }) => (
-      <TouchableOpacity onPress={() => this.goToRecords(item)} style={styles.sections}>
-        <View style={styles.iconLeft}>
-          <FontAwesome color='#333'
-            name="wpforms"
-            size={30}
-          />
-        </View>
-        <View>
-          <Text style={styles.formName}>{item.formName}</Text>
-          <Text style={styles.formDescription}>0 Records</Text>
-        </View>
-        <View style={styles.iconRight}>
-          <FontAwesome color='grey'
-            name="angle-right"
-            size={30}
-          />
-        </View>
-      </TouchableOpacity>
+      <Card
+        onPress={() => this.goToRecords(item)}
+        name={item.formName}
+        createdAt={item.createdAt}
+        leftEle={(<FontAwesome color='#333' name="wpforms" size={30}/>)}
+        rightEle={(<FontAwesome color='#333' name="angle-right" size={30}/>)}
+      />
     );
 
     let _keyExtractor = (item,key) => `${key}`;

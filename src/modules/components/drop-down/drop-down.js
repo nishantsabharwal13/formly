@@ -13,6 +13,7 @@ import {
 import Colors from '~/constants/colors';
 import { Navigation } from 'react-native-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import SaveButton from '~/modules/global/save-button';
 
 const styles = StyleSheet.create({
   container: {
@@ -30,17 +31,6 @@ const styles = StyleSheet.create({
     height: 50,
     paddingLeft: 10,
     paddingBottom: 0,
-  },
-  btn: {
-    backgroundColor: Colors.primary,
-    padding: 16,
-    alignItems: 'center',
-    marginTop: 'auto',
-  },
-  btnText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
   },
   addMore: {
     alignItems: 'center',
@@ -147,9 +137,7 @@ class DropDownField extends React.Component {
           style={styles.addMore} onPress={() => this.addMore(this.state.options.length)}>
           <Text style={styles.addMoreText} t>+ Add Option</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btn} onPress={() => this.props.saveField(this.state)}>
-          <Text style={styles.btnText}>Save Field</Text>
-        </TouchableOpacity>
+        <SaveButton onPress={() => this.props.saveField(this.state)}/>
       </ScrollView>
     );
   }

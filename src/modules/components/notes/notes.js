@@ -14,7 +14,7 @@ import { Navigation } from 'react-native-navigation';
 import ActionSheet from 'react-native-actionsheet';
 import Colors from '~/constants/colors.js';
 import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
-
+import SaveButton from '~/modules/global/save-button';
 
 const styles = StyleSheet.create({
   container: {
@@ -31,17 +31,6 @@ const styles = StyleSheet.create({
   inputField: {
     height: 50,
     paddingBottom: 0,
-  },
-  btn: {
-    backgroundColor: Colors.primary,
-    padding: 16,
-    alignItems: 'center',
-    marginTop: 'auto',
-  },
-  btnText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
   },
   strokeColorButton: {
     marginHorizontal: 2.5, marginVertical: 8, width: 30, height: 30, borderRadius: 15,
@@ -131,9 +120,7 @@ class NotesField extends React.Component {
         </View>
         <View style={styles.sections}>
         </View>
-        <TouchableOpacity style={styles.btn} onPress={() => this.props.saveField(this.state)}>
-          <Text style={styles.btnText}>Save Field</Text>
-        </TouchableOpacity>
+        <SaveButton onPress={() => this.props.saveField(this.state)}/>
       </View>
     );
   }

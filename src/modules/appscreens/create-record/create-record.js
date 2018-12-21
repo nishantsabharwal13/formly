@@ -18,23 +18,13 @@ import { updateRecord } from '~/actions/records';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import DynamicForm from '~/modules/components/dynamic-form';
+import SaveButton from '~/modules/global/save-button';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
 
-  },
-  btn: {
-    backgroundColor: Colors.primary,
-    padding: 16,
-    alignItems: 'center',
-    marginTop: 'auto',
-  },
-  btnText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
   },
 });
 class CreateRecord extends React.Component {
@@ -75,9 +65,7 @@ class CreateRecord extends React.Component {
           edit={true}
           updateRecord={this.updateRecord}
         />
-        <TouchableOpacity style={styles.btn} onPress={this.handleSaveRecord}>
-          <Text style={styles.btnText}>Save Record</Text>
-        </TouchableOpacity>
+        <SaveButton onPress={this.handleSaveRecord}/>
       </View>
     )
   }

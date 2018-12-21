@@ -20,23 +20,13 @@ import Colors from '~/constants/colors.js';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import DynamicForm from '~/modules/components/dynamic-form';
+import SaveButton from '~/modules/global/save-button';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
 
-  },
-  btn: {
-    backgroundColor: Colors.primary,
-    padding: 16,
-    alignItems: 'center',
-    marginTop: 'auto',
-  },
-  btnText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
   },
   fallbackText: {
     flex: 1,
@@ -134,9 +124,7 @@ class CreateForm extends React.Component {
           cancelButtonIndex={8}
           onPress={index => index!=8 ? this.navigateToCustomize(index) : null}
         />
-        <TouchableOpacity style={styles.btn} onPress={this.handleSaveForm}>
-          <Text style={styles.btnText}>Save Form</Text>
-        </TouchableOpacity>
+        <SaveButton onPress={this.handleSaveForm}/>
       </View>
     )
   }

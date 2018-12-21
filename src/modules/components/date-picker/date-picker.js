@@ -15,6 +15,7 @@ import ActionSheet from 'react-native-actionsheet';
 import Colors from '~/constants/colors.js';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import formatDate from '~/helpers/date-format';
+import SaveButton from '~/modules/global/save-button';
 
 const styles = StyleSheet.create({
   container: {
@@ -37,17 +38,6 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     color: 'grey',
     opacity: 0.7
-  },
-  btn: {
-    backgroundColor: Colors.primary,
-    padding: 16,
-    alignItems: 'center',
-    marginTop: 'auto',
-  },
-  btnText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
   },
   datePickerBtn: {
     marginVertical: 20, padding: 20, alignItems: 'center',
@@ -111,9 +101,7 @@ class DatePickerField extends React.Component {
               onCancel={this._hideDateTimePicker}
             />
         </View>
-        <TouchableOpacity style={styles.btn} onPress={() => this.props.saveField(this.state)}>
-          <Text style={styles.btnText}>Save Field</Text>
-        </TouchableOpacity>
+        <SaveButton onPress={() => this.props.saveField(this.state)}/>
       </ScrollView>
     );
   }

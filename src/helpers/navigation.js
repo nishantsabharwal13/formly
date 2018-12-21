@@ -7,10 +7,11 @@ Navigation.setDefaultOptions({
     backgroundColor: Colors.lightGrey,
   },
   topBar: {
-    headerTintColor:Colors.primary,
     backButton: { // android
       color: Colors.primary,
     },
+    noBorder: true,
+    borderColor:'transparent',
     buttonColor: Colors.primary, // iOS
     title: {
       color: Colors.primary,
@@ -21,6 +22,9 @@ Navigation.setDefaultOptions({
     leftButtons: {
       color: Colors.primary
     },
+    background: {
+      color: Colors.topBar
+    }
   },
 });
 

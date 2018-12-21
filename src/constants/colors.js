@@ -1,7 +1,7 @@
 
 const Colors = {
-  primary: '#EE596C',
-  topBar: '#fff',
+  primary: '#fff',
+  topBar: '#EE596C',
 
   blue: '#4a90e2',
   blueLight: '#4a90e280',

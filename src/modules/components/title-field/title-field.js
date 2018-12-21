@@ -13,6 +13,7 @@ import {
 import { Navigation } from 'react-native-navigation';
 import ActionSheet from 'react-native-actionsheet';
 import Colors from '~/constants/colors.js';
+import SaveButton from '~/modules/global/save-button';
 
 const styles = StyleSheet.create({
   container: {
@@ -28,17 +29,6 @@ const styles = StyleSheet.create({
   inputField: {
     height: 50,
     paddingBottom: 0,
-  },
-  btn: {
-    backgroundColor: Colors.primary,
-    padding: 16,
-    alignItems: 'center',
-    marginTop: 'auto',
-  },
-  btnText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
   },
 });
 
@@ -81,9 +71,7 @@ class TitleField extends React.Component {
           />
         </View>
 
-        <TouchableOpacity style={styles.btn} onPress={() => this.props.saveField(this.state)}>
-          <Text style={styles.btnText}>Save Field</Text>
-        </TouchableOpacity>
+        <SaveButton onPress={() => this.props.saveField(this.state)}/>
       </ScrollView>
     );
   }

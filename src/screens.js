@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navigation } from 'react-native-navigation';
 
+import SignIn from '~/modules/appscreens/signin';
 import Drawer from '~/modules/global/drawer';
 import Home from '~/modules/appscreens/home';
-import SignIn from '~/modules/appscreens/signin';
 import SignUp from '~/modules/appscreens/signup';
 import Initializing from '~/modules/appscreens/initialization';
 import FormList from '~/modules/appscreens/form-list';
@@ -17,8 +17,8 @@ import { store, persistor } from '~/store';
 
 const containers = [
   { name: 'Initializing', generator: () => Initializing },
-  { name: 'Drawer', generator: () => Drawer },
   { name: 'Home', generator: () => Home },
+  { name: 'Drawer', generator: () => Drawer },
   { name: 'FormList', generator: () => FormList },
   { name: 'SignIn', generator: () => SignIn },
   { name: 'SignUp', generator: () => SignUp },

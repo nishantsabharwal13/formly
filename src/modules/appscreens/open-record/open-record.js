@@ -15,23 +15,13 @@ import Colors from '~/constants/colors.js';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { updateRecord } from '~/actions/records';
+import SaveButton from '~/modules/global/save-button';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
 
-  },
-  btn: {
-    backgroundColor: Colors.primary,
-    padding: 16,
-    alignItems: 'center',
-    marginTop: 'auto',
-  },
-  btnText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
   },
 }); 
 class OpenRecord extends React.Component {
@@ -82,9 +72,7 @@ class OpenRecord extends React.Component {
         />
         {
           this.state.editRecord ? (
-            <TouchableOpacity style={styles.btn} onPress={this.handleEditForm}>
-              <Text style={styles.btnText}>Save Form</Text>
-            </TouchableOpacity>
+            <SaveButton onPress={this.handleEditForm}/>
           ) : null
         }
       </View>

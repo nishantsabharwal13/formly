@@ -21,6 +21,8 @@ import { createRecord } from '~/actions/records';
 
 import { goCreateFormPage, goCreateRecordPage, goOpenRecord } from '~/helpers/navigation';
 import Dialog from "react-native-dialog";
+import Colors from '../../../constants/colors';
+import Card from '~/modules/global/card';
 
 const styles = StyleSheet.create({
   container: {
@@ -31,35 +33,11 @@ const styles = StyleSheet.create({
     opacity: 1,
     zIndex: 2,
   },
-  sections: {
-    paddingTop: 15,
-    flexDirection: 'row',
-    alignItems:'center',
-    justifyContent:'center',
-    paddingBottom: 15,
-    borderBottomWidth: 1,
-    borderColor: 'rgba(0,0,0,0.1)',
-  },
-  recordName: {
-    fontSize: 16,
-    textTransform: 'capitalize',
-  },
-  recordDescription: {
-    fontSize: 10,
-    color: 'grey'
-  },
   fallbackText: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
   },
-  iconLeft: {
-    paddingHorizontal: 10,
-  },
-  iconRight: {
-    paddingHorizontal: 10,
-    marginLeft: 'auto',
-  }
 });
 
 class RecordList extends React.Component {
@@ -121,23 +99,13 @@ class RecordList extends React.Component {
     }
 
     let _renderItem = ({ item }) => (
-      <TouchableOpacity onPress={() => this.openRecord(item)} style={styles.sections}>
-        <View style={styles.iconLeft}>
-          <Ionicons color='#333'
-            name="ios-list"
-            size={30}
-          />
-        </View>
-        <View >
-          <Text style={styles.recordName}>{item.recordName}</Text>
-        </View>
-        <View style={styles.iconRight}>
-          <FontAwesome color='grey'
-            name="angle-right"
-            size={30}
-          />
-        </View>
-      </TouchableOpacity>
+      <Card
+        onPress={() => this.openRecord(item)}
+        name={item.recordName}
+        createdAt={item.createdAt}
+        leftEle={(<Ionicons name="ios-list" size={30} />)}
+        rightEle={(<FontAwesome name="angle-right" size={30} />)}
+      />
     );
 
     let _keyExtractor = (item, key) => `${key}`;

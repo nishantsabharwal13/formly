@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     paddingLeft:5,
     height: '100%',
     fontSize: 15,
-    color: Colors.primary,
+    color: Colors.text,
   },
 });
 
