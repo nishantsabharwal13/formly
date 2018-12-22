@@ -1,33 +1,6 @@
 import { Navigation } from 'react-native-navigation';
 import { iconsMap } from './app-icons';
-import Colors from '~/constants/colors';
-
-Navigation.setDefaultOptions({
-  layout: {
-    backgroundColor: Colors.lightGrey,
-    topMargin: Navigation.constants().statusBarHeight,
-  },
-  topBar: {
-    backButton: { // android
-      color: Colors.primary,
-    },
-    borderHeight: 0,
-    elevation: 1, // TopBar elevation in dp
-    buttonColor: Colors.primary, // iOS
-    title: {
-      color: Colors.primary,
-    },
-    rightButtons:  {
-    color: Colors.primary
-    },
-    leftButtons: {
-      color: Colors.primary
-    },
-    background: {
-      color: Colors.topBar
-    }
-  },
-});
+import Colors from '../constants/colors';
 
 export const goToAuth = () => Navigation.setRoot({
   root: {
@@ -63,64 +36,87 @@ export const goToAuth = () => Navigation.setRoot({
   }
 });
 
-export const goHome = () => Navigation.setRoot({
-  root: {
-    sideMenu: {
-      openGestureMode: 'entireScreen' | 'bezel',
-      left: {
-        component: {
-          name: 'Drawer',
-          id: 'leftSideDrawer',
-          passProps: {
-            text: 'side menu'
-          },
-          options: {
+export const goHome = () => {
+  
+  Navigation.setDefaultOptions({
+    layout: {
+      backgroundColor: Colors.lightGrey,
+    },
+    topBar: {
+      buttonColor: '#fff', // iOS
+      backButton: {
+        color: Colors.primary,
+        visible: true
+      },
+      title: {
+        color: Colors.primary,
+      },
+      background: {
+        color: Colors.topBar
+      }
+    },
+  });
+
+  Navigation.setRoot({
+    root: {
+      sideMenu: {
+        openGestureMode: 'entireScreen' | 'bezel',
+        left: {
+          component: {
+            name: 'Drawer',
+            id: 'leftSideDrawer',
+            passProps: {
+              text: 'side menu'
+            },
+            options: {
+            },
           },
         },
-      },
-      center: {
-        stack: {
-          id: 'App',
-          children: [
-            {
-              component: {
-                name: 'FormList',
-                options: {
-                    sideMenu: {
-                    left: {
-                      enabled: false,
-                      visible: false
-                    }
-                  },
-                  buttonColor: 'red',
-                  topBar: {
-                    noBorder: true,
-                    elevation: 0,
-                    title: {
-                      text: 'Forms',
+        center: {
+          stack: {
+            id: 'App',
+            children: [
+              {
+                component: {
+                  name: 'FormList',
+                  options: {
+                      sideMenu: {
+                      left: {
+                        enabled: false,
+                        visible: false
+                      }
                     },
-                    rightButtons: [
-                      {
-                        id: 'CreateForm',
-                        icon: iconsMap['ios-add'],
-                      }
-                    ],
-                    leftButtons: [
-                      {
-                        id: 'SideMenu',
-                        icon: iconsMap['ios-menu'],
-                      }
-                    ],
+                    topBar: {
+                      noBorder: true,
+                      elevation: 0,
+                      title: {
+                        text: 'Forms',
+                      },
+                      rightButtons: [
+                        {
+                          id: 'CreateForm',
+                          icon: iconsMap['ios-add'],
+                          color: Colors.primary
+                        }
+                      ],
+                      leftButtons: [
+                        {
+                          id: 'SideMenu',
+                          icon: iconsMap['ios-menu'],
+                          color: Colors.primary
+                        }
+                      ],
+                    }
                   }
                 }
-              }
-            },
-          ],
+              },
+            ],
+          }
         }
       }
     }
-  }
-});
+  });
+}
 
 export const goCreateFormPage = (id, newForm) => Navigation.push(id, {
   component: {
@@ -130,9 +126,7 @@ export const goCreateFormPage = (id, newForm) => Navigation.push(id, {
       newForm
     },
     options: {
-      buttonColor: 'red',
       topBar: {
-        buttonColor: 'red',
         title: {
           text: newForm.formName
         },
@@ -140,6 +134,7 @@ export const goCreateFormPage = (id, newForm) => Navigation.push(id, {
           {
             id: 'AddField',
             icon: iconsMap['ios-add'],
+            color: Colors.primary
           }
         ],
       },
@@ -166,6 +161,7 @@ export const goFieldCustomization = (currentField={}, createField={}, editField=
               {
                 id: 'CloseCustomizeModal',
                 icon: iconsMap['ios-close'],
+                color: Colors.primary
               }
             ],
           },
@@ -193,10 +189,12 @@ export const goRecordsPage = (id, currentForm) => Navigation.push(id, {
           {
             id: 'AddRecord',
             icon: iconsMap['ios-add'],
+            color: Colors.primary
           },
           {
             id:'EditForm',
             icon: iconsMap['edit-2'],
+            color: Colors.primary
           }
         ],
       },
@@ -239,10 +237,12 @@ export const goOpenRecord = (id, currentForm, currentRecord) => Navigation.push(
           {
             id: 'ShareRecord',
             icon: iconsMap['ios-share'],
+            color: Colors.primary
           },
           {
             id: 'EditRecord',
             icon: iconsMap['edit-2'],
+            color: Colors.primary
           },
         ],
       },

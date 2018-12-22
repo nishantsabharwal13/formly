@@ -49,7 +49,7 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
-  - ReactNativeNavigation (2.0.2544):
+  - ReactNativeNavigation (2.0.2461):
     - React
   - RNSketchCanvas (0.8.0):
     - React
