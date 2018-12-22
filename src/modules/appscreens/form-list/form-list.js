@@ -102,9 +102,9 @@ class FormList extends React.Component {
       <Card
         onPress={() => this.goToRecords(item)}
         name={item.formName}
-        createdAt={item.createdAt}
-        leftEle={(<FontAwesome color='#333' name="wpforms" size={30}/>)}
-        rightEle={(<FontAwesome color='#333' name="angle-right" size={30}/>)}
+        description={`Created on: ${formatDate(new Date(item.createdAt))}`}
+        leftEle={(<FontAwesome color={Colors.lightText} name="list-alt" size={30}/>)}
+        rightEle={(<FontAwesome color={Colors.lightText} name="angle-right" size={30}/>)}
       />
     );
 

@@ -16,6 +16,14 @@ const styles = StyleSheet.create({
     padding: 16,
     alignItems: 'center',
     marginTop: 'auto',
+    shadowColor: "#000000",
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 1
+    },
+    borderRadius: 50,
   },
   btnText: {
     color: 'white',

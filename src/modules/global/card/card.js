@@ -14,9 +14,9 @@ import formatDate from '~/helpers/date-format';
 
 const styles = StyleSheet.create({
   sections: {
-    paddingTop: 15,
     flexDirection: 'row',
-    paddingBottom: 15,
+    paddingVertical: 15,
+    paddingHorizontal: 5,
     borderBottomWidth: 1,
     borderColor: 'rgba(0,0,0,0.1)',
     backgroundColor: '#fff',
@@ -56,7 +56,7 @@ class Card extends React.Component {
         </View>
         <View>
           <Text style={styles.name}>{this.props.name}</Text>
-          <Text style={styles.description}>Created on: {formatDate(new Date(this.props.createdAt))}</Text>
+          <Text style={styles.description}>{this.props.description}</Text>
         </View>
         <View style={styles.iconRight}>
           {this.props.rightEle}

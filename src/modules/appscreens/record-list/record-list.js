@@ -102,9 +102,9 @@ class RecordList extends React.Component {
       <Card
         onPress={() => this.openRecord(item)}
         name={item.recordName}
-        createdAt={item.createdAt}
+        description={`Created on: ${formatDate(new Date(item.createdAt))}`}
         leftEle={(<Ionicons name="ios-list" size={30} />)}
-        rightEle={(<FontAwesome name="angle-right" size={30} />)}
+        rightEle={(<FontAwesome name="angle-right" color={Colors.lightText} size={30} />)}
       />
     );
 
@@ -131,7 +131,7 @@ class RecordList extends React.Component {
       
         <SearchInput
           leftEle={(<Ionicons color='grey' name="ios-search" size={20} />)}
-          placeholder='Search form by name'
+          placeholder='Search record by name'
           value={searchForm}
           onChange={searchForm => this.setState({ searchForm })}
         />

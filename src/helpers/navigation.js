@@ -5,13 +5,14 @@ import Colors from '~/constants/colors';
 Navigation.setDefaultOptions({
   layout: {
     backgroundColor: Colors.lightGrey,
+    topMargin: Navigation.constants().statusBarHeight,
   },
   topBar: {
     backButton: { // android
       color: Colors.primary,
     },
-    noBorder: true,
-    borderColor:'transparent',
+    borderHeight: 0,
+    elevation: 1, // TopBar elevation in dp
     buttonColor: Colors.primary, // iOS
     title: {
       color: Colors.primary,
@@ -93,6 +94,8 @@ export const goHome = () => Navigation.setRoot({
                   },
                   buttonColor: 'red',
                   topBar: {
+                    noBorder: true,
+                    elevation: 0,
                     title: {
                       text: 'Forms',
                     },
@@ -181,6 +184,8 @@ export const goRecordsPage = (id, currentForm) => Navigation.push(id, {
     },
     options: {
       topBar: {
+        noBorder: true,
+        elevation: 0,
         title: {
           text: currentForm.formName
         },
