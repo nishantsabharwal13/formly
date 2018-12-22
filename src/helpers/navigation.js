@@ -48,6 +48,7 @@ export const goHome = () => {
         color: Colors.primary,
         visible: true
       },
+      elevation:0,
       title: {
         color: Colors.primary,
       },
@@ -80,7 +81,7 @@ export const goHome = () => {
                 component: {
                   name: 'FormList',
                   options: {
-                      sideMenu: {
+                    sideMenu: {
                       left: {
                         enabled: false,
                         visible: false
@@ -88,7 +89,6 @@ export const goHome = () => {
                     },
                     topBar: {
                       noBorder: true,
-                      elevation: 0,
                       title: {
                         text: 'Forms',
                       },
@@ -130,6 +130,7 @@ export const goCreateFormPage = (id, newForm) => Navigation.push(id, {
         title: {
           text: newForm.formName
         },
+        elevation: 1,
         rightButtons: [
           {
             id: 'AddField',
@@ -157,6 +158,7 @@ export const goFieldCustomization = (currentField={}, createField={}, editField=
             title: {
               text: currentField.fieldName
             },
+            elevation: 1,
             rightButtons: [
               {
                 id: 'CloseCustomizeModal',
@@ -181,7 +183,6 @@ export const goRecordsPage = (id, currentForm) => Navigation.push(id, {
     options: {
       topBar: {
         noBorder: true,
-        elevation: 0,
         title: {
           text: currentForm.formName
         },
@@ -215,6 +216,7 @@ export const goCreateRecordPage = (id, currentForm,currentRecord) => Navigation.
         title: {
           text: currentRecord.recordName
         },
+        elevation: 1,
       },
     }
   }
@@ -233,6 +235,7 @@ export const goOpenRecord = (id, currentForm, currentRecord) => Navigation.push(
         title: {
           text: currentRecord.recordName
         },
+        elevation: 2,
         rightButtons: [
           {
             id: 'ShareRecord',

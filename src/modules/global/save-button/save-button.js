@@ -45,7 +45,7 @@ class SaveButton extends React.Component {
   render() {
     return (
       <TouchableOpacity style={styles.btn} onPress={this.props.onPress}>
-        <Text style={styles.btnText}>Save Form</Text>
+        <Text style={styles.btnText}>Save</Text>
       </TouchableOpacity>
     );
   }
