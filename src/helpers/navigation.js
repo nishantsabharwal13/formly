@@ -1,6 +1,7 @@
 import { Navigation } from 'react-native-navigation';
 import { iconsMap } from './app-icons';
 import Colors from '../constants/colors';
+import {Platform} from 'react-native';
 
 export const goToAuth = () => Navigation.setRoot({
   root: {
@@ -41,6 +42,7 @@ export const goHome = () => {
   Navigation.setDefaultOptions({
     layout: {
       backgroundColor: Colors.lightGrey,
+      topMargin: Navigation.constants().statusBarHeight,
     },
     topBar: {
       buttonColor: '#fff', // iOS
@@ -50,6 +52,9 @@ export const goHome = () => {
       },
       elevation:0,
       title: {
+        color: Colors.primary,
+      },
+      subtitle: {
         color: Colors.primary,
       },
       background: {
@@ -90,7 +95,7 @@ export const goHome = () => {
                     topBar: {
                       noBorder: true,
                       title: {
-                        text: 'Forms',
+                        text: 'Form Pro',
                       },
                       rightButtons: [
                         {
@@ -130,7 +135,7 @@ export const goCreateFormPage = (id, newForm) => Navigation.push(id, {
         title: {
           text: newForm.formName
         },
-        elevation: 1,
+        elevation: 5,
         rightButtons: [
           {
             id: 'AddField',
@@ -158,7 +163,7 @@ export const goFieldCustomization = (currentField={}, createField={}, editField=
             title: {
               text: currentField.fieldName
             },
-            elevation: 1,
+            elevation: 5,
             rightButtons: [
               {
                 id: 'CloseCustomizeModal',
@@ -216,7 +221,7 @@ export const goCreateRecordPage = (id, currentForm,currentRecord) => Navigation.
         title: {
           text: currentRecord.recordName
         },
-        elevation: 1,
+        elevation: 5,
       },
     }
   }
@@ -239,7 +244,7 @@ export const goOpenRecord = (id, currentForm, currentRecord) => Navigation.push(
         rightButtons: [
           {
             id: 'ShareRecord',
-            icon: iconsMap['ios-share'],
+            icon: Platform.OS === 'ios' ? iconsMap['ios-share'] : iconsMap['share-2'],
             color: Colors.primary
           },
           {

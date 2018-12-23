@@ -4,22 +4,22 @@ import {
   ToastAndroid,
   TouchableOpacity,
   View,
-  StyleSheet
+  StyleSheet,
+  Image,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Navigation} from 'react-native-navigation';
 import { goToAuth } from '~/helpers/navigation';
+import Colors from '~/constants/colors';
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor:'#fff',
     flex: 1,
-    paddingLeft: 25,
-    paddingTop: 30,
   },
   drawerList: {
-
+    
   },
   drawerListIcon: {
     width: 27
@@ -36,6 +36,26 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     flex: 1
   },
+  header: {
+    paddingHorizontal: 30,
+    paddingVertical: 50,
+    backgroundColor: Colors.topBar,
+    flexDirection: 'column',
+    elevation: 5,
+    shadowColor: "#000000",
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 1
+    },
+    marginBottom: 10,
+  },
+  headerText: {
+    color: Colors.primary,
+    fontWeight: '600',
+    fontSize: 20,
+  }
 });
 class Drawer extends Component {
   showAlert(event) {
@@ -71,27 +91,8 @@ class Drawer extends Component {
     return (
         <View style={styles.container}>
           <View style={styles.drawerList}>
-            <TouchableOpacity onPress={(event) => this.goToHome(event)}>
-              <View style={styles.drawerListItem}>
-                {iconHome}
-                <Text style={styles.drawerListItemText}>
-                  Home
-								</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={(event) => this.openFirstPage(event)}>
-              <View style={styles.drawerListItem}>
-                {iconTV}
-                <Text style={styles.drawerListItemText}>
-                  Screen1
-								</Text>
-              </View>
-            </TouchableOpacity>
-            <View style={styles.drawerListItem}>
-              {iconTV}
-              <Text style={styles.drawerListItemText} onPress={(event) => this.showAlert(event)}>
-                Screen2
-							</Text>
+            <View style={styles.header}>
+              <Text style={styles.headerText}>Form Pro</Text>
             </View>
           </View>
         </View>

@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.topBar,
     flexDirection: 'row',
     alignItems: 'center',
+    elevation:5,
     shadowColor: "#000000",
     shadowOpacity: 0.8,
     shadowRadius: 2,
@@ -28,6 +29,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
     borderWidth: StyleSheet.hairlineWidth,
     backgroundColor: '#fff',
+    color: Colors.text,
     padding: 10,
     ...Platform.select({
       ios: {
@@ -39,8 +41,10 @@ const styles = StyleSheet.create({
     }),
   },
   input: {
-    height: 21,
+    height: Platform.OS == 'android' ? 30 : 20,
     backgroundColor: '#fff',
+    zIndex:20,
+    paddingVertical: 0,
     flex: 1,
     paddingLeft:5,
     fontSize: 15,

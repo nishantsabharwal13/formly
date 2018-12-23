@@ -23,6 +23,7 @@ import Colors from '~/constants/colors';
 import Dialog from "react-native-dialog";
 
 import Card from '~/modules/global/card';
+import SubText from '~/modules/global/sub-text';
 
 const styles = StyleSheet.create({
   container: {
@@ -135,7 +136,7 @@ class FormList extends React.Component {
           value={searchForm}
           onChange={searchForm => this.setState({ searchForm })}
         />
-
+        <SubText text="Forms"/>
         {this.formList()}
 
         <Dialog.Container visible={this.state.isDialogVisible}>

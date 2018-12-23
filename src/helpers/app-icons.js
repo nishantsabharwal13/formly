@@ -19,6 +19,7 @@ const icons = {
     "ios-menu": [30, color],
     "ios-share": [30, color],
     "edit-2": [20, color, Feather],
+    "share-2": [20, color, Feather],
 
     "ios-person": [30, color],
     "ios-person--big": [50, color],
