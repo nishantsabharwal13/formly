@@ -3,7 +3,6 @@ import React from 'react';
 import {
 View,
 Text,
-Button,
 StyleSheet,
 TouchableOpacity,
 } from 'react-native';
@@ -16,6 +15,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { updateRecord } from '~/actions/records';
 import SaveButton from '~/modules/global/save-button';
+import Share, { ShareSheet, Button } from 'react-native-share';
+import RNHTMLtoPDF from 'react-native-html-to-pdf';
 
 const styles = StyleSheet.create({
   container: {
@@ -31,10 +32,27 @@ class OpenRecord extends React.Component {
     Navigation.events().bindComponent(this);
   }
 
-
-  navigationButtonPressed = ({ buttonId }) => {
+  navigationButtonPressed = async ({ buttonId }) => {
     const {componentId, currentForm, currentRecord} = this.props;
     buttonId === 'EditRecord' && this.setState({ editRecord: !this.state.editRecord})
+    if(buttonId === 'ShareRecord') {
+      let opt = {
+        html: '<h1>PDF TEST</h1>',
+        fileName: 'test',
+        directory: 'Documents',
+      };
+      
+      let file = await RNHTMLtoPDF.convert(opt);
+      let options = {    
+        title: 'Share Record as PDF via',
+        message: 'some message',
+        subject: '[IMPORTANT]: Form Pro ',
+        url: `${file.filePath}`,
+      }
+      Share.open(options)
+        .then((res) => { console.log(res) })
+        .catch((err) => { err && console.log(err); });
+    }
   }
 
   updateRecord = (recordProperty) => {

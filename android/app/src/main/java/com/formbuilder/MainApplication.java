@@ -3,6 +3,8 @@ package com.formbuilder;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.christopherdro.htmltopdf.RNHTMLtoPDFPackage;
+import cl.json.RNSharePackage;
 import com.imagepicker.ImagePickerPackage;
 import com.terrylinla.rnsketchcanvas.SketchCanvasPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -44,6 +46,8 @@ public class MainApplication extends NavigationApplication {
   protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
+            new RNHTMLtoPDFPackage(),
+            new RNSharePackage(),
             new ImagePickerPackage(),
             new SketchCanvasPackage(),
             new VectorIconsPackage(),
