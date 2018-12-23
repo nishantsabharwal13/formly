@@ -124,6 +124,7 @@ class DynamicForm extends React.Component {
           },
         };
         ImagePicker.showImagePicker(options, response => {
+          console.log(response.uri)
           this.setState({
             [key]: response.uri,
             index: this.state.index+1

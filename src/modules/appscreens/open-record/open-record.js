@@ -3,6 +3,7 @@ import React from 'react';
 import {
 View,
 Text,
+Platform,
 StyleSheet,
 TouchableOpacity,
 } from 'react-native';
@@ -41,18 +42,19 @@ class OpenRecord extends React.Component {
         fileName: 'test',
         directory: 'Documents',
       };
-      
+
       let file = await RNHTMLtoPDF.convert(opt);
+      console.log(`file://${file.filePath}`)
       let options = {    
         title: 'Share Record as PDF via',
         message: 'some message',
         subject: '[IMPORTANT]: Form Pro ',
-        url: `${file.filePath}`,
+        url: Platform.OS === 'ios' ? file.filePath : `file://${file.filePath}`,
       }
       Share.open(options)
         .then((res) => { console.log(res) })
         .catch((err) => { err && console.log(err); });
-    }
+      }
   }
 
   updateRecord = (recordProperty) => {

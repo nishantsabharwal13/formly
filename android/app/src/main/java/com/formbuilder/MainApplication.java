@@ -21,11 +21,11 @@ import com.facebook.soloader.SoLoader;
 import com.reactnativenavigation.NavigationApplication;
 import com.reactnativenavigation.react.NavigationReactNativeHost;
 import com.reactnativenavigation.react.ReactGateway;
-
+import cl.json.ShareApplication;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainApplication extends NavigationApplication {
+public class MainApplication extends NavigationApplication implements ShareApplication, ReactApplication {
 
   @Override
   protected ReactGateway createReactGateway() {
@@ -42,7 +42,10 @@ public class MainApplication extends NavigationApplication {
   public boolean isDebug() {
       return BuildConfig.DEBUG;
   }
-
+     @Override
+     public String getFileProviderAuthority() {
+            return "com.formbuilder.provider";
+     }
   protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
