@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   addMoreText: {
-    color: Colors.primary,
+    color: Colors.topBar,
     padding: 20
   },
   radioButtonOuter: {

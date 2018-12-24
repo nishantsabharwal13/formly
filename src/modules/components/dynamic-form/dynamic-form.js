@@ -12,7 +12,7 @@ import {
   Image,
   Platform,
 } from 'react-native';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Feather from 'react-native-vector-icons/Feather';
 import CheckBox from 'react-native-check-box';
 import { SegmentedControls } from 'react-native-radio-buttons'
 import { Dropdown } from 'react-native-material-dropdown';
@@ -153,9 +153,10 @@ class DynamicForm extends React.Component {
           />
         </TouchableOpacity> */}
         <TouchableOpacity onPress={() => this.props.removeField(item.id)}>
-          <MaterialIcons
-            style={styles.iconDelete} 
-            name="delete-forever" size={25} color='grey' 
+          <Feather
+            color={Colors.lightText}
+            name="trash"
+            size={20}
           />
         </TouchableOpacity>
       </View>

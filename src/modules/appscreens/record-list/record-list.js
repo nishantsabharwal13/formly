@@ -98,7 +98,9 @@ class RecordList extends React.Component {
   }
 
   editEntry = currentRecord => {
-    goCreateRecordPage(this.props.componentId, this.props.currentForm, currentRecord)
+    goCreateRecordPage(this.props.componentId, this.props.currentForm, currentRecord);
+    this.state.edit && this.setState({ edit: false });
+
   }
 
   deleteEntry = record => {
@@ -142,7 +144,7 @@ class RecordList extends React.Component {
       />
     ) : (
         <View style={styles.fallbackText}>
-          <Text>No Records Found</Text>
+          <Text style={{ color: Colors.lightText }}>No Records Found</Text>
         </View>
       )
   }

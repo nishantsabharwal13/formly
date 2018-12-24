@@ -100,6 +100,7 @@ class FormList extends React.Component {
 
   editEntry = currentForm => {
     goCreateFormPage(this.props.componentId, currentForm);
+    this.state.edit && this.setState({ edit: false });
   }
 
   deleteEntry = form => {
@@ -143,7 +144,7 @@ class FormList extends React.Component {
       />
     ) : (
         <View style={styles.fallbackText}>
-          <Text>No Forms Found</Text>
+          <Text style={{color:Colors.lightText}}>No Forms Found</Text>
         </View>
     )
   }
@@ -183,7 +184,8 @@ class FormList extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    forms: state.forms
+    forms: state.forms,
+    records:state.records,
   };
 }
 

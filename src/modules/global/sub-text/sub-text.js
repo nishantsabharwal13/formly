@@ -21,7 +21,7 @@ const styles =  StyleSheet.create({
   },
   filter: {
     marginLeft: 'auto',
-    color: Colors.blue
+    color: Colors.topBar
   }
 })
 class SubText extends React.Component {
