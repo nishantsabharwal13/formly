@@ -2,6 +2,7 @@
 const GET_RECORDS = 'GET_RECORDS';
 const CREATE_RECORD = 'CREATE_RECORD';
 const UPDATE_RECORD = 'UPDATE_RECORD';
+const DELETE_RECORD = 'DELETE_RECORD';
 
 const getRecords = (res) => {
   return {
@@ -23,7 +24,12 @@ const updateRecords = (res) => {
     payload: res
   };
 }
-
+const deleteRecords = (res) => {
+  return {
+    type: DELETE_RECORD,
+    payload: res
+  };
+}
 
 export const recordDetails = () => {
   return fetch('https://jsonplaceholder.typicode.com/todos/1')
@@ -44,5 +50,11 @@ export const createRecord = (res = {}) => {
 export const updateRecord = (res = {}) => {
   return function (dispatch) {
     return dispatch(updateRecords(res));
+  };
+}
+
+export const deleteRecord = (res = '') => {
+  return function (dispatch) {
+    return dispatch(deleteRecords(res));
   };
 }

@@ -6,7 +6,8 @@ import {
   StyleSheet,
   FlatList,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert,
 } from 'react-native'
 import { Navigation } from 'react-native-navigation';
 
@@ -17,7 +18,7 @@ import SearchInput from '~/modules/components/search-input';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { createForm } from '~/actions/forms';
+import { createForm, deleteForm } from '~/actions/forms';
 import { goCreateFormPage, goRecordsPage } from '~/helpers/navigation';
 import Colors from '~/constants/colors';
 import Dialog from "react-native-dialog";
@@ -47,6 +48,9 @@ class FormList extends React.Component {
     super(props);
     Navigation.events().bindComponent(this);
   }
+  componentDidAppear() {
+    this.state.edit && this.setState({ edit: false });
+  }
 
   state = {
     app: "Forms",
@@ -54,6 +58,7 @@ class FormList extends React.Component {
     formName: "",
     searchForm: "",
     counter: 1,
+    edit: false,
   }
   
   navigationButtonPressed = ({ buttonId }) => {
@@ -89,8 +94,24 @@ class FormList extends React.Component {
     });
   }
 
-  goToRecords = (currentForm) => {
+  goToRecords = currentForm => {
     goRecordsPage(this.props.componentId, currentForm);
+  }
+
+  editEntry = currentForm => {
+    goCreateFormPage(this.props.componentId, currentForm);
+  }
+
+  deleteEntry = form => {
+    Alert.alert(
+      'Are you sure to delete this Form?',
+      form.formName,
+      [
+        { text: 'Cancel', onPress: () => {}, style: 'cancel' },
+        { text: 'OK', onPress: () => this.props.deleteForm(form.id)},
+      ],
+      { cancelable: false }
+    )
   }
 
   formList = () => {
@@ -103,9 +124,11 @@ class FormList extends React.Component {
       <Card
         onPress={() => this.goToRecords(item)}
         name={item.formName}
+        edit={this.state.edit}
         description={`Created on: ${formatDate(new Date(item.createdAt))}`}
+        editEntry={() => this.editEntry(item)}
+        deleteEntry={() => this.deleteEntry(item)}
         leftEle={(<FontAwesome color={Colors.lightText} name="list-alt" size={30}/>)}
-        rightEle={(<FontAwesome color={Colors.lightText} name="angle-right" size={30}/>)}
       />
     );
 
@@ -116,6 +139,7 @@ class FormList extends React.Component {
         data={model}
         renderItem={_renderItem}
         keyExtractor={_keyExtractor}
+        extraData={this.state}
       />
     ) : (
         <View style={styles.fallbackText}>
@@ -136,7 +160,10 @@ class FormList extends React.Component {
           value={searchForm}
           onChange={searchForm => this.setState({ searchForm })}
         />
-        <SubText text="Forms"/>
+        <SubText 
+          text="Forms"
+          onPress={() => this.setState({ edit: !this.state.edit })}  
+        />
         {this.formList()}
 
         <Dialog.Container visible={this.state.isDialogVisible}>
@@ -161,7 +188,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    createForm
+    createForm,
+    deleteForm
   }, dispatch);
 }
 

@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
   header: {
     paddingHorizontal: 30,
     paddingVertical: 50,
+    padding: Navigation.constants().statusBarHeight,
     backgroundColor: Colors.topBar,
     flexDirection: 'column',
     elevation: 5,

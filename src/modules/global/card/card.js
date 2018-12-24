@@ -6,11 +6,13 @@ Text,
 Button,
 StyleSheet,
 TouchableOpacity,
+TouchableWithoutFeedback
 } from 'react-native';
  
 import {Navigation} from 'react-native-navigation';
 import Colors from '~/constants/colors';
 import formatDate from '~/helpers/date-format';
+import Feather from 'react-native-vector-icons/Feather';
 
 const styles = StyleSheet.create({
   sections: {
@@ -22,6 +24,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  wrapper: {
+
   },
   name: {
     fontSize: 16,
@@ -46,22 +51,43 @@ class Card extends React.Component {
   super(props)
  }
  
-  state = {
-
+  state= {
   }
 
   render() {
     return (
-      <TouchableOpacity onPress={this.props.onPress} style={styles.sections}>
+      <TouchableOpacity onPress={this.props.edit ? () => {} : this.props.onPress} style={styles.sections}>
         <View style={styles.iconLeft}>
         {this.props.leftEle}
         </View>
-        <View>
+        <View style={styles.wrapper}>
           <Text style={styles.name}>{this.props.name}</Text>
           <Text style={styles.description}>{this.props.description}</Text>
         </View>
         <View style={styles.iconRight}>
-          {this.props.rightEle}
+          {
+            this.props.edit ? (
+              <View style={{flexDirection:'row'}}>
+                <TouchableWithoutFeedback onPress={this.props.editEntry}>
+                <Feather 
+                  style={{paddingRight: 15}} 
+                  color={Colors.lightText} 
+                  name="edit-2" 
+                  size={20} 
+                />
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={this.props.deleteEntry}>
+                <Feather 
+                  color={Colors.lightText} 
+                  name="trash" 
+                  size={20}
+                />
+                </TouchableWithoutFeedback>
+              </View>
+            ): (
+                <Feather color={Colors.lightText} name="chevron-right" size={30} />
+            )
+          }
         </View>
       </TouchableOpacity>
     )

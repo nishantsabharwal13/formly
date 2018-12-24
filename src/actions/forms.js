@@ -2,6 +2,7 @@
 const GET_FORMS= 'GET_FORMS';
 const CREATE_FORM = 'CREATE_FORM';
 const UPDATE_FORM = 'UPDATE_FORM';
+const DELETE_FORM = 'DELETE_FORM';
 
 const getForms = (res) => {
   return {
@@ -20,6 +21,13 @@ const createForms = (res) => {
 const updateForms = (res) => {
   return {
     type: UPDATE_FORM,
+    payload: res
+  };
+}
+
+const deleteForms = (res) => {
+  return {
+    type: DELETE_FORM,
     payload: res
   };
 }
@@ -44,5 +52,11 @@ export const createForm = (res ={}) => {
 export const updateForm = (res ={}) => {
   return function (dispatch) {
     return dispatch(updateForms(res));
+  };
+}
+
+export const deleteForm = (res = '') => {
+  return function (dispatch) {
+    return dispatch(deleteForms(res));
   };
 }

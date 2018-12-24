@@ -7,6 +7,7 @@ Button,
 StyleSheet,
 TouchableOpacity,
 FlatList,
+Alert
 } from 'react-native';
  
 import {Navigation} from 'react-native-navigation';
@@ -17,7 +18,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import SearchInput from '~/modules/components/search-input';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { createRecord } from '~/actions/records';
+import { createRecord, deleteRecord } from '~/actions/records';
 
 import { goCreateFormPage, goCreateRecordPage, goOpenRecord } from '~/helpers/navigation';
 import Dialog from "react-native-dialog";
@@ -48,6 +49,9 @@ class RecordList extends React.Component {
     super(props);
     Navigation.events().bindComponent(this);
   }
+  componentDidAppear() {
+    this.state.edit && this.setState({edit: false});
+  }
 
   state = {
     app: "Records",
@@ -55,6 +59,7 @@ class RecordList extends React.Component {
     recordName: "",
     searchForm: "",
     counter: 1,
+    edit:false,
   }
 
   get model() {
@@ -92,6 +97,21 @@ class RecordList extends React.Component {
     goOpenRecord(this.props.componentId, updatedForm, item);
   }
 
+  editEntry = currentRecord => {
+    goCreateRecordPage(this.props.componentId, this.props.currentForm, currentRecord)
+  }
+
+  deleteEntry = record => {
+    Alert.alert(
+      'Are you sure to delete this Record?',
+      record.recordName,
+      [
+        { text: 'Cancel', onPress: () => { }, style: 'cancel' },
+        { text: 'OK', onPress: () => this.props.deleteRecord(record.id) },
+      ],
+      { cancelable: false }
+    )
+  }
   recordList = () => {
     const { searchForm } = this.state;
     let {model} = this;
@@ -106,7 +126,9 @@ class RecordList extends React.Component {
         name={item.recordName}
         description={`Created on: ${formatDate(new Date(item.createdAt))}`}
         leftEle={(<Ionicons name="ios-list" size={30} />)}
-        rightEle={(<FontAwesome name="angle-right" color={Colors.lightText} size={30} />)}
+        edit={this.state.edit}
+        editEntry={() => this.editEntry(item)}
+        deleteEntry={() => this.deleteEntry(item)}
       />
     );
 
@@ -137,7 +159,10 @@ class RecordList extends React.Component {
           value={searchForm}
           onChange={searchForm => this.setState({ searchForm })}
         />
-        <SubText text="Records"/>
+        <SubText 
+          text="Records"
+          onPress={() => this.setState({ edit: !this.state.edit })}  
+        />
         {this.recordList()}
 
         <Dialog.Container visible={this.state.isDialogVisible}>
@@ -163,7 +188,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    createRecord
+    createRecord,
+    deleteRecord
   }, dispatch);
 }
 

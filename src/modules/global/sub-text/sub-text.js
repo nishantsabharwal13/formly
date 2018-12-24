@@ -2,18 +2,26 @@ import React from 'react';
 
 import {
 Text,
+View,
 StyleSheet,
 } from 'react-native';
 import Colors from '~/constants/colors';
 
 const styles =  StyleSheet.create({
+  wrapper: {
+    flexDirection:'row',
+    backgroundColor: Colors.primary,
+    paddingVertical: 15,
+    paddingHorizontal: 15,
+  },
   title: {
     color: Colors.lightText,
     fontWeight: '700',
     fontSize: 12,
-    paddingVertical: 15,
-    paddingHorizontal: 15,
-    backgroundColor: Colors.primary,
+  },
+  filter: {
+    marginLeft: 'auto',
+    color: Colors.blue
   }
 })
 class SubText extends React.Component {
@@ -28,9 +36,14 @@ class SubText extends React.Component {
 
   render() {
     return (
-      <Text style={styles.title}>
-        {this.props.text}
+      <View style={styles.wrapper}>
+        <Text style={styles.title}>
+          {this.props.text}
         </Text>
+        <Text style={styles.filter} onPress={this.props.onPress}>
+          Edit
+        </Text>
+      </View>
     )
   }
 }
