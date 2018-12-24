@@ -162,6 +162,7 @@ class FormList extends React.Component {
         />
         <SubText 
           text="Forms"
+          filterText={this.state.edit ? 'Unedit': 'Edit'}
           onPress={() => this.setState({ edit: !this.state.edit })}  
         />
         {this.formList()}

@@ -40,8 +40,11 @@ class SubText extends React.Component {
         <Text style={styles.title}>
           {this.props.text}
         </Text>
-        <Text style={styles.filter} onPress={this.props.onPress}>
-          Edit
+        <Text 
+          style={styles.filter} 
+          onPress={this.props.onPress}
+        >
+          {this.props.filterText}
         </Text>
       </View>
     )

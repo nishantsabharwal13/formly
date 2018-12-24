@@ -161,6 +161,7 @@ class RecordList extends React.Component {
         />
         <SubText 
           text="Records"
+          filterText={this.state.edit ? 'Unedit' : 'Edit'}
           onPress={() => this.setState({ edit: !this.state.edit })}  
         />
         {this.recordList()}
