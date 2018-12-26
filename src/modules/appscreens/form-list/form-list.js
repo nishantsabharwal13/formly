@@ -13,6 +13,7 @@ import { Navigation } from 'react-native-navigation';
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import SearchInput from '~/modules/components/search-input';
 
@@ -129,7 +130,7 @@ class FormList extends React.Component {
         description={`Created on: ${formatDate(new Date(item.createdAt))}`}
         editEntry={() => this.editEntry(item)}
         deleteEntry={() => this.deleteEntry(item)}
-        leftEle={(<FontAwesome color={Colors.lightText} name="list-alt" size={30}/>)}
+        leftEle={(<MaterialCommunityIcons name="format-list-checkbox" size={30} color={Colors.lightText} />)}
       />
     );
 

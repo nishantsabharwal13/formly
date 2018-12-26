@@ -13,6 +13,7 @@ Alert
 import {Navigation} from 'react-native-navigation';
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import SearchInput from '~/modules/components/search-input';
@@ -127,7 +128,7 @@ class RecordList extends React.Component {
         onPress={() => this.openRecord(item)}
         name={item.recordName}
         description={`Created on: ${formatDate(new Date(item.createdAt))}`}
-        leftEle={(<Ionicons name="ios-list" size={30} />)}
+        leftEle={(<MaterialCommunityIcons name="playlist-edit" size={30} color={Colors.lightText}/>)}
         edit={this.state.edit}
         editEntry={() => this.editEntry(item)}
         deleteEntry={() => this.deleteEntry(item)}

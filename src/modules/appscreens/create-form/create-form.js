@@ -109,6 +109,7 @@ class CreateForm extends React.Component {
               title="Dynamic Form"
               model={this.state.formArray}
               edit={false}
+              editForm={true}
               removeField={this.removeField}
             />
           ): (

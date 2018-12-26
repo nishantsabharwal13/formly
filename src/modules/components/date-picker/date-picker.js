@@ -93,7 +93,7 @@ class DatePickerField extends React.Component {
           <Text style={{ color: '#ccc' }}>By default it will be current date</Text>
           <TouchableOpacity style={styles.datePickerBtn} onPress={this._showDateTimePicker}>
             <Text style={{ color: 'grey' }}>
-            {this.state.currentDate || `Open DatePicker`} </Text>
+            {this.state.currentDate || `Preview DatePicker`} </Text>
           </TouchableOpacity>
             <DateTimePicker
               isVisible={this.state.isDateTimePickerVisible}

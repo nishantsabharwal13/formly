@@ -38,14 +38,13 @@ class OpenRecord extends React.Component {
     buttonId === 'EditRecord' && this.setState({ editRecord: !this.state.editRecord})
     if(buttonId === 'ShareRecord') {
       let opt = {
-        html: '<h1>PDF TEST</h1>',
+        html: `<div>Form Pro</div><div>${currentForm.formName}</div>`,
         fileName: 'test',
         directory: 'Documents',
-        base64: Platform.OS === 'ios' ? true : false,
+        base64: Platform.OS === 'ios' ? false : true,
       };
 
       let file = await RNHTMLtoPDF.convert(opt);
-      console.log(file)
       let options = {    
         title: 'Share Record as PDF via',
         message: 'some message',
@@ -87,8 +86,7 @@ class OpenRecord extends React.Component {
           title="Dynamic Form"
           data={this.props.currentRecord.recordObject || {}}
           model={this.props.currentForm.formArray}
-          edit={true}
-          editRecord={this.state.editRecord}
+          edit={this.state.editRecord}
           updateRecord={this.updateRecord}
         />
         {

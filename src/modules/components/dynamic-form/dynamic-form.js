@@ -69,6 +69,16 @@ const styles = StyleSheet.create({
     shadowOffset: { height: 0, width: 0 },
     justifyContent: 'space-evenly',
     alignItems: 'center'
+  },
+  notes: { 
+    flex: 1, 
+    height: 400, 
+    borderWidth: 1, 
+    marginTop: 20, 
+    borderColor: 'grey', 
+    flexDirection: 'row',
+    borderRadius: 10,
+    backgroundColor: '#fff',
   }
 });
 
@@ -80,6 +90,17 @@ class DynamicForm extends React.Component {
 
   state = {
     index: 0,
+    edit: this.props.edit
+  }
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log({ nextProps, prevState})
+    if(nextProps.edit !== prevState.edit) {
+      return {
+        ...prevState,
+        index: prevState.index + 1,
+        edit: nextProps.edit
+      }
+    }
   }
 
   componentDidMount() {
@@ -142,9 +163,10 @@ class DynamicForm extends React.Component {
   }
 
   renderForm = () => {
-    let {edit, editRecord, model} = this.props;
-
-    const editField = item => !edit ? (
+    const { editForm, model} = this.props;
+    const {edit} = this.state;
+    
+    const editField = item => editForm ? (
       <View style={styles.icons}>
         {/* <TouchableOpacity onPress={() => this.props.editField(item)}>
           <MaterialIcons 
@@ -234,6 +256,7 @@ class DynamicForm extends React.Component {
                 onSelection={!edit ? () => {} : value => this.onChange(value, item.id) }
                 selectedOption={this.state[item.id] || 0}
                 containerStyle={{ flexDirection: item.alignment ? 'column' : 'row', pointerEvents: 'none'}}
+                containerStyle={{ flexDirection: item.alignment ? 'column' : 'row', pointerEvents: 'none'}}
               />
               {editField(item)}
             </View>
@@ -250,11 +273,12 @@ class DynamicForm extends React.Component {
                   padding: 20, alignItems: 'center',
                   borderWidth: 1,
                   borderColor: 'grey',
+                  backgroundColor: '#fff',
                   borderRadius: 8
                 }} 
               >
               <Text style={{ color: 'grey' }}>
-                  {this.state[item.id] || item.currentDate || `DatePicker will show on Click`} </Text>
+                  {this.state[item.id] || item.currentDate || `DatePicker`} </Text>
               </TouchableOpacity>
               <DateTimePicker
                 date={new Date(item.currentDate) || new Date()}
@@ -270,7 +294,7 @@ class DynamicForm extends React.Component {
             <View style={[styles.sections, {borderBottomWidth: 0}]}>
               <Text style={styles.label}>{item.label}: </Text> 
               {
-                this.state[item.id] ? (
+                this.state[item.id] && !edit ? (
                   <View>
                     <Image
                       style={{ flex: 1, height: 400, borderWidth: 1, marginTop: 20, borderColor: 'grey', flexDirection: 'row' }}
@@ -279,9 +303,9 @@ class DynamicForm extends React.Component {
                   </View>
                 ) : (
                   
-                  <View style={{ flex: 1, height: 400, borderWidth: 1, marginTop: 20, borderColor: 'grey', flexDirection: 'row' }}>
+                  <View style={styles.notes}>
                     {
-                      edit ? (
+                      this.state[item.id] && edit ? (
                         <RNSketchCanvas
                           containerStyle={{ backgroundColor: 'transparent', flex: 1 }}
                           canvasStyle={{ backgroundColor: 'transparent', flex: 1 }}
@@ -327,7 +351,7 @@ class DynamicForm extends React.Component {
           );
         case 'imagepicker':
           return (
-            <View style={styles.sections}>
+            <View style={[styles.sections, { borderBottomWidth: 0 }]}>
               <Text style={styles.label}>{item.label}: </Text>
               <View style={[styles.sections, { borderBottomWidth: 0, }]}>
                 <TouchableOpacity
