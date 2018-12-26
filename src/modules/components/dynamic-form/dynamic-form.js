@@ -217,7 +217,7 @@ class DynamicForm extends React.Component {
                 label={item.label}
                 data={item.options}
                 value={(this.state[item.id] && item.options[this.state[item.id]].label)}
-                onChangeText={(value,index,data) => this.onChange(value,item.id)}
+                onChangeText={!edit ? () => { } : (value,index,data) => this.onChange(value,item.id)  }
               />
               {editField(item)}
             </View>

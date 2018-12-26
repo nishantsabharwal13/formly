@@ -41,15 +41,16 @@ class OpenRecord extends React.Component {
         html: '<h1>PDF TEST</h1>',
         fileName: 'test',
         directory: 'Documents',
+        base64: Platform.OS === 'ios' ? true : false,
       };
 
       let file = await RNHTMLtoPDF.convert(opt);
-      console.log(`file://${file.filePath}`)
+      console.log(file)
       let options = {    
         title: 'Share Record as PDF via',
         message: 'some message',
         subject: '[IMPORTANT]: Form Pro ',
-        url: Platform.OS === 'ios' ? file.filePath : `file://${file.filePath}`,
+        url: Platform.OS === 'ios' ? file.filePath : `data:application/pdf;base64,${file.base64}`,
       }
       Share.open(options)
         .then((res) => { console.log(res) })
@@ -84,7 +85,7 @@ class OpenRecord extends React.Component {
       <View style={styles.container}>
         <DynamicForm
           title="Dynamic Form"
-          data={this.props.currentRecord.recordObject}
+          data={this.props.currentRecord.recordObject || {}}
           model={this.props.currentForm.formArray}
           edit={true}
           editRecord={this.state.editRecord}

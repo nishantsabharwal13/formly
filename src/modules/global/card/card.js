@@ -56,7 +56,11 @@ class Card extends React.Component {
 
   render() {
     return (
-      <TouchableOpacity onPress={this.props.edit ? () => {} : this.props.onPress} style={styles.sections}>
+      <TouchableOpacity 
+        onPress={this.props.onPress} 
+        style={styles.sections} 
+        disabled={this.props.edit}
+      >
         <View style={styles.iconLeft}>
         {this.props.leftEle}
         </View>
@@ -85,7 +89,11 @@ class Card extends React.Component {
                 </TouchableWithoutFeedback>
               </View>
             ): (
-                <Feather color={Colors.lightText} name="chevron-right" size={30} />
+                <Feather 
+                  color={Colors.lightText} 
+                  name="chevron-right" 
+                  size={30} 
+                />
             )
           }
         </View>
