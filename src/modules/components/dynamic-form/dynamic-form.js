@@ -100,6 +100,10 @@ class DynamicForm extends React.Component {
         index: prevState.index + 1,
         edit: nextProps.edit
       }
+    } else {
+      return {
+        ...prevState
+      }
     }
   }
 
@@ -307,8 +311,8 @@ class DynamicForm extends React.Component {
                     {
                       this.state[item.id] && edit ? (
                         <RNSketchCanvas
-                          containerStyle={{ backgroundColor: 'transparent', flex: 1 }}
-                          canvasStyle={{ backgroundColor: 'transparent', flex: 1 }}
+                          containerStyle={{ backgroundColor: '#fff', flex: 1 }}
+                          canvasStyle={{ backgroundColor: '#fff', flex: 1 }}
                           defaultStrokeIndex={0}
                           defaultStrokeWidth={5}
                           onSketchSaved={(success, filepath) => this.onChange(filepath,item.id)}

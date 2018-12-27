@@ -174,7 +174,7 @@ class FormList extends React.Component {
           <Dialog.Description>
             Enter name of the form to be created
           </Dialog.Description>
-          <Dialog.Input onChangeText={(formName) => this.setState({ formName })}/>
+          <Dialog.Input autoFocus={true} onChangeText={(formName) => this.setState({ formName })}/>
           <Dialog.Button label="Cancel" onPress={() => this.setState({ isDialogVisible: false})}/>
           <Dialog.Button label="Create" onPress={this.createForm}/>
         </Dialog.Container>

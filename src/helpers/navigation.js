@@ -41,6 +41,7 @@ export const goHome = () => {
   
   Navigation.setDefaultOptions({
     layout: {
+      orientation: ['portrait'],
       backgroundColor: Colors.lightGrey,
       topMargin: Navigation.constants().statusBarHeight,
     },

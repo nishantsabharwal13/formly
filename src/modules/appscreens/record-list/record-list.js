@@ -174,7 +174,7 @@ class RecordList extends React.Component {
           <Dialog.Description>
             Enter name of the record to be created
           </Dialog.Description>
-          <Dialog.Input onChangeText={(recordName) => this.setState({ recordName })} />
+          <Dialog.Input autoFocus={true} onChangeText={(recordName) => this.setState({ recordName })} />
           <Dialog.Button label="Cancel" onPress={() => this.setState({ isDialogVisible: false })} />
           <Dialog.Button label="Create" onPress={this.createRecord} />
         </Dialog.Container>
