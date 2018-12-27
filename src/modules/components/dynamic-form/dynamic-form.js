@@ -77,7 +77,6 @@ const styles = StyleSheet.create({
     marginTop: 20, 
     borderColor: 'grey', 
     flexDirection: 'row',
-    borderRadius: 10,
     backgroundColor: '#fff',
   }
 });

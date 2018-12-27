@@ -18,6 +18,7 @@ import { updateRecord } from '~/actions/records';
 import SaveButton from '~/modules/global/save-button';
 import Share, { ShareSheet, Button } from 'react-native-share';
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
+import Template from '~/helpers/template';
 
 const styles = StyleSheet.create({
   container: {
@@ -37,9 +38,10 @@ class OpenRecord extends React.Component {
     const {componentId, currentForm, currentRecord} = this.props;
     buttonId === 'CloseRecordModal' && Navigation.dismissModal(this.props.componentId)
     buttonId === 'EditRecord' && this.setState({ editRecord: !this.state.editRecord})
+    console.log(Template(currentForm, currentRecord))
     if(buttonId === 'ShareRecord') {
       let opt = {
-        html: `<div>Form Pro</div><div>${currentForm.formName}</div>`,
+        html: Template(currentForm, currentRecord),
         fileName: 'test',
         directory: 'Documents',
         base64: Platform.OS === 'ios' ? false : true,
