@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   TextInput,
   ScrollView,
+  KeyboardAvoidingView
 } from 'react-native';
 
 import { Navigation } from 'react-native-navigation';
@@ -67,30 +68,33 @@ class NotesField extends React.Component {
     field: "notes",
     label: "",
     description: "",
+    scrollEnabled:true,
+    behavior: 'position',
   }
 
   render() {
     return (
-      <View style={styles.container}  >
+      <ScrollView style={styles.container} scrollEnabled={this.state.scrollEnabled} contentContainerStyle={{ flex: 1 }}>
         <View style={styles.sections}>
           <Text>Enter Label</Text>
-          <TextInput
-            placeholder="Enter label for notes"
-            style={styles.inputField}
-            value={this.state.label}
-            onChangeText={(label) => this.setState({ label })}
-          />
+            <TextInput
+              placeholder="Enter label for notes"
+              style={styles.inputField}
+              value={this.state.label}
+              onChangeText={(label) => this.setState({ label })}
+            />
         </View>
 
         <View style={{ flex: 1, height: 400, borderWidth: 1, marginTop: 20, borderColor: 'grey', flexDirection: 'row' }}>
           <RNSketchCanvas
-            containerStyle={{ backgroundColor: 'transparent', flex: 1 }}
-            canvasStyle={{ backgroundColor: 'transparent', flex: 1 }}
+            containerStyle={{ backgroundColor: '#fff', flex: 1 }}
+            canvasStyle={{ backgroundColor: '#fff', flex: 1 }}
             defaultStrokeIndex={0}
             defaultStrokeWidth={5}
             clearComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Clear</Text></View>}
             eraseComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Eraser</Text></View>}
-            saveComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Save</Text></View>}
+            onStrokeStart={() => this.setState({ scrollEnabled: false },() => console.log('start'))}
+            onStrokeEnd={() => this.setState({ scrollEnabled: true }, () => console.log('end'))}
             strokeComponent={color => (
               <View style={[{ backgroundColor: color }, styles.strokeColorButton]} />
             )}
@@ -108,20 +112,12 @@ class NotesField extends React.Component {
               </View>
               )
             }}
-            savePreference={() => {
-              return {
-                folder: 'RNSketchCanvas',
-                filename: String(Math.ceil(Math.random() * 100000000)),
-                transparent: false,
-                imageType: 'png'
-              }
-            }}
           />
         </View>
         <View style={styles.sections}>
         </View>
         <SaveButton onPress={() => this.props.saveField(this.state)}/>
-      </View>
+      </ScrollView>
     );
   }
 }

@@ -90,7 +90,8 @@ class DynamicForm extends React.Component {
 
   state = {
     index: 0,
-    edit: this.props.edit
+    edit: this.props.edit,
+    scrollEnabled: true
   }
   static getDerivedStateFromProps(nextProps, prevState) {
     console.log({ nextProps, prevState})
@@ -309,7 +310,7 @@ class DynamicForm extends React.Component {
                   
                   <View style={styles.notes}>
                     {
-                      this.state[item.id] && edit ? (
+                      this.state[item.id] || edit ? (
                         <RNSketchCanvas
                           containerStyle={{ backgroundColor: '#fff', flex: 1 }}
                           canvasStyle={{ backgroundColor: '#fff', flex: 1 }}
@@ -320,6 +321,8 @@ class DynamicForm extends React.Component {
                           eraseComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Eraser</Text></View>}
                           saveComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Save</Text></View>}
                           localSourceImage={{filename: this.state[item.id] || ''}}
+                          onStrokeStart={() => this.setState({ scrollEnabled: false }, () => console.log('start'))}
+                          onStrokeEnd={() => this.setState({ scrollEnabled: true }, () => console.log('end'))}
                           strokeComponent={color => (
                             <View style={[{ backgroundColor: color }, styles.strokeColorButton]} />
                           )}
@@ -390,6 +393,7 @@ class DynamicForm extends React.Component {
         renderItem={_renderItem}
         keyExtractor={_keyExtractor}
         extraData={this.state.index}
+        scrollEnabled={this.state.scrollEnabled}
       />
     )
   }

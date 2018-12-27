@@ -20,10 +20,10 @@ const icons = {
     "ios-share": [30, color],
     "edit-2": [20, color, Feather],
     "share-2": [20, color, Feather],
-
+    "angle-left": [35, color, FontAwesome],
     "ios-person": [30, color],
     "ios-person--big": [50, color],
-
+    "arrow-left": [25, color, Feather],
     "ios-person--active": [30, "#fff"],
     "ios-person--active--big": [50, "#fff"],
     "ios-person--active--very-big": [100, "#fff"],

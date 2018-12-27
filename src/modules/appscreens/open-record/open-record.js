@@ -35,6 +35,7 @@ class OpenRecord extends React.Component {
 
   navigationButtonPressed = async ({ buttonId }) => {
     const {componentId, currentForm, currentRecord} = this.props;
+    buttonId === 'CloseRecordModal' && Navigation.dismissModal(this.props.componentId)
     buttonId === 'EditRecord' && this.setState({ editRecord: !this.state.editRecord})
     if(buttonId === 'ShareRecord') {
       let opt = {

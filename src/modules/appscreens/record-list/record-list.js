@@ -7,7 +7,8 @@ Button,
 StyleSheet,
 TouchableOpacity,
 FlatList,
-Alert
+Alert,
+ActivityIndicator
 } from 'react-native';
  
 import {Navigation} from 'react-native-navigation';
@@ -42,6 +43,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  loading: {
+    backgroundColor: '#fff'
+  }
 });
 
 class RecordList extends React.Component {
@@ -61,6 +65,7 @@ class RecordList extends React.Component {
     searchForm: "",
     counter: 1,
     edit:false,
+    activityIndicator: false
   }
 
   get model() {
@@ -78,7 +83,7 @@ class RecordList extends React.Component {
     const { records } = this.props.records;
     const nameValidation = records.length && records.some(item => item.recordName === recordName);
 
-    this.setState({ isDialogVisible: false }, () => {
+    this.setState({ isDialogVisible: false, activityIndicator: true }, () => {
       // if (!nameValidation && recordName) {
       let newRecord = {
         recordName,
@@ -87,8 +92,12 @@ class RecordList extends React.Component {
         id: Math.round(new Date().getTime() * Math.random()),
         createdAt: Date.now()
       };
-      this.props.createRecord(newRecord); // push a new form object
-      goCreateRecordPage(this.props.componentId, this.props.currentForm, newRecord)
+      this.props.createRecord(newRecord); 
+      // push a new form object
+      setTimeout(() => {
+        this.setState({ activityIndicator: false})
+        goCreateRecordPage(this.props.componentId, this.props.currentForm, newRecord)
+      }, 500);
       // }
     });
   }
@@ -167,6 +176,12 @@ class RecordList extends React.Component {
           filterText={this.state.edit ? 'Unedit' : 'Edit'}
           onPress={() => this.setState({ edit: !this.state.edit })}  
         />
+        {
+          this.state.activityIndicator ? (
+              <ActivityIndicator style={styles.loading} size="small" />
+          ): null
+        }
+        
         {this.recordList()}
 
         <Dialog.Container visible={this.state.isDialogVisible}>

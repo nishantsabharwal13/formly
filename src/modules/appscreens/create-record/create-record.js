@@ -28,9 +28,14 @@ const styles = StyleSheet.create({
   },
 });
 class CreateRecord extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
+    Navigation.events().bindComponent(this);
+  }
 
+  navigationButtonPressed = async ({ buttonId }) => {
+    const { componentId, currentForm, currentRecord } = this.props;
+    buttonId === 'CloseRecordModal' && Navigation.dismissModal(this.props.componentId)
   }
 
   state = {
@@ -52,7 +57,7 @@ class CreateRecord extends React.Component {
     const { recordObject } = this.state;
 
     this.props.updateRecord({ recordObject, id });
-    Navigation.pop(this.props.componentId);
+    Navigation.dismissModal(this.props.componentId)
   }
 
   render() {

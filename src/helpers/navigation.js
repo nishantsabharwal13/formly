@@ -209,53 +209,77 @@ export const goRecordsPage = (id, currentForm) => Navigation.push(id, {
   }
 });
 
-export const goCreateRecordPage = (id, currentForm,currentRecord) => Navigation.push(id, {
-  component: {
-    id: 'CreateRecord',
-    name: 'CreateRecord',
-    passProps: {
-      currentForm,
-      currentRecord
-    },
-    options: {
-      topBar: {
-        title: {
-          text: currentRecord.recordName
+export const goCreateRecordPage = (id, currentForm, currentRecord) => Navigation.showModal({
+  stack: {
+    children: [{
+      component: {
+        id: 'CreateRecord',
+        name: 'CreateRecord',
+        passProps: {
+          currentForm,
+          currentRecord
         },
-        elevation: 5,
-      },
-    }
+        options: {
+          topBar: {
+            title: {
+              text: currentRecord.recordName
+            },
+            elevation: 2,
+            leftButtons: [
+              {
+                id: 'CloseRecordModal',
+                icon: Platform.OS === 'ios' ? iconsMap['angle-left'] : iconsMap['arrow-left'],
+                color: Colors.primary,
+                text: 'Title',
+              }
+            ],
+          },
+        }
+      }
+    }]
   }
 });
 
-export const goOpenRecord = (id, currentForm, currentRecord) => Navigation.push(id, {
-  component: {
-    id: 'OpenRecord',
-    name: 'OpenRecord',
-    passProps: {
-      currentForm,
-      currentRecord
-    },
-    options: {
-      topBar: {
-        title: {
-          text: currentRecord.recordName
+export const goOpenRecord = (id, currentForm, currentRecord) => Navigation.showModal({
+  stack: {
+    children: [{
+      component: {
+        id: 'OpenRecord',
+        name: 'OpenRecord',
+        passProps: {
+          currentForm,
+          currentRecord
         },
-        elevation: 2,
-        rightButtons: [
-          {
-            id: 'ShareRecord',
-            icon: Platform.OS === 'ios' ? iconsMap['ios-share'] : iconsMap['share-2'],
-            color: Colors.primary
+        options: {
+          topBar: {
+            title: {
+              text: currentRecord.recordName
+            },
+            elevation: 2,
+            leftButtons: [
+              {
+                id: 'CloseRecordModal',
+                icon: Platform.OS === 'ios' ? iconsMap['angle-left'] : iconsMap['arrow-left'],
+                color: Colors.primary,
+                text: 'Title',
+              }
+            ],
+            rightButtons: [
+              {
+                id: 'ShareRecord',
+                icon: Platform.OS === 'ios' ? iconsMap['ios-share'] : iconsMap['share-2'],
+                color: Colors.primary
+              },
+              {
+                id: 'EditRecord',
+                icon: iconsMap['edit-2'],
+                color: Colors.primary
+              },
+            ],
           },
-          {
-            id: 'EditRecord',
-            icon: iconsMap['edit-2'],
-            color: Colors.primary
-          },
-        ],
-      },
-    }
+        }
+      }
+    }]
   }
 });
 
