@@ -72,10 +72,13 @@ class RecordList extends React.Component {
     return this.props.records && this.props.records.records.filter(item => this.props.currentForm ? item.formId === this.props.currentForm.id : item) 
   }   
 
-  navigationButtonPressed = ({ buttonId }) => {
-    buttonId === 'AddRecord' && this.setState({ isDialogVisible: true });
+  get updatedForm() {
+    const { forms, currentForm } = this.props;
+    return forms.forms.find(item => item.id === currentForm.id);
+  }
 
-    buttonId === 'EditForm' && goCreateFormPage(this.props.componentId, this.props.currentForm);
+  navigationButtonPressed = ({ buttonId }) => {
+    buttonId === 'EditForm' && goCreateFormPage(this.props.componentId, this.updatedForm);
   }
 
   createRecord = () => {
@@ -103,8 +106,7 @@ class RecordList extends React.Component {
   }
 
   openRecord = item => {
-    const updatedForm = this.props.forms.forms.find(item => item.id === this.props.currentForm.id);
-    goOpenRecord(this.props.componentId, updatedForm, item);
+    goOpenRecord(this.props.componentId, this.updatedForm, item);
   }
 
   editEntry = currentRecord => {
