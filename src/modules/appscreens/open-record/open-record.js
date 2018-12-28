@@ -72,8 +72,7 @@ class OpenRecord extends React.Component {
   handleEditForm = () => {
     const { id } = this.props.currentRecord;
     const { recordObject } = this.state;
-    
-    this.props.updateRecord({ recordObject, id });
+    Object.keys(recordObject).length && this.props.updateRecord({ recordObject, id });
     this.setState({ editRecord: false });
   }
 

@@ -93,7 +93,6 @@ class DynamicForm extends React.Component {
     scrollEnabled: true
   }
   static getDerivedStateFromProps(nextProps, prevState) {
-    console.log({ nextProps, prevState})
     if(nextProps.edit !== prevState.edit) {
       return {
         ...prevState,

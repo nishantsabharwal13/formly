@@ -2,7 +2,9 @@ const input = (item, currentRecord) => (
   `<div>${item.label}: ${currentRecord.recordObject[item.id]}</div>`
 );
 const checkbox = (item, currentRecord) => (
-  `<div>${item.label}: ${currentRecord.recordObject[item.id]}</div>`
+  `<div>
+    ${item.options.map(option => ` ${option.label}: ${currentRecord.recordObject[item.id]}`)}
+  </div>`
 );
 const radiobuttons = (item, currentRecord) => (
   `<div>${item.label}: ${currentRecord.recordObject[item.id]}</div>`
@@ -17,10 +19,12 @@ const title = (item, currentRecord) => (
   `<div>${item.label} ${item.description}</div>`
 );
 const imagepicker = (item, currentRecord) => (
-  `<div>${item.label}: <img style="width:400px" src="${currentRecord.recordObject[item.id]}"/></div>`
+  `<div>${item.label}: <img style="width:400px" src="file://${currentRecord.recordObject[item.id]}"/></div>`
 );
-const dropDown = (item, currentRecord) => (
-  `<div>${item.label}: ${currentRecord.recordObject[item.id]}</div>`
+const dropdown = (item, currentRecord) => (
+  `<div>
+    ${item.label}: ${item.options[currentRecord.recordObject[item.id]].label}
+  </div>`
 );
 
 
