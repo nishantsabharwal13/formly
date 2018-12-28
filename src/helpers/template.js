@@ -14,7 +14,7 @@ const notes = (item, currentRecord) => (
   `<div>${item.label}: <img style="width:400px" src="${currentRecord.recordObject[item.id]}"/></div>`
 );
 const title = (item, currentRecord) => (
-  `<div>${item.label} ${item.description]}</div>`
+  `<div>${item.label} ${item.description}</div>`
 );
 const imagepicker = (item, currentRecord) => (
   `<div>${item.label}: <img style="width:400px" src="${currentRecord.recordObject[item.id]}"/></div>`
