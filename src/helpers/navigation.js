@@ -266,13 +266,13 @@ export const goOpenRecord = (id, currentForm, currentRecord) => Navigation.showM
             ],
             rightButtons: [
               {
-                id: 'ShareRecord',
-                icon: Platform.OS === 'ios' ? iconsMap['ios-share'] : iconsMap['share-2'],
+                id: 'EditRecord',
+                icon: iconsMap['edit-2'],
                 color: Colors.primary
               },
               {
-                id: 'EditRecord',
-                icon: iconsMap['edit-2'],
+                id: 'ShareRecord',
+                icon: Platform.OS === 'ios' ? iconsMap['ios-share'] : iconsMap['share-2'],
                 color: Colors.primary
               },
             ],

@@ -1,3 +1,5 @@
+import {Platform} from 'react-native';
+
 const input = (item, currentRecord) => (
   `<div style="font-size: 25px; padding: 10px"><b>${item.label}:&nbsp;</b> ${currentRecord.recordObject[item.id]}</div>`
 );
@@ -25,7 +27,7 @@ const radiobuttons = (item, currentRecord) => (
 const datepicker = (item, currentRecord) => (
   `<div style="display: flex;align-items:center;">
     <div style="font-size: 25px; padding: 10px"><b>${item.label}:&nbsp;</b></div>
-    <div style="border: 1px solid #333; padding: 10px; border-radius: 3px;">${currentRecord.recordObject[item.id]}</div>
+    <div style="border: 1px solid #333;font-size: 25px; padding: 10px; border-radius: 3px;">${currentRecord.recordObject[item.id]}</div>
   </div>`
 );
 const notes = (item, currentRecord) => (
@@ -40,16 +42,18 @@ const title = (item, currentRecord) => (
     <h2 style="text-align;color: grey;">${item.description}</h2>
   </div>`
 );
-const imagepicker = (item, currentRecord) => (
-  `<div style="display: flex;align-items:center;">
-    <div style="font-size: 25px; padding: 10px"><b>${item.label}:&nbsp;</b></div>
-    <img style="width:400px;margin-left:auto;" src="file://${currentRecord.recordObject[item.id]}"/>
-  </div>`
-);
+const imagepicker = (item, currentRecord) => {
+  let base64 = '';
+    return `<div style="display: flex;align-items:center;">
+      <div style="font-size: 25px; padding: 10px"><b>base64:&nbsp;</b></div>
+      <img style="width:400px;margin-left:auto;" src="${Platform.OS === 'ios' ? `file://${currentRecord.recordObject[item.id]}` : base64}"/>
+    </div>`
+}
+
 const dropdown = (item, currentRecord) => (
   `<div style="display:flex; flex-direction: column">
     <div style="font-size: 25px; padding: 10px;"><b> ${item.label}: </b></div>
-    <div style="border-bottom: 1px solid #333;font-size: 25px;padding: 10px";">${item.options[currentRecord.recordObject[item.id]].label || ''}</div>
+    <div style="border-bottom: 1px solid #333;font-size: 25px;padding: 10px";">${item ? item.options[currentRecord.recordObject[item.id]].label : ''}</div>
   </div>`
 );
 
@@ -59,7 +63,7 @@ const Template = (currentForm, currentRecord) => {
       <html>
         <body style="color: #333;font-family: sans-serif;">
           <h1 style="text-align:center;font-size: 40px;">Form Pro</h1>
-          <div style="color: grey;font-size: 30px; padding: 10px;"><b style="color:#ccc">Form Name:&nbsp;</b> ${currentForm.formName}</div>
+          <div style="color: grey;font-size: 30px; padding: 10px;"><b style="color:#ccc">Form Name:&nbsp;</b> ${currentForm.formName ? currentForm.formName : ''}</div>
           <div style="color: grey;font-size: 30px; padding: 10px;margin-bottom:20px;border-bottom: 1px solid #333;"><b style="color:#ccc">Record Name:&nbsp;</b> ${currentRecord.recordName}</div>
           ${currentForm.formArray.map(item => {
             switch (item.field) {

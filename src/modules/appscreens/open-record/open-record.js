@@ -19,6 +19,8 @@ import SaveButton from '~/modules/global/save-button';
 import Share, { ShareSheet, Button } from 'react-native-share';
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import Template from '~/helpers/template';
+import { iconsMap } from '~/helpers/app-icons';
+
 
 const styles = StyleSheet.create({
   container: {
@@ -33,13 +35,46 @@ class OpenRecord extends React.Component {
     super(props);
     Navigation.events().bindComponent(this);
   }
-
+  
   navigationButtonPressed = async ({ buttonId }) => {
     const {componentId, currentForm, currentRecord} = this.props;
     buttonId === 'CloseRecordModal' && Navigation.dismissModal(this.props.componentId)
-    buttonId === 'EditRecord' && this.setState({ editRecord: !this.state.editRecord})
-    console.log(Template(currentForm, currentRecord))
+    if(buttonId === 'EditRecord') {
+      this.setState({ editRecord: !this.state.editRecord});
+      
+      if (this.state.editRecord) {
+        Navigation.mergeOptions(this.props.componentId, {
+          topBar: {
+            rightButtons: [
+              {
+                id: 'EditRecord',
+                icon: iconsMap['edit-2'],
+                color: Colors.primary
+              },
+            ],
+          }
+        });
+      } else {
+        Navigation.mergeOptions(this.props.componentId, {
+          topBar: {
+            rightButtons: [
+              {
+                id: 'EditRecord',
+                icon: iconsMap['edit-2'],
+                color: Colors.primary
+              },
+              {
+                id: 'ShareRecord',
+                icon: Platform.OS === 'ios' ? iconsMap['ios-share'] : iconsMap['share-2'],
+                color: Colors.primary
+              },
+            ],
+          }
+        });
+      }
+    }
     if(buttonId === 'ShareRecord') {
+      console.log(Template(currentForm, currentRecord))
       let opt = {
         html: Template(currentForm, currentRecord),
         fileName: 'test',
@@ -73,7 +108,24 @@ class OpenRecord extends React.Component {
     const { id } = this.props.currentRecord;
     const { recordObject } = this.state;
     Object.keys(recordObject).length && this.props.updateRecord({ recordObject, id });
-    this.setState({ editRecord: false });
+    this.setState({ editRecord: false }, () => {
+      Navigation.mergeOptions(this.props.componentId, {
+        topBar: {
+          rightButtons: [
+            {
+              id: 'EditRecord',
+              icon: iconsMap['edit-2'],
+              color: Colors.primary
+            },
+            {
+              id: 'ShareRecord',
+              icon: Platform.OS === 'ios' ? iconsMap['ios-share'] : iconsMap['share-2'],
+              color: Colors.primary
+            },
+          ],
+        }
+      });
+    });
   }
 
   state = {
@@ -86,8 +138,8 @@ class OpenRecord extends React.Component {
       <View style={styles.container}>
         <DynamicForm
           title="Dynamic Form"
-          data={this.props.currentRecord.recordObject || {}}
-          model={this.props.currentForm.formArray}
+          data={this.props.currentRecord ? this.props.currentRecord.recordObject : {}}
+          model={this.props.currentForm ? this.props.currentForm.formArray : []}
           edit={this.state.editRecord}
           updateRecord={this.updateRecord}
         />

@@ -79,6 +79,7 @@ class RecordList extends React.Component {
 
   navigationButtonPressed = ({ buttonId }) => {
     buttonId === 'EditForm' && goCreateFormPage(this.props.componentId, this.updatedForm);
+    buttonId === 'AddRecord' && this.setState({ isDialogVisible: true });
   }
 
   createRecord = () => {
