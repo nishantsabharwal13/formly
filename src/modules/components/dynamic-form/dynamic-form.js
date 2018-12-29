@@ -115,6 +115,7 @@ class DynamicForm extends React.Component {
   }
 
   onChange = (value='', key='', type = 'single') => {
+    console.log(value)
     switch(type) {
       case 'single': 
         this.setState({
@@ -284,7 +285,7 @@ class DynamicForm extends React.Component {
                   {this.state[item.id] || item.currentDate || `DatePicker`} </Text>
               </TouchableOpacity>
               <DateTimePicker
-                date={new Date(item.currentDate) || new Date()}
+                date={this.state[item.id] || item.currentDate ? new Date(this.state[item.id] || item.currentDate ) : new Date()}
                 isVisible={this.state[`date${item.id}`]}
                 onConfirm={(date) => {this.onChange(formatDate(date),item.id,'date')}}
                 onCancel={() => this.setState({ [`date${item.id}`]: false, index: this.state.index + 1})}
@@ -319,8 +320,8 @@ class DynamicForm extends React.Component {
                           eraseComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Eraser</Text></View>}
                           saveComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Save</Text></View>}
                           localSourceImage={{filename: this.state[item.id] || ''}}
-                          onStrokeStart={() => this.setState({ scrollEnabled: false }, () => console.log('start'))}
-                          onStrokeEnd={() => this.setState({ scrollEnabled: true }, () => console.log('end'))}
+                          onStrokeStart={() => this.setState({ scrollEnabled: false })}
+                          onStrokeEnd={() => this.setState({ scrollEnabled: true })}
                           strokeComponent={color => (
                             <View style={[{ backgroundColor: color }, styles.strokeColorButton]} />
                           )}
