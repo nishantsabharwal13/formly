@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 2.5, marginVertical: 8, width: 30, height: 30, borderRadius: 15,
   },
   strokeWidthButton: {
-    marginHorizontal: 2.5, marginVertical: 8, width: 30, height: 30, borderRadius: 15,
+    marginHorizontal: 2.5, marginVertical: 20, width: 30, height: 30, borderRadius: 15,
     justifyContent: 'center', alignItems: 'center', backgroundColor: '#39579A'
   },
   functionButton: {
@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     margin: 10,
+    marginTop:20,
     shadowOpacity: 0.75,
     shadowRadius: 5,
     shadowColor: Colors.primary,
@@ -78,6 +79,7 @@ const styles = StyleSheet.create({
     borderColor: 'grey', 
     flexDirection: 'row',
     backgroundColor: '#fff',
+    justifyContent:'center'
   }
 });
 
@@ -260,7 +262,6 @@ class DynamicForm extends React.Component {
                 onSelection={!edit ? () => {} : value => this.onChange(value, item.id) }
                 selectedOption={this.state[item.id] || 0}
                 containerStyle={{ flexDirection: item.alignment ? 'column' : 'row', pointerEvents: 'none'}}
-                containerStyle={{ flexDirection: item.alignment ? 'column' : 'row', pointerEvents: 'none'}}
               />
               {editField(item)}
             </View>
@@ -310,35 +311,49 @@ class DynamicForm extends React.Component {
                   <View style={styles.notes}>
                     {
                       this.state[item.id] || edit ? (
-                        <RNSketchCanvas
-                          containerStyle={{ backgroundColor: '#fff', flex: 1 }}
-                          canvasStyle={{ backgroundColor: '#fff', flex: 1 }}
-                          defaultStrokeIndex={0}
-                          defaultStrokeWidth={5}
-                          onSketchSaved={(success, filepath) => this.onChange(filepath,item.id)}
-                          clearComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Clear</Text></View>}
-                          eraseComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Eraser</Text></View>}
-                          saveComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Save</Text></View>}
-                          localSourceImage={{filename: this.state[item.id] || ''}}
-                          onStrokeStart={() => this.setState({ scrollEnabled: false })}
-                          onStrokeEnd={() => this.setState({ scrollEnabled: true })}
-                          strokeComponent={color => (
-                            <View style={[{ backgroundColor: color }, styles.strokeColorButton]} />
-                          )}
-                          strokeSelectedComponent={(color, index, changed) => {
-                            return (
-                              <View style={[{ backgroundColor: color, borderWidth: 2 }, styles.strokeColorButton]} />
-                            )
-                          }}
-                          savePreference={() => {
-                            return {
-                              folder: 'RNSketchCanvas',
-                              filename: String(Math.ceil(Math.random() * 100000000)),
-                              transparent: false,
-                              imageType: 'png'
-                            }
-                          }}
-                        />
+                        <React.Fragment>
+                          <Text style={{fontSize:10,color:Colors.topBar,position:"absolute",zIndex:1,}}> 
+                            IMPORTANT: Click save button after writing inside notes
+                          </Text>
+                          <RNSketchCanvas
+                            containerStyle={{ backgroundColor: '#fff', flex: 1 }}
+                            canvasStyle={{ backgroundColor: '#fff', flex: 1 }}
+                            defaultStrokeIndex={0}
+                            defaultStrokeWidth={5}
+                            onSketchSaved={(success, filepath) => this.onChange(filepath,item.id)}
+                            clearComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Clear</Text></View>}
+                            eraseComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Eraser</Text></View>}
+                            saveComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Save</Text></View>}
+                            localSourceImage={{filename: this.state[item.id] || ''}}
+                            onStrokeStart={() => this.setState({ scrollEnabled: false })}
+                            onStrokeEnd={() => this.setState({ scrollEnabled: true })}
+                            strokeComponent={color => (
+                              <View style={[{ backgroundColor: color }, styles.strokeColorButton]} />
+                            )}
+                            strokeSelectedComponent={(color, index, changed) => {
+                              return (
+                                <View style={[{ backgroundColor: color, borderWidth: 2 }, styles.strokeColorButton]} />
+                              )
+                            }}
+                            strokeWidthComponent={(w) => {
+                              return (<View style={styles.strokeWidthButton}>
+                                <View style={{
+                                  backgroundColor: 'white', marginHorizontal: 2.5,
+                                  width: Math.sqrt(w / 3) * 10, height: Math.sqrt(w / 3) * 10, borderRadius: Math.sqrt(w / 3) * 10 / 2
+                                }} />
+                              </View>
+                              )
+                            }}
+                            savePreference={() => {
+                              return {
+                                folder: 'RNSketchCanvas',
+                                filename: String(Math.ceil(Math.random() * 100000000)),
+                                transparent: false,
+                                imageType: 'png'
+                              }
+                            }}
+                          />
+                        </React.Fragment>
                       ) : null
                     }
                   </View>

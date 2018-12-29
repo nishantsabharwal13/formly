@@ -5,6 +5,7 @@ View,
 Text,
 Button,
 StyleSheet,
+Platform,
 TouchableOpacity,
 } from 'react-native';
 import ActionSheet from 'react-native-actionsheet';
@@ -40,8 +41,13 @@ class CustomizeField extends React.Component {
     Navigation.events().bindComponent(this);
   }
 
-  async componentDidMount() {
-
+  componentDidMount() {
+    Platform.OS === 'android' &&
+    Navigation.mergeOptions(this.props.componentId, {
+      topBar: {
+        leftButtons: [],
+      }
+    });
   }
 
   navigationButtonPressed = ({ buttonId }) => {

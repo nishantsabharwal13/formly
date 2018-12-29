@@ -123,6 +123,7 @@ class CreateForm extends React.Component {
           title={'Select a field to add'}
           options={[...this.fields, 'Cancel']}
           cancelButtonIndex={8}
+          tintColor={Colors.topBar}
           onPress={index => index!=8 ? this.navigateToCustomize(index) : null}
         />
         <SaveButton onPress={this.handleSaveForm}/>
