@@ -45,8 +45,8 @@ const title = (item, currentRecord) => (
 const imagepicker = (item, currentRecord) => {
   let base64 = '';
     return `<div style="display: flex;align-items:center;">
-      <div style="font-size: 25px; padding: 10px"><b>base64:&nbsp;</b></div>
-      <img style="width:400px;margin-left:auto;" src="${Platform.OS === 'ios' ? `file://${currentRecord.recordObject[item.id]}` : base64}"/>
+      <div style="font-size: 25px; padding: 10px"><b>${item.label}:&nbsp;</b></div>
+      <img style="width:400px;margin-left:auto;" src="${Platform.OS === 'ios' ? `file://${currentRecord.recordObject[item.id]}` : }"/>
     </div>`
 }
 
