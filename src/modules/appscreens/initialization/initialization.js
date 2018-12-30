@@ -4,7 +4,10 @@ import {
   View,
   Text,
   StyleSheet,
-  AsyncStorage
+  AsyncStorage,
+  Platform,
+  Image,
+  ActivityIndicator
 } from 'react-native';
 
 import { goToAuth, goHome } from '~/helpers/navigation';
@@ -21,7 +24,9 @@ const styles = StyleSheet.create({
   },
   welcome: {
     fontSize: 28,
-    color: '#fff'
+    color: '#fff',
+    width: 200, 
+    height: 200
   },
 })
 export default class Initializing extends Component {
@@ -30,7 +35,10 @@ export default class Initializing extends Component {
       const user = await AsyncStorage.getItem(USER_KEY)
       
       // if (user) {
+      Platform.OS === 'ios' ? goHome() : 
+        setTimeout(() => {
           goHome();
+        }, 2000);
       // } else {
       //   goToAuth()
       //   console.log('auth')
@@ -45,7 +53,15 @@ export default class Initializing extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Form Pro</Text>
+      {
+        Platform.OS === 'ios' ? (
+          <View style={styles.welcome}>
+            <ActivityIndicator size="small" color="#333"/>
+          </View>
+        ) : (
+          <Image style={styles.welcome} source={require('assets/images/logo.png')}/>
+        )
+      }
       </View>
     )
   }
