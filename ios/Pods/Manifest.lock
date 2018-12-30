@@ -7,6 +7,8 @@ PODS:
   - AppCenterReactNativeShared (1.8.1):
     - AppCenter/Core (= 1.9.0)
   - boost-for-react-native (1.63.0)
+  - BVLinearGradient (2.5.3):
+    - React
   - DoubleConversion (1.1.5)
   - Folly (2016.10.31.00):
     - boost-for-react-native
@@ -63,6 +65,7 @@ DEPENDENCIES:
   - AppCenter/Analytics (~> 1.9.0)
   - AppCenter/Crashes (~> 1.9.0)
   - AppCenterReactNativeShared (~> 1.8.1)
+  - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
@@ -87,6 +90,8 @@ SPEC REPOS:
     - boost-for-react-native
 
 EXTERNAL SOURCES:
+  BVLinearGradient:
+    :path: "../node_modules/react-native-linear-gradient"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   Folly:
@@ -112,6 +117,7 @@ SPEC CHECKSUMS:
   AppCenter: 3cf7b9387549e9703dab068793e404013e8c0cc1
   AppCenterReactNativeShared: 3d804f256b964e040d902d1a215d7866fedae55d
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  BVLinearGradient: b0b70acf63ee888829b7c2ebbf6b50e227396e55
   DoubleConversion: a9706f16e388b53ff12cca34473428ee29746a26
   Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
   glog: b3b0330915eccea41c5cc9731a77cf564a9be5ea
@@ -123,6 +129,6 @@ SPEC CHECKSUMS:
   RNVectorIcons: c0dbfbf6068fefa240c37b0f71bd03b45dddac44
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: 13af029e6447d059bcdace7012b0611c1de64666
+PODFILE CHECKSUM: b6f64e48133187a0e0036422b560a44698883885
 
 COCOAPODS: 1.5.3

@@ -117,7 +117,6 @@ class DynamicForm extends React.Component {
   }
 
   onChange = (value='', key='', type = 'single') => {
-    console.log(value)
     switch(type) {
       case 'single': 
         this.setState({
@@ -152,7 +151,7 @@ class DynamicForm extends React.Component {
         };
         ImagePicker.showImagePicker(options, response => {
           this.setState({
-            [key]: response.uri,
+            [key]: Platform.OS === 'ios' ? response.uri : `data:image/jpeg;base64,${response.data}`,
             index: this.state.index+1
           },() => {
             this.props.updateRecord(this.state);
@@ -316,6 +315,7 @@ class DynamicForm extends React.Component {
                             IMPORTANT: Click save button after writing inside notes
                           </Text>
                           <RNSketchCanvas
+                            ref={ref => this.canvas = ref}
                             containerStyle={{ backgroundColor: '#fff', flex: 1 }}
                             canvasStyle={{ backgroundColor: '#fff', flex: 1 }}
                             defaultStrokeIndex={0}

@@ -21,7 +21,6 @@ import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import Template from '~/helpers/template';
 import { iconsMap } from '~/helpers/app-icons';
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -41,8 +40,10 @@ class OpenRecord extends React.Component {
     buttonId === 'CloseRecordModal' && Navigation.dismissModal(this.props.componentId)
     if(buttonId === 'EditRecord') {
       this.setState({ editRecord: !this.state.editRecord});
+
       
       if (this.state.editRecord) {
+
         Navigation.mergeOptions(this.props.componentId, {
           topBar: {
             rightButtons: [
@@ -74,7 +75,6 @@ class OpenRecord extends React.Component {
       }
     }
     if(buttonId === 'ShareRecord') {
-      console.log(Template(currentForm, currentRecord))
       let opt = {
         html: Template(currentForm, currentRecord),
         fileName: 'test',

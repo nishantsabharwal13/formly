@@ -3,6 +3,7 @@ package com.formbuilder;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+
 import com.christopherdro.htmltopdf.RNHTMLtoPDFPackage;
 import cl.json.RNSharePackage;
 import com.imagepicker.ImagePickerPackage;
@@ -48,7 +49,8 @@ public class MainApplication extends NavigationApplication implements ShareAppli
      }
   protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
-        new MainReactPackage(),
+            new MainReactPackage(),
+            new AppCenterReactNativePackage(MainApplication.this),
             new RNHTMLtoPDFPackage(),
             new RNSharePackage(),
             new ImagePickerPackage(),
@@ -56,8 +58,7 @@ public class MainApplication extends NavigationApplication implements ShareAppli
             new VectorIconsPackage(),
             new LinearGradientPackage(),
             new AppCenterReactNativeCrashesPackage(MainApplication.this, getResources().getString(R.string.appCenterCrashes_whenToSendCrashes)),
-            new AppCenterReactNativeAnalyticsPackage(MainApplication.this, getResources().getString(R.string.appCenterAnalytics_whenToEnableAnalytics)),
-          new AppCenterReactNativePackage(MainApplication.this)
+            new AppCenterReactNativeAnalyticsPackage(MainApplication.this, getResources().getString(R.string.appCenterAnalytics_whenToEnableAnalytics))
     );
   }
 
