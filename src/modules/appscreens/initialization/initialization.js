@@ -23,8 +23,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.topBar
   },
   welcome: {
-    fontSize: 28,
-    color: '#fff',
     width: 200, 
     height: 200
   },

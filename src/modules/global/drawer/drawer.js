@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   drawerList: {
-    
+    flex:1,
+
   },
   drawerListIcon: {
     width: 27
@@ -41,7 +42,9 @@ const styles = StyleSheet.create({
     paddingVertical: 50,
     padding: Navigation.constants().statusBarHeight,
     backgroundColor: Colors.topBar,
-    flexDirection: 'column',
+    flexDirection: 'row',
+    alignItems:'center',
+
     elevation: 5,
     shadowColor: "#000000",
     shadowOpacity: 0.8,
@@ -56,7 +59,22 @@ const styles = StyleSheet.create({
     color: Colors.primary,
     fontWeight: '600',
     fontSize: 20,
-  }
+    paddingLeft: 20,
+  },
+  welcome: {
+    width: 50,
+    height: 50
+  },
+  footer: {
+    marginTop: 'auto',
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    borderTopWidth: 1,
+    borderColor: 'rgba(0,0,0,0.1)',
+  },
+  footerText: {
+    color: Colors.lighterText,
+  },
 });
 class Drawer extends Component {
   showAlert(event) {
@@ -93,7 +111,12 @@ class Drawer extends Component {
         <View style={styles.container}>
           <View style={styles.drawerList}>
             <View style={styles.header}>
+              <Image style={styles.welcome} source={require('assets/images/logo.png')} />
               <Text style={styles.headerText}>Form Pro</Text>
+            </View>
+            <View style={styles.footer}>
+              <Text style={styles.footerText}>Version: V1</Text>
+              <Text style={styles.footerText}>&copy; Form Pro</Text>
             </View>
           </View>
         </View>
