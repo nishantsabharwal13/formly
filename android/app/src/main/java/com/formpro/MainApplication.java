@@ -1,4 +1,4 @@
-package com.formbuilder;
+package com.formpro;
 
 import android.app.Application;
 
@@ -45,7 +45,7 @@ public class MainApplication extends NavigationApplication implements ShareAppli
   }
      @Override
      public String getFileProviderAuthority() {
-            return "com.formbuilder.provider";
+            return "com.formpro.provider";
      }
   protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(

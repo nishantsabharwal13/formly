@@ -34,7 +34,7 @@
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 
   // RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-  //                                                     moduleName:@"formbuilder"
+  //                                                     moduleName:@"FormPro"
   //                                              initialProperties:nil
   //                                                  launchOptions:launchOptions];
 
@@ -45,7 +45,7 @@
   [bridge moduleForClass:[RCTDevLoadingView class]];
 #endif
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
-                                                   moduleName:@"formbuilder"
+                                                   moduleName:@"FormPro"
                                             initialProperties:nil];   
                                             
 #ifdef DEBUG

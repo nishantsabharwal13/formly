@@ -1,4 +1,4 @@
-package com.formbuilder;
+package com.formpro;
 
 import com.reactnativenavigation.NavigationActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends NavigationActivity {
      */
     
     protected String getMainComponentName() {
-        return "formbuilder";
+        return "FormPro";
     }
 }

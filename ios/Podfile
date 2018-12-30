@@ -1,14 +1,14 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'formbuilder' do
+target 'FormPro' do
   pod 'AppCenter/Crashes', '~> 1.9.0'
   pod 'AppCenter/Analytics', '~> 1.9.0'
   pod 'AppCenterReactNativeShared', '~> 1.8.1'
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
-  # Pods for formbuilder
+  # Pods for FormPro
 
   
 
@@ -46,20 +46,20 @@ target 'formbuilder' do
 
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
-  target 'formbuilderTests' do
+  target 'FormProTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
 end
 
-target 'formbuilder-tvOS' do
+target 'FormPro-tvOS' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
-  # Pods for formbuilder-tvOS
+  # Pods for FormPro-tvOS
 
-  target 'formbuilder-tvOSTests' do
+  target 'FormPro-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

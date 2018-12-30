@@ -12,7 +12,7 @@
 		00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
-		00E356F31AD99517003FC87E /* formbuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* formbuilderTests.m */; };
+		00E356F31AD99517003FC87E /* FormProTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FormProTests.m */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -24,7 +24,7 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		1F8D7E25781C4EB9B42DC32C /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEEDDE8EB6544E21BFC4C621 /* Foundation.ttf */; };
 		260D589B7C1E49C3B33B84CE /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22D9BA89F11540DB855F0B49 /* AppCenter-Config.plist */; };
-		2A4385D67822A9E8A737F336 /* libPods-formbuilderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FEA378229887FB4B63ECFD /* libPods-formbuilderTests.a */; };
+		2A4385D67822A9E8A737F336 /* libPods-FormProTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FEA378229887FB4B63ECFD /* libPods-FormProTests.a */; };
 		2C0F1AD65D0C44469DA18415 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80BB5F5F700644FB8521BC78 /* Octicons.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -37,16 +37,16 @@
 		2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E941DF850E9000B6D8A /* libRCTText-tvOS.a */; };
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
-		2DCD954D1E0B4F2C00145EB5 /* formbuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* formbuilderTests.m */; };
+		2DCD954D1E0B4F2C00145EB5 /* FormProTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FormProTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		47729EEFE618469F9A8839DC /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A01823F273FD41CCA018B972 /* MaterialIcons.ttf */; };
-		48F80AA3ABD2813A8A5D0AB6 /* libPods-formbuilder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822FB99144D1802BD913B65 /* libPods-formbuilder.a */; };
+		48F80AA3ABD2813A8A5D0AB6 /* libPods-FormPro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822FB99144D1802BD913B65 /* libPods-FormPro.a */; };
 		5BB38714D0424168B004D934 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 489562C4A068445A9BF5BAFC /* FontAwesome5_Brands.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		7DDDD4B7D72044C4A1390D87 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70BB20517C624951B49F0EF7 /* Zocial.ttf */; };
 		805BD8A067D1402282B1B76F /* libRNHTMLtoPDF.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F0B4F1FD8F46A188481593 /* libRNHTMLtoPDF.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		83455CABEA19F5D0CDF7BCD6 /* libPods-formbuilder-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A38EA705FE6AA8FCE602F22B /* libPods-formbuilder-tvOSTests.a */; };
+		83455CABEA19F5D0CDF7BCD6 /* libPods-FormPro-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A38EA705FE6AA8FCE602F22B /* libPods-FormPro-tvOSTests.a */; };
 		8D2A79C561944228BFFD87C9 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34790B6F50DA46318C309A9D /* FontAwesome.ttf */; };
 		8F8B878749F4429B90BFB4C7 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8432B6BE96AB40A2BFAFDA98 /* Entypo.ttf */; };
 		9757060A497748D78103FA7E /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F6F9C98E8FE4337822145B3 /* MaterialCommunityIcons.ttf */; };
@@ -58,7 +58,7 @@
 		D2B835A5C30941E994F87928 /* libAppCenterReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1742BD55F5C34AE4978CEF19 /* libAppCenterReactNative.a */; };
 		DAF5E01BA78A4F029FA2587D /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FBA13F8028042CDAD9024F3 /* Feather.ttf */; };
 		DEA145108A934CD9BDA53DB4 /* RNHTMLtoPDFTests.xctest in Frameworks */ = {isa = PBXBuildFile; fileRef = 33ED5E3D5F1E48FEB44B1E12 /* RNHTMLtoPDFTests.xctest */; };
-		DF7F6E1D672BA5D14C8B762B /* libPods-formbuilder-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BECE5FD3B1DC49F4FDC4C328 /* libPods-formbuilder-tvOS.a */; };
+		DF7F6E1D672BA5D14C8B762B /* libPods-FormPro-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BECE5FD3B1DC49F4FDC4C328 /* libPods-FormPro-tvOS.a */; };
 		E588EFA85BD14C018C75D1D8 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D6343E4603E41B7B93FF046 /* Ionicons.ttf */; };
 		EC271F027A6F453BA5A3C436 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8357C441D6340868CC10802 /* FontAwesome5_Regular.ttf */; };
 		F53888189C434C3F8611BE42 /* libAppCenterReactNativeAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9387207B4B3F4DDD94AE39F4 /* libAppCenterReactNativeAnalytics.a */; };
@@ -106,7 +106,7 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = formbuilder;
+			remoteInfo = FormPro;
 		};
 		139105C01AF99BAD00B5F7CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -134,7 +134,7 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "formbuilder-tvOS";
+			remoteInfo = "FormPro-tvOS";
 		};
 		2D16E6711FA4F8DC00B85C8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -397,61 +397,61 @@
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
 		00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = "<group>"; };
 		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* formbuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = formbuilderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* FormProTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormProTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* formbuilderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = formbuilderTests.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* FormProTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormProTests.m; sourceTree = "<group>"; };
 		08F0B4F1FD8F46A188481593 /* libRNHTMLtoPDF.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNHTMLtoPDF.a; sourceTree = "<group>"; };
-		0CD2236D1F504D736BBA1A39 /* Pods-formbuilder-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-formbuilder-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-formbuilder-tvOSTests/Pods-formbuilder-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0CD2236D1F504D736BBA1A39 /* Pods-FormPro-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormPro-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FormPro-tvOSTests/Pods-FormPro-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* formbuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = formbuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = formbuilder/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = formbuilder/AppDelegate.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* FormPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FormPro/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = FormPro/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = formbuilder/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = formbuilder/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = formbuilder/main.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FormPro/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FormPro/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FormPro/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		1742BD55F5C34AE4978CEF19 /* libAppCenterReactNative.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAppCenterReactNative.a; sourceTree = "<group>"; };
 		178617D813D2466BB87D17F4 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		1D6343E4603E41B7B93FF046 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		1F5D3FE32E9EC7E2EA4243B2 /* Pods-formbuilder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-formbuilder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-formbuilder/Pods-formbuilder.debug.xcconfig"; sourceTree = "<group>"; };
-		22D9BA89F11540DB855F0B49 /* AppCenter-Config.plist */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.xml; name = "AppCenter-Config.plist"; path = "formbuilder/AppCenter-Config.plist"; sourceTree = "<group>"; };
-		261DC443D37395793AAE09A1 /* Pods-formbuilder-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-formbuilder-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-formbuilder-tvOS/Pods-formbuilder-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* formbuilder-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "formbuilder-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* formbuilder-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "formbuilder-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F5D3FE32E9EC7E2EA4243B2 /* Pods-FormPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormPro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FormPro/Pods-FormPro.debug.xcconfig"; sourceTree = "<group>"; };
+		22D9BA89F11540DB855F0B49 /* AppCenter-Config.plist */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.xml; name = "AppCenter-Config.plist"; path = "FormPro/AppCenter-Config.plist"; sourceTree = "<group>"; };
+		261DC443D37395793AAE09A1 /* Pods-FormPro-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormPro-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FormPro-tvOS/Pods-FormPro-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* FormPro-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FormPro-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* FormPro-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FormPro-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		33ED5E3D5F1E48FEB44B1E12 /* RNHTMLtoPDFTests.xctest */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = RNHTMLtoPDFTests.xctest; sourceTree = "<group>"; };
 		34790B6F50DA46318C309A9D /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		45EB560061AE40798D70221D /* AppCenterReactNativeCrashes.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AppCenterReactNativeCrashes.xcodeproj; path = "../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes.xcodeproj"; sourceTree = "<group>"; };
 		489562C4A068445A9BF5BAFC /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		48CEE27D798E4FB99051D551 /* RNHTMLtoPDF.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNHTMLtoPDF.xcodeproj; path = "../node_modules/react-native-html-to-pdf/ios/RNHTMLtoPDF.xcodeproj"; sourceTree = "<group>"; };
-		4A2C93FCEF2002B9C4A3720B /* Pods-formbuilderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-formbuilderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-formbuilderTests/Pods-formbuilderTests.release.xcconfig"; sourceTree = "<group>"; };
+		4A2C93FCEF2002B9C4A3720B /* Pods-FormProTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormProTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FormProTests/Pods-FormProTests.release.xcconfig"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
-		6822FB99144D1802BD913B65 /* libPods-formbuilder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-formbuilder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6822FB99144D1802BD913B65 /* libPods-FormPro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FormPro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E933399785844F6A1AEC824 /* libAppCenterReactNativeCrashes.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAppCenterReactNativeCrashes.a; sourceTree = "<group>"; };
 		6F6F9C98E8FE4337822145B3 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		70BB20517C624951B49F0EF7 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7FBA13F8028042CDAD9024F3 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
-		7FBF8D7DC9739E5044414151 /* Pods-formbuilder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-formbuilder.release.xcconfig"; path = "Pods/Target Support Files/Pods-formbuilder/Pods-formbuilder.release.xcconfig"; sourceTree = "<group>"; };
+		7FBF8D7DC9739E5044414151 /* Pods-FormPro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormPro.release.xcconfig"; path = "Pods/Target Support Files/Pods-FormPro/Pods-FormPro.release.xcconfig"; sourceTree = "<group>"; };
 		80BB5F5F700644FB8521BC78 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8432B6BE96AB40A2BFAFDA98 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		9387207B4B3F4DDD94AE39F4 /* libAppCenterReactNativeAnalytics.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAppCenterReactNativeAnalytics.a; sourceTree = "<group>"; };
-		95543C42D31A64BA0B330B81 /* Pods-formbuilderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-formbuilderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-formbuilderTests/Pods-formbuilderTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9588345215659257179BE4F2 /* Pods-formbuilder-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-formbuilder-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-formbuilder-tvOS/Pods-formbuilder-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		95543C42D31A64BA0B330B81 /* Pods-FormProTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormProTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FormProTests/Pods-FormProTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9588345215659257179BE4F2 /* Pods-FormPro-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormPro-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-FormPro-tvOS/Pods-FormPro-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		A01823F273FD41CCA018B972 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
-		A38EA705FE6AA8FCE602F22B /* libPods-formbuilder-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-formbuilder-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A38EA705FE6AA8FCE602F22B /* libPods-FormPro-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FormPro-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9013C0EA7554F6194036455 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		BD6C2F802B734A46AC2FC9C8 /* AppCenterReactNative.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AppCenterReactNative.xcodeproj; path = ../node_modules/appcenter/ios/AppCenterReactNative.xcodeproj; sourceTree = "<group>"; };
-		BECE5FD3B1DC49F4FDC4C328 /* libPods-formbuilder-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-formbuilder-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BECE5FD3B1DC49F4FDC4C328 /* libPods-FormPro-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FormPro-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1E13200817448EB8992E690 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
-		C7FEA378229887FB4B63ECFD /* libPods-formbuilderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-formbuilderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7FEA378229887FB4B63ECFD /* libPods-FormProTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FormProTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8357C441D6340868CC10802 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		CBB3D41CE58C4D02A57011C5 /* AppCenterReactNativeAnalytics.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AppCenterReactNativeAnalytics.xcodeproj; path = "../node_modules/appcenter-analytics/ios/AppCenterReactNativeAnalytics.xcodeproj"; sourceTree = "<group>"; };
-		CC2B7089215B813393E6F827 /* Pods-formbuilder-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-formbuilder-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-formbuilder-tvOSTests/Pods-formbuilder-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		CC2B7089215B813393E6F827 /* Pods-FormPro-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormPro-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FormPro-tvOSTests/Pods-FormPro-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		CEEDDE8EB6544E21BFC4C621 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		D0502D85214FEF6300D53C98 /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/lib/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -462,7 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
-				2A4385D67822A9E8A737F336 /* libPods-formbuilderTests.a in Frameworks */,
+				2A4385D67822A9E8A737F336 /* libPods-FormProTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,7 +485,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				D2B835A5C30941E994F87928 /* libAppCenterReactNative.a in Frameworks */,
-				48F80AA3ABD2813A8A5D0AB6 /* libPods-formbuilder.a in Frameworks */,
+				48F80AA3ABD2813A8A5D0AB6 /* libPods-FormPro.a in Frameworks */,
 				F53888189C434C3F8611BE42 /* libAppCenterReactNativeAnalytics.a in Frameworks */,
 				9C92189FABD74FE193DD4F21 /* libAppCenterReactNativeCrashes.a in Frameworks */,
 				805BD8A067D1402282B1B76F /* libRNHTMLtoPDF.a in Frameworks */,
@@ -505,7 +505,7 @@
 				2D02E4C61E0B4AEC006451C7 /* libRCTSettings-tvOS.a in Frameworks */,
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
-				DF7F6E1D672BA5D14C8B762B /* libPods-formbuilder-tvOS.a in Frameworks */,
+				DF7F6E1D672BA5D14C8B762B /* libPods-FormPro-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,7 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
-				83455CABEA19F5D0CDF7BCD6 /* libPods-formbuilder-tvOSTests.a in Frameworks */,
+				83455CABEA19F5D0CDF7BCD6 /* libPods-FormPro-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,13 +563,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		00E356EF1AD99517003FC87E /* formbuilderTests */ = {
+		00E356EF1AD99517003FC87E /* FormProTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* formbuilderTests.m */,
+				00E356F21AD99517003FC87E /* FormProTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = formbuilderTests;
+			path = FormProTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -600,7 +600,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* formbuilder */ = {
+		13B07FAE1A68108700A75B9A /* FormPro */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -611,7 +611,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = formbuilder;
+			name = FormPro;
 			sourceTree = "<group>";
 		};
 		146834001AC3E56700842450 /* Products */ = {
@@ -641,10 +641,10 @@
 			isa = PBXGroup;
 			children = (
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				6822FB99144D1802BD913B65 /* libPods-formbuilder.a */,
-				BECE5FD3B1DC49F4FDC4C328 /* libPods-formbuilder-tvOS.a */,
-				A38EA705FE6AA8FCE602F22B /* libPods-formbuilder-tvOSTests.a */,
-				C7FEA378229887FB4B63ECFD /* libPods-formbuilderTests.a */,
+				6822FB99144D1802BD913B65 /* libPods-FormPro.a */,
+				BECE5FD3B1DC49F4FDC4C328 /* libPods-FormPro-tvOS.a */,
+				A38EA705FE6AA8FCE602F22B /* libPods-FormPro-tvOSTests.a */,
+				C7FEA378229887FB4B63ECFD /* libPods-FormProTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -652,14 +652,14 @@
 		542A8986A83C8240F9BC6050 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1F5D3FE32E9EC7E2EA4243B2 /* Pods-formbuilder.debug.xcconfig */,
-				7FBF8D7DC9739E5044414151 /* Pods-formbuilder.release.xcconfig */,
-				261DC443D37395793AAE09A1 /* Pods-formbuilder-tvOS.debug.xcconfig */,
-				9588345215659257179BE4F2 /* Pods-formbuilder-tvOS.release.xcconfig */,
-				0CD2236D1F504D736BBA1A39 /* Pods-formbuilder-tvOSTests.debug.xcconfig */,
-				CC2B7089215B813393E6F827 /* Pods-formbuilder-tvOSTests.release.xcconfig */,
-				95543C42D31A64BA0B330B81 /* Pods-formbuilderTests.debug.xcconfig */,
-				4A2C93FCEF2002B9C4A3720B /* Pods-formbuilderTests.release.xcconfig */,
+				1F5D3FE32E9EC7E2EA4243B2 /* Pods-FormPro.debug.xcconfig */,
+				7FBF8D7DC9739E5044414151 /* Pods-FormPro.release.xcconfig */,
+				261DC443D37395793AAE09A1 /* Pods-FormPro-tvOS.debug.xcconfig */,
+				9588345215659257179BE4F2 /* Pods-FormPro-tvOS.release.xcconfig */,
+				0CD2236D1F504D736BBA1A39 /* Pods-FormPro-tvOSTests.debug.xcconfig */,
+				CC2B7089215B813393E6F827 /* Pods-FormPro-tvOSTests.release.xcconfig */,
+				95543C42D31A64BA0B330B81 /* Pods-FormProTests.debug.xcconfig */,
+				4A2C93FCEF2002B9C4A3720B /* Pods-FormProTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -739,9 +739,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* formbuilder */,
+				13B07FAE1A68108700A75B9A /* FormPro */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* formbuilderTests */,
+				00E356EF1AD99517003FC87E /* FormProTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				22D9BA89F11540DB855F0B49 /* AppCenter-Config.plist */,
@@ -757,10 +757,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* formbuilder.app */,
-				00E356EE1AD99517003FC87E /* formbuilderTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* formbuilder-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* formbuilder-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* FormPro.app */,
+				00E356EE1AD99517003FC87E /* FormProTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* FormPro-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* FormPro-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -831,9 +831,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* formbuilderTests */ = {
+		00E356ED1AD99517003FC87E /* FormProTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "formbuilderTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FormProTests" */;
 			buildPhases = (
 				B75949E0B70C34BE13765FCE /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -845,14 +845,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = formbuilderTests;
-			productName = formbuilderTests;
-			productReference = 00E356EE1AD99517003FC87E /* formbuilderTests.xctest */;
+			name = FormProTests;
+			productName = FormProTests;
+			productReference = 00E356EE1AD99517003FC87E /* FormProTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* formbuilder */ = {
+		13B07F861A680F5B00A75B9A /* FormPro */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "formbuilder" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FormPro" */;
 			buildPhases = (
 				63EE32AD161C2C622CA226BF /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -865,14 +865,14 @@
 			);
 			dependencies = (
 			);
-			name = formbuilder;
+			name = FormPro;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* formbuilder.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* FormPro.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* formbuilder-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* FormPro-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "formbuilder-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "FormPro-tvOS" */;
 			buildPhases = (
 				BC2347980A1ABFE5A6DB7987 /* [CP] Check Pods Manifest.lock */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
@@ -884,14 +884,14 @@
 			);
 			dependencies = (
 			);
-			name = "formbuilder-tvOS";
-			productName = "formbuilder-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* formbuilder-tvOS.app */;
+			name = "FormPro-tvOS";
+			productName = "FormPro-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* FormPro-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* formbuilder-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* FormPro-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "formbuilder-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "FormPro-tvOSTests" */;
 			buildPhases = (
 				D2369429CB9D484B6E75FCDC /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -903,9 +903,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "formbuilder-tvOSTests";
-			productName = "formbuilder-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* formbuilder-tvOSTests.xctest */;
+			name = "FormPro-tvOSTests";
+			productName = "FormPro-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* FormPro-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -932,7 +932,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "formbuilder" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FormPro" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1015,10 +1015,10 @@
 			);
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* formbuilder */,
-				00E356ED1AD99517003FC87E /* formbuilderTests */,
-				2D02E47A1E0B4A5D006451C7 /* formbuilder-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* formbuilder-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* FormPro */,
+				00E356ED1AD99517003FC87E /* FormProTests */,
+				2D02E47A1E0B4A5D006451C7 /* FormPro-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* FormPro-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1423,7 +1423,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-formbuilder-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-FormPro-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1436,7 +1436,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-formbuilder/Pods-formbuilder-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-FormPro/Pods-FormPro-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
@@ -1471,7 +1471,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-formbuilder/Pods-formbuilder-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FormPro/Pods-FormPro-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B75949E0B70C34BE13765FCE /* [CP] Check Pods Manifest.lock */ = {
@@ -1485,7 +1485,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-formbuilderTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-FormProTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1503,7 +1503,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-formbuilder-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-FormPro-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1521,7 +1521,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-formbuilder-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-FormPro-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1535,7 +1535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* formbuilderTests.m in Sources */,
+				00E356F31AD99517003FC87E /* FormProTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1561,7 +1561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* formbuilderTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* FormProTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1570,12 +1570,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* formbuilder */;
+			target = 13B07F861A680F5B00A75B9A /* FormPro */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* formbuilder-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* FormPro-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1587,7 +1587,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = formbuilder;
+			path = FormPro;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1595,7 +1595,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95543C42D31A64BA0B330B81 /* Pods-formbuilderTests.debug.xcconfig */;
+			baseConfigurationReference = 95543C42D31A64BA0B330B81 /* Pods-FormProTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1609,7 +1609,7 @@
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
 					"$(SRCROOT)/../node_modules/react-native-html-to-pdf/ios/RNHTMLtoPDF/**",
 				);
-				INFOPLIST_FILE = formbuilderTests/Info.plist;
+				INFOPLIST_FILE = FormProTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -1625,13 +1625,13 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/formbuilder.app/formbuilder";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FormPro.app/FormPro";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A2C93FCEF2002B9C4A3720B /* Pods-formbuilderTests.release.xcconfig */;
+			baseConfigurationReference = 4A2C93FCEF2002B9C4A3720B /* Pods-FormProTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -1642,7 +1642,7 @@
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
 					"$(SRCROOT)/../node_modules/react-native-html-to-pdf/ios/RNHTMLtoPDF/**",
 				);
-				INFOPLIST_FILE = formbuilderTests/Info.plist;
+				INFOPLIST_FILE = FormProTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -1658,13 +1658,13 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/formbuilder.app/formbuilder";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FormPro.app/FormPro";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F5D3FE32E9EC7E2EA4243B2 /* Pods-formbuilder.debug.xcconfig */;
+			baseConfigurationReference = 1F5D3FE32E9EC7E2EA4243B2 /* Pods-FormPro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1676,21 +1676,21 @@
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
 					"$(SRCROOT)/../node_modules/react-native-html-to-pdf/ios/RNHTMLtoPDF/**",
 				);
-				INFOPLIST_FILE = formbuilder/Info.plist;
+				INFOPLIST_FILE = FormPro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_NAME = formbuilder;
+				PRODUCT_NAME = FormPro;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7FBF8D7DC9739E5044414151 /* Pods-formbuilder.release.xcconfig */;
+			baseConfigurationReference = 7FBF8D7DC9739E5044414151 /* Pods-FormPro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1701,21 +1701,21 @@
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
 					"$(SRCROOT)/../node_modules/react-native-html-to-pdf/ios/RNHTMLtoPDF/**",
 				);
-				INFOPLIST_FILE = formbuilder/Info.plist;
+				INFOPLIST_FILE = FormPro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_NAME = formbuilder;
+				PRODUCT_NAME = FormPro;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 261DC443D37395793AAE09A1 /* Pods-formbuilder-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 261DC443D37395793AAE09A1 /* Pods-FormPro-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1733,7 +1733,7 @@
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
 					"$(SRCROOT)/../node_modules/react-native-html-to-pdf/ios/RNHTMLtoPDF/**",
 				);
-				INFOPLIST_FILE = "formbuilder-tvOS/Info.plist";
+				INFOPLIST_FILE = "FormPro-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1747,7 +1747,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.formbuilder-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.FormPro-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1757,7 +1757,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9588345215659257179BE4F2 /* Pods-formbuilder-tvOS.release.xcconfig */;
+			baseConfigurationReference = 9588345215659257179BE4F2 /* Pods-FormPro-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1775,7 +1775,7 @@
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
 					"$(SRCROOT)/../node_modules/react-native-html-to-pdf/ios/RNHTMLtoPDF/**",
 				);
-				INFOPLIST_FILE = "formbuilder-tvOS/Info.plist";
+				INFOPLIST_FILE = "FormPro-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1789,7 +1789,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.formbuilder-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.FormPro-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1799,7 +1799,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0CD2236D1F504D736BBA1A39 /* Pods-formbuilder-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 0CD2236D1F504D736BBA1A39 /* Pods-FormPro-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1816,7 +1816,7 @@
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
 					"$(SRCROOT)/../node_modules/react-native-html-to-pdf/ios/RNHTMLtoPDF/**",
 				);
-				INFOPLIST_FILE = "formbuilder-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "FormPro-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1830,17 +1830,17 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.formbuilder-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.FormPro-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/formbuilder-tvOS.app/formbuilder-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FormPro-tvOS.app/FormPro-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC2B7089215B813393E6F827 /* Pods-formbuilder-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = CC2B7089215B813393E6F827 /* Pods-FormPro-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1857,7 +1857,7 @@
 					"$(SRCROOT)/../node_modules/appcenter-crashes/ios/AppCenterReactNativeCrashes",
 					"$(SRCROOT)/../node_modules/react-native-html-to-pdf/ios/RNHTMLtoPDF/**",
 				);
-				INFOPLIST_FILE = "formbuilder-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "FormPro-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1871,10 +1871,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.formbuilder-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.FormPro-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/formbuilder-tvOS.app/formbuilder-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FormPro-tvOS.app/FormPro-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -1958,7 +1958,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "formbuilderTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FormProTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -1967,7 +1967,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "formbuilder" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FormPro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1976,7 +1976,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "formbuilder-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "FormPro-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1985,7 +1985,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "formbuilder-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "FormPro-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1994,7 +1994,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "formbuilder" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FormPro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
