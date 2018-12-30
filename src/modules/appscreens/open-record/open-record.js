@@ -34,6 +34,11 @@ class OpenRecord extends React.Component {
     super(props);
     Navigation.events().bindComponent(this);
   }
+
+  get updatedRecord() {
+    const { records, currentRecord } = this.props;
+    return records.records.find(item => item.id === currentRecord.id);
+  }
   
   navigationButtonPressed = async ({ buttonId }) => {
     const {componentId, currentForm, currentRecord} = this.props;
@@ -76,7 +81,7 @@ class OpenRecord extends React.Component {
     }
     if(buttonId === 'ShareRecord') {
       let opt = {
-        html: Template(currentForm, currentRecord),
+        html: Template(currentForm, this.updatedRecord),
         fileName: 'test',
         directory: 'Documents',
         base64: Platform.OS === 'ios' ? false : true,

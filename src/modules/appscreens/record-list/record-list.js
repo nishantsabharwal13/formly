@@ -100,7 +100,7 @@ class RecordList extends React.Component {
       // push a new form object
       setTimeout(() => {
         this.setState({ activityIndicator: false})
-        goCreateRecordPage(this.props.componentId, this.props.currentForm, newRecord)
+        goCreateRecordPage(this.props.componentId, this.updatedForm, newRecord)
       }, 500);
       // }
     });
