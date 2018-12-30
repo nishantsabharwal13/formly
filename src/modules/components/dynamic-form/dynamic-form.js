@@ -17,7 +17,7 @@ import CheckBox from 'react-native-check-box';
 import { SegmentedControls } from 'react-native-radio-buttons'
 import { Dropdown } from 'react-native-material-dropdown';
 import DateTimePicker from 'react-native-modal-datetime-picker';
-import RNSketchCanvas from '@terrylinla/react-native-sketch-canvas';
+import { SketchCanvas} from '@terrylinla/react-native-sketch-canvas';
 import ImagePicker from 'react-native-image-picker';
 import formatDate from '~/helpers/date-format';
 
@@ -45,31 +45,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'
-  },
-  btnText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  strokeColorButton: {
-    marginHorizontal: 2.5, marginVertical: 8, width: 30, height: 30, borderRadius: 15,
-  },
-  strokeWidthButton: {
-    marginHorizontal: 2.5, marginVertical: 20, width: 30, height: 30, borderRadius: 15,
-    justifyContent: 'center', alignItems: 'center', backgroundColor: '#39579A'
-  },
-  functionButton: {
-    borderWidth: 1,
-    borderRadius: 5,
-    padding: 10,
-    margin: 10,
-    marginTop:20,
-    shadowOpacity: 0.75,
-    shadowRadius: 5,
-    shadowColor: Colors.primary,
-    shadowOffset: { height: 0, width: 0 },
-    justifyContent: 'space-evenly',
-    alignItems: 'center'
   },
   notes: { 
     flex: 1, 
@@ -117,6 +92,7 @@ class DynamicForm extends React.Component {
   }
 
   onChange = (value='', key='', type = 'single') => {
+
     switch(type) {
       case 'single': 
         this.setState({
@@ -302,7 +278,7 @@ class DynamicForm extends React.Component {
                   <View>
                     <Image
                       style={{ flex: 1, height: 400, borderWidth: 1, marginTop: 20, borderColor: 'grey', flexDirection: 'row' }}
-                      source={{ uri: Platform.OS === 'android' ? `file://${this.state[item.id]}` : this.state[item.id] }}
+                      source={{ uri: this.state[item.id] }}
                     />
                   </View>
                 ) : (
@@ -312,45 +288,20 @@ class DynamicForm extends React.Component {
                       this.state[item.id] || edit ? (
                         <React.Fragment>
                           <Text style={{fontSize:10,color:Colors.topBar,position:"absolute",zIndex:1,}}> 
-                            IMPORTANT: Click save button after writing inside notes
+                            IMPORTANT: Editing a note will erase the previous sketch
                           </Text>
-                          <RNSketchCanvas
-                            ref={ref => this.canvas = ref}
-                            containerStyle={{ backgroundColor: '#fff', flex: 1 }}
-                            canvasStyle={{ backgroundColor: '#fff', flex: 1 }}
-                            defaultStrokeIndex={0}
-                            defaultStrokeWidth={5}
-                            onSketchSaved={(success, filepath) => this.onChange(filepath,item.id)}
-                            clearComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Clear</Text></View>}
-                            eraseComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Eraser</Text></View>}
-                            saveComponent={<View style={styles.functionButton}><Text style={{ color: 'black' }}>Save</Text></View>}
+                            <SketchCanvas
+                            ref={ref => this[`canvas${item.id}`] = ref}
+                            style={{ flex: 1 }}
+                            strokeColor={'#333'}
+                            strokeWidth={5}
                             localSourceImage={{filename: this.state[item.id] || ''}}
                             onStrokeStart={() => this.setState({ scrollEnabled: false })}
-                            onStrokeEnd={() => this.setState({ scrollEnabled: true })}
-                            strokeComponent={color => (
-                              <View style={[{ backgroundColor: color }, styles.strokeColorButton]} />
-                            )}
-                            strokeSelectedComponent={(color, index, changed) => {
-                              return (
-                                <View style={[{ backgroundColor: color, borderWidth: 2 }, styles.strokeColorButton]} />
-                              )
-                            }}
-                            strokeWidthComponent={(w) => {
-                              return (<View style={styles.strokeWidthButton}>
-                                <View style={{
-                                  backgroundColor: 'white', marginHorizontal: 2.5,
-                                  width: Math.sqrt(w / 3) * 10, height: Math.sqrt(w / 3) * 10, borderRadius: Math.sqrt(w / 3) * 10 / 2
-                                }} />
-                              </View>
-                              )
-                            }}
-                            savePreference={() => {
-                              return {
-                                folder: 'RNSketchCanvas',
-                                filename: String(Math.ceil(Math.random() * 100000000)),
-                                transparent: false,
-                                imageType: 'png'
-                              }
+                            onStrokeEnd={() => {
+                              this.setState({ scrollEnabled: true });
+                              this[`canvas${item.id}`].getBase64('jpg', false, true, true, true, (err, result) => {
+                                this.onChange(`data:image/png;base64,${result}`,item.id)
+                              });
                             }}
                           />
                         </React.Fragment>
