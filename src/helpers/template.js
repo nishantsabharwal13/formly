@@ -42,7 +42,6 @@ const title = (item, currentRecord) => (
 );
 const imagepicker = (item, currentRecord) => {
 
-  console.log(currentRecord.recordObject[item.id])
   return `<div style="display: flex;align-items:center;">
       <div style="font-size: 25px; padding: 10px"><b>${item.label}:&nbsp;</b></div>
       <img style="width:400px;margin-left:auto;" src="${currentRecord.recordObject[item.id]}"/>
