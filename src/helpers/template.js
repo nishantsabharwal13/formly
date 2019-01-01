@@ -40,12 +40,14 @@ const title = (item, currentRecord) => (
     <h2 style="text-align;color: grey;">${item.description}</h2>
   </div>`
 );
-const imagepicker = (item, currentRecord) => (
-  `<div style="display: flex;align-items:center;">
+const imagepicker = (item, currentRecord) => {
+
+  console.log(currentRecord.recordObject[item.id])
+  return `<div style="display: flex;align-items:center;">
       <div style="font-size: 25px; padding: 10px"><b>${item.label}:&nbsp;</b></div>
       <img style="width:400px;margin-left:auto;" src="${currentRecord.recordObject[item.id]}"/>
     </div>`
-);
+}
 
 const dropdown = (item, currentRecord) => (
   `<div style="display:flex; flex-direction: column">

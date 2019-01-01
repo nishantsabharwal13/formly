@@ -46,6 +46,8 @@ target 'FormPro' do
 
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
+
   target 'FormProTests' do
     inherit! :search_paths
     # Pods for testing

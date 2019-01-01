@@ -165,6 +165,7 @@ configurations.all {
 }
 
 dependencies {
+    compile project(':rn-fetch-blob')
     implementation project(':react-native-html-to-pdf')
     implementation project(':react-native-share')
     implementation project(':react-native-image-picker')

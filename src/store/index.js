@@ -20,6 +20,7 @@ const persistConfig = {
   key: 'root8',
   storage,
   stateReconciler: hardSet,
+  timeout: null,
 }
 
 if (__DEV__) {

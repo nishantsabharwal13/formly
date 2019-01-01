@@ -20,6 +20,7 @@ import Share, { ShareSheet, Button } from 'react-native-share';
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import Template from '~/helpers/template';
 import { iconsMap } from '~/helpers/app-icons';
+import RNFetchBlob from 'rn-fetch-blob';
 
 const styles = StyleSheet.create({
   container: {
@@ -35,13 +36,38 @@ class OpenRecord extends React.Component {
     Navigation.events().bindComponent(this);
   }
 
+  state= {
+    newRecord: ''
+  }
+
   get updatedRecord() {
     const { records, currentRecord } = this.props;
     return records.records.find(item => item.id === currentRecord.id);
   }
+
+  componentDidMount() {
+    Platform.OS === 'android' && this.convertToBase64();
+  }
+
+  convertToBase64 = async () => {
+    const { componentId, currentForm, currentRecord } = this.props;
+    let { updatedRecord } = this;
+    currentForm.formArray.map(item => {
+
+      if (item.field === 'imagepicker') {
+        let PATH_TO_THE_FILE = updatedRecord.recordObject[item.id];
+        RNFetchBlob.fs.readFile( PATH_TO_THE_FILE,'base64').then((data) => {
+            updatedRecord.recordObject[item.id] = `data:image/png,base64,${data}`;
+          });
+      };
+    });
+    
+  }
   
   navigationButtonPressed = async ({ buttonId }) => {
-    const {componentId, currentForm, currentRecord} = this.props;
+    const { componentId, currentForm, currentRecord } = this.props;
+    let { updatedRecord } = this;
+
     buttonId === 'CloseRecordModal' && Navigation.dismissModal(this.props.componentId)
     if(buttonId === 'EditRecord') {
       this.setState({ editRecord: !this.state.editRecord});
@@ -80,8 +106,9 @@ class OpenRecord extends React.Component {
       }
     }
     if(buttonId === 'ShareRecord') {
+
       let opt = {
-        html: Template(currentForm, this.updatedRecord),
+        html: Template(currentForm, updatedRecord),
         fileName: 'test',
         directory: 'Documents',
         base64: Platform.OS === 'ios' ? false : true,
@@ -113,6 +140,7 @@ class OpenRecord extends React.Component {
     const { id } = this.props.currentRecord;
     const { recordObject } = this.state;
     Object.keys(recordObject).length && this.props.updateRecord({ recordObject, id });
+    this.convertToBase64();
     this.setState({ editRecord: false }, () => {
       Navigation.mergeOptions(this.props.componentId, {
         topBar: {

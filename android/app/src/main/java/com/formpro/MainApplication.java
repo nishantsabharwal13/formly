@@ -3,6 +3,7 @@ package com.formpro;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.RNFetchBlob.RNFetchBlobPackage;
 
 import com.christopherdro.htmltopdf.RNHTMLtoPDFPackage;
 import cl.json.RNSharePackage;
@@ -51,6 +52,7 @@ public class MainApplication extends NavigationApplication implements ShareAppli
   protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new RNFetchBlobPackage(),
             new AppCenterReactNativePackage(MainApplication.this),
             new RNHTMLtoPDFPackage(),
             new RNSharePackage(),
