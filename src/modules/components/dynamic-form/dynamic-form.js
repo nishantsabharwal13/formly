@@ -123,6 +123,8 @@ class DynamicForm extends React.Component {
           storageOptions: {
             skipBackup: true,
             path: 'images',
+            maxWidth: 200,
+            maxHeight:200,
           },
         };
         ImagePicker.showImagePicker(options, response => {

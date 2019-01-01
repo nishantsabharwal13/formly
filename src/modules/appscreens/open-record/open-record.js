@@ -57,7 +57,8 @@ class OpenRecord extends React.Component {
       if (item.field === 'imagepicker') {
         let PATH_TO_THE_FILE = updatedRecord.recordObject[item.id];
         RNFetchBlob.fs.readFile( PATH_TO_THE_FILE,'base64').then((data) => {
-            updatedRecord.recordObject[item.id] = `data:image/png,base64,${data}`;
+            updatedRecord.recordObject[item.id] = `data:image/jpeg;base64,${data}`;
+            console.log(`data:image/jpeg;base64,${data}`)
           });
       };
     });
