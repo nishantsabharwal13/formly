@@ -58,7 +58,6 @@ class OpenRecord extends React.Component {
         let PATH_TO_THE_FILE = updatedRecord.recordObject[item.id];
         RNFetchBlob.fs.readFile( PATH_TO_THE_FILE,'base64').then((data) => {
             updatedRecord.recordObject[item.id] = `data:image/jpeg;base64,${data}`;
-            console.log(`data:image/jpeg;base64,${data}`)
           });
       };
     });
@@ -141,7 +140,6 @@ class OpenRecord extends React.Component {
     const { id } = this.props.currentRecord;
     const { recordObject } = this.state;
     Object.keys(recordObject).length && this.props.updateRecord({ recordObject, id });
-    this.convertToBase64();
     this.setState({ editRecord: false }, () => {
       Navigation.mergeOptions(this.props.componentId, {
         topBar: {
