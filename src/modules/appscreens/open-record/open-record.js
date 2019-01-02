@@ -35,11 +35,6 @@ class OpenRecord extends React.Component {
     super(props);
     Navigation.events().bindComponent(this);
   }
-
-  state= {
-    newRecord: ''
-  }
-
   get updatedRecord() {
     const { records, currentRecord } = this.props;
     return records.records.find(item => item.id === currentRecord.id);

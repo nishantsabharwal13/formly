@@ -128,7 +128,7 @@ class DynamicForm extends React.Component {
           },
         };
         ImagePicker.showImagePicker(options, response => {
-          console.log(response)
+          !response.didCancel &&
           this.setState({
             // [key]: Platform.OS === 'ios' ? response.uri : `data:image/jpeg;base64,${response.data}`,
             [key]: Platform.OS === 'ios' ? response.uri : `file://${response.path}`,
