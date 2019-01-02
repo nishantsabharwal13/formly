@@ -60,6 +60,7 @@ class FormList extends React.Component {
     searchForm: "",
     counter: 1,
     edit: false,
+    errorMsg:'Enter name of the form to be created'
   }
   
   navigationButtonPressed = ({ buttonId }) => {
@@ -81,8 +82,9 @@ class FormList extends React.Component {
     const { forms} = this.props.forms;
     const nameValidation = forms.length && forms.some( item => item.formName === formName);
     
-    this.setState({ isDialogVisible: false }, () => {
-      // if (!nameValidation && formName) {
+    if (!nameValidation && formName) {
+      this.setState({ isDialogVisible: false, errorMsg:'Enter name of the form to be created' }, () => {
+
         let newForm = { 
           formName,
           formArray: [],
@@ -91,8 +93,10 @@ class FormList extends React.Component {
         };
         this.props.createForm(newForm); // push a new form object
         goCreateFormPage(this.props.componentId, newForm);
-      // }
-    });
+      });
+    } else {
+      this.setState({errorMsg: '*This form name already exists*'});
+    }
   }
 
   goToRecords = currentForm => {
@@ -146,6 +150,7 @@ class FormList extends React.Component {
     ) : (
         <View style={styles.fallbackText}>
           <Text style={{color:Colors.lightText}}>No Forms Found</Text>
+          <Text style={{ color: Colors.lightText }}>Press + to create a new Form</Text>
         </View>
     )
   }
@@ -172,11 +177,15 @@ class FormList extends React.Component {
         <Dialog.Container visible={this.state.isDialogVisible}>
           <Dialog.Title>New Form Name</Dialog.Title>
           <Dialog.Description>
-            Enter name of the form to be created
+            {this.state.errorMsg}
           </Dialog.Description>
           <Dialog.Input autoFocus={true} onChangeText={(formName) => this.setState({ formName })}/>
-          <Dialog.Button label="Cancel" onPress={() => this.setState({ isDialogVisible: false})}/>
-          <Dialog.Button label="Create" onPress={this.createForm}/>
+          <Dialog.Button 
+            label="Cancel" 
+            style={{ color: Colors.topBar }} 
+            onPress={() => this.setState({ isDialogVisible: false, errorMsg:'Enter name of the form to be created'})}
+          />
+          <Dialog.Button label="Create" style={{ color: Colors.topBar }} onPress={this.createForm}/>
         </Dialog.Container>
       </View>
     )

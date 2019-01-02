@@ -65,7 +65,8 @@ class RecordList extends React.Component {
     searchForm: "",
     counter: 1,
     edit:false,
-    activityIndicator: false
+    activityIndicator: false,
+    errrorMsg: 'Enter name of the record to be created'
   }
 
   get model() {
@@ -87,23 +88,25 @@ class RecordList extends React.Component {
     const { records } = this.props.records;
     const nameValidation = records.length && records.some(item => item.recordName === recordName);
 
-    this.setState({ isDialogVisible: false, activityIndicator: true }, () => {
-      // if (!nameValidation && recordName) {
-      let newRecord = {
-        recordName,
-        recordObject: {},
-        formId: this.props.currentForm ? this.props.currentForm.id : '',
-        id: Math.round(new Date().getTime() * Math.random()),
-        createdAt: Date.now()
-      };
-      this.props.createRecord(newRecord); 
-      // push a new form object
-      setTimeout(() => {
-        this.setState({ activityIndicator: false})
-        goCreateRecordPage(this.props.componentId, this.updatedForm, newRecord)
-      }, 500);
-      // }
-    });
+    if (!nameValidation && recordName) {
+      this.setState({ isDialogVisible: false, activityIndicator: true }, () => {
+        let newRecord = {
+          recordName,
+          recordObject: {},
+          formId: this.props.currentForm ? this.props.currentForm.id : '',
+          id: Math.round(new Date().getTime() * Math.random()),
+          createdAt: Date.now()
+        };
+        this.props.createRecord(newRecord); 
+        // push a new form object
+        setTimeout(() => {
+          this.setState({ activityIndicator: false})
+          goCreateRecordPage(this.props.componentId, this.updatedForm, newRecord)
+        }, 500);
+      });
+    } else {
+      this.setState({ errorMsg: '*This record name already exists*' });
+    }
   }
 
   openRecord = item => {
@@ -158,6 +161,7 @@ class RecordList extends React.Component {
     ) : (
         <View style={styles.fallbackText}>
           <Text style={{ color: Colors.lightText }}>No Records Found</Text>
+          <Text style={{ color: Colors.lightText }}>Press + to create a new Record</Text>
         </View>
       )
   }
@@ -190,11 +194,15 @@ class RecordList extends React.Component {
         <Dialog.Container visible={this.state.isDialogVisible}>
           <Dialog.Title>New Record Name</Dialog.Title>
           <Dialog.Description>
-            Enter name of the record to be created
+            {this.state.errorMsg}
           </Dialog.Description>
           <Dialog.Input autoFocus={true} onChangeText={(recordName) => this.setState({ recordName })} />
-          <Dialog.Button label="Cancel" onPress={() => this.setState({ isDialogVisible: false })} />
-          <Dialog.Button label="Create" onPress={this.createRecord} />
+          <Dialog.Button
+            label="Cancel"
+            style={{ color: Colors.topBar }}
+            onPress={() => this.setState({ isDialogVisible: false, errorMsg: 'Enter name of the record to be created' })}
+          />
+          <Dialog.Button style={{ color: Colors.topBar }} label="Create" onPress={this.createRecord} />
         </Dialog.Container>
       </View>
     );

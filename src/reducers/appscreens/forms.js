@@ -25,12 +25,7 @@ const deleteForm = (items, id) => {
 
 
 export default function (state = {
-  forms: [{
-    formArray: [],
-    formName: 'test',
-    id: 2312,
-    createdAt: 123123213
-  }]
+  forms: []
 }, action = {}) {
   switch (action.type) {
     case GET_FORMS: {
