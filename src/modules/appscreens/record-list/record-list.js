@@ -66,7 +66,7 @@ class RecordList extends React.Component {
     counter: 1,
     edit:false,
     activityIndicator: false,
-    errrorMsg: 'Enter name of the record to be created'
+    errorMsg: 'Enter name of the record to be created'
   }
 
   get model() {
