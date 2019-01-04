@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navigation } from 'react-native-navigation';
 
-import Drawer from '~/modules/global/drawer';
 import SignIn from '~/modules/appscreens/signin';
+import Drawer from '~/modules/global/drawer';
 import Home from '~/modules/appscreens/home';
 import SignUp from '~/modules/appscreens/signup';
 import Initializing from '~/modules/appscreens/initialization';

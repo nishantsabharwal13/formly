@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
-import rootReducer from '~/reducers/rootReducer';
+import rootReducer from '../reducers/rootReducer';
 
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
@@ -8,7 +8,7 @@ import {persistStore, persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import hardSet from 'redux-persist/lib/stateReconciler/hardSet'
 
-import Fields from '~/data/fields';
+import Fields from '../data/fields';
 
 const initialState = {
   fields: Fields

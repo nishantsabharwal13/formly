@@ -919,7 +919,12 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = Y4UL8ZVF8U;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = Y4UL8ZVF8U;
+						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1598,6 +1603,7 @@
 			baseConfigurationReference = 95543C42D31A64BA0B330B81 /* Pods-FormProTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = Y4UL8ZVF8U;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1635,6 +1641,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = Y4UL8ZVF8U;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
@@ -1667,8 +1674,11 @@
 			baseConfigurationReference = 1F5D3FE32E9EC7E2EA4243B2 /* Pods-FormPro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nishant Sabharwal (PJVV5Q2796)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = Y4UL8ZVF8U;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
@@ -1677,13 +1687,17 @@
 					"$(SRCROOT)/../node_modules/react-native-html-to-pdf/ios/RNHTMLtoPDF/**",
 				);
 				INFOPLIST_FILE = FormPro/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.formpro;
 				PRODUCT_NAME = FormPro;
+				PROVISIONING_PROFILE = "43cdd22c-cb5b-4b27-b310-8d95c961131b";
+				PROVISIONING_PROFILE_SPECIFIER = FormProDevProfile;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1693,7 +1707,10 @@
 			baseConfigurationReference = 7FBF8D7DC9739E5044414151 /* Pods-FormPro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nishant Sabharwal (PJVV5Q2796)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y4UL8ZVF8U;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
@@ -1702,13 +1719,16 @@
 					"$(SRCROOT)/../node_modules/react-native-html-to-pdf/ios/RNHTMLtoPDF/**",
 				);
 				INFOPLIST_FILE = FormPro/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.formpro;
 				PRODUCT_NAME = FormPro;
+				PROVISIONING_PROFILE_SPECIFIER = FormProDevProfile;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

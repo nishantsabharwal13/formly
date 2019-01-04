@@ -9,8 +9,8 @@ import {
   AsyncStorage
 } from 'react-native'
 
-import { goHome } from '~/helpers/navigation'
 import { USER_KEY } from '~/config'
+import { goHome } from '~/helpers/navigation'
 
 export default class SignIn extends React.Component {
   state = {
